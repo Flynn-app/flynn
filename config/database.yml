@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: flynn_production
-  username: flynn
+  username:
   password: <%= ENV['FLYNN_DATABASE_PASSWORD'] %>

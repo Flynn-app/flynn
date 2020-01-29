@@ -16,6 +16,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
+# Authorisation
 gem 'pundit'
 
 group :development do

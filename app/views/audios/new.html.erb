@@ -1,2 +1,7 @@
 <h1>Audios#new</h1>
 <p>Find me in app/views/audios/new.html.erb</p>
+
+<%= simple_form_for(@audio) do |f| %>
+  <%= f.input :text_url %>
+  <%= f.submit "add url", class: "btn btn-primary" %>
+<% end %>

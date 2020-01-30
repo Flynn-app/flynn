@@ -22,6 +22,7 @@ gem 'faker'
 
 # to get text from html
 gem 'boilerpipe'
+gem 'open-uri'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

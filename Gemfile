@@ -16,7 +16,8 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
-# for seed
+
+gem 'pundit'
 gem 'faker'
 
 group :development do

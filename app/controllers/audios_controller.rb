@@ -12,7 +12,11 @@ class AudiosController < ApplicationController
 
     text_content = Boilerpipe::Extractors::ArticleExtractor.text(content)
     @audio.text_to_transcript = text_content
-    @audio.save
+    raise
+    if @audio.save
+      redirect_to root_path
+    end
+    authorize @audio
   end
 
   private

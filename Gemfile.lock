@@ -47,6 +47,7 @@ GEM
       execjs
     bcrypt (3.1.13)
     bindex (0.8.1)
+    boilerpipe (0.0.4)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
     builder (3.2.4)
@@ -196,6 +197,7 @@ PLATFORMS
 
 DEPENDENCIES
   autoprefixer-rails
+  boilerpipe
   bootsnap
   devise
   dotenv-rails

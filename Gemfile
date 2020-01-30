@@ -20,6 +20,9 @@ gem 'webpacker'
 gem 'pundit'
 gem 'faker'
 
+# to get text from html
+gem 'boilerpipe-ruby', require: 'boilerpipe'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

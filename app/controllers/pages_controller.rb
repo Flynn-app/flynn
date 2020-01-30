@@ -3,6 +3,6 @@ class PagesController < ApplicationController
 
   def home
     text_to_synthesize = "super text à transcrire"
-    audio_file = SynthesizeService.new(text_to_synthesize)
+    audio_file = SynthesizeText.new(text_to_synthesize)
   end
 end

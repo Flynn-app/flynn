@@ -1,12 +1,12 @@
-class SynthetizeText
+class SynthesizeText
+  require "google/cloud/text_to_speech"
 
   def initialize(text)
     @text = text
   end
 
-  def synthesize_text(text)
+  def synthesize_text text:
     # [START tts_synthesize_text]
-    require "google/cloud/text_to_speech"
 
     client = Google::Cloud::TextToSpeech.new
 
@@ -67,9 +67,9 @@ class SynthetizeText
     text    = ARGV.shift
 
     if command == "text"
-      synthesize_ssml ssml: text
+      synthesize_ssml ssml: @text
     elsif command == "ssml"
-      synthesize_text ssml: text
+      synthesize_text ssml: @text
     else
       puts <<~USAGE
         Usage: ruby synthesize_text.rb (text TEXT | ssml SSML)

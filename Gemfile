@@ -16,8 +16,9 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 
-# Authorisation
+
 gem 'pundit'
+gem 'faker'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

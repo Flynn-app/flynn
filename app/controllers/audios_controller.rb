@@ -13,7 +13,9 @@ class AudiosController < ApplicationController
     text_content = Boilerpipe::Extractors::ArticleExtractor.text(content)
     @audio.text_to_transcript = text_content
     if @audio.save(:validate => false)
-      redirect_to root_path
+      # redirect_to root_path
+      SynthesizeText.new(@audio.text_to_transcript).synthesize_text
+      redirect_to request.referrer
     end
     authorize @audio
   end

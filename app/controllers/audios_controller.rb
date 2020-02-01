@@ -23,6 +23,7 @@ class AudiosController < ApplicationController
     @audio.text_to_transcript = text_content
     wl = WhatLanguage.new(:all)
     @audio.language = wl.language(@audio.text_to_transcript).to_s
+    @audio.iso = wl.language_iso(@audio.text_to_transcript).to_s
 
     filename = SynthesizeText.new(@audio.text_to_transcript).synthesize_text
     # file_output = "public/output/output.mp3"

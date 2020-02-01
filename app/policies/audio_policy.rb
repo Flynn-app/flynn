@@ -8,4 +8,8 @@ class AudioPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def show?
+    record_user = user
+  end
 end

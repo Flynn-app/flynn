@@ -29,6 +29,15 @@ class SynthesizeText
     # [END tts_synthesize_text]
   end
 
+  private
+
+  # def file_output
+  #   File.open "public/output/output.mp3", "wb" do |file|
+  #     # Write the response to the output file.
+  #     file.write @response.audio_content
+  #   end
+  # end
+
   # def synthesize_ssml ssml:
   #   # [START tts_synthesize_ssml]
   #   require "google/cloud/text_to_speech"

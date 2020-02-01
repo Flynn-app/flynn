@@ -1,6 +1,8 @@
 class AudiosController < ApplicationController
   require 'open-uri'
+  require 'nokogiri'
   require 'whatlanguage'
+
 
   def new
     @audio = Audio.new
@@ -12,9 +14,11 @@ class AudiosController < ApplicationController
 
     @audio.user = current_user
 
-    @audio.title = @audio.text_url.split("/").last.split(".").first.capitalize
-                   .gsub('-', ' ').gsub('_', '')
     content = URI.open(@audio.text_url).read
+    html_doc = Nokogiri::HTML(content)
+
+    @audio.title = get_title(html_doc)
+
     text_content = Boilerpipe::Extractors::ArticleExtractor.text(content)
     @audio.text_to_transcript = text_content
     wl = WhatLanguage.new(:all)
@@ -45,5 +49,12 @@ class AudiosController < ApplicationController
 
   def audio_params
     params.require(:audio).permit(:text_url, :audiofile)
+  end
+
+  def get_title(doc)
+    tags = ['title', 'h1', 'h2', 'h3']
+    tags.each do |tag|
+      return doc.search(tag).text unless doc.search(tag).empty?
+    end
   end
 end

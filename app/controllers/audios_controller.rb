@@ -8,6 +8,8 @@ class AudiosController < ApplicationController
   def create
     @audio = Audio.new(audio_params)
 
+    @audio.user = current_user
+
     content = URI.open(@audio.text_url).read
     text_content = Boilerpipe::Extractors::ArticleExtractor.text(content)
     @audio.text_to_transcript = text_content
@@ -21,7 +23,7 @@ class AudiosController < ApplicationController
     @audio.audiofile.attach(io: file, filename: filename)
 
     raise
-    if @audio.save(:validate => false)
+    if @audio.save
       # redirect_to root_path
       redirect_to audio_path(@audio)
     end

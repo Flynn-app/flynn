@@ -11,6 +11,8 @@ class AudiosController < ApplicationController
     @audio.user = current_user
     content = URI.open(@audio.text_url).read
 
+    @audio.title = @audio.text_url.split("/").last.split(".").first
+
     text_content = Boilerpipe::Extractors::ArticleExtractor.text(content)
     @audio.text_to_transcript = text_content
     if @audio.save

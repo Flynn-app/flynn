@@ -1,5 +1,6 @@
 class AudiosController < ApplicationController
   require 'open-uri'
+
   def new
     @audio = Audio.new
     authorize @audio

@@ -24,9 +24,6 @@ gem 'faker'
 # to get text from html
 gem 'boilerpipe-ruby', require: 'boilerpipe'
 
-# to get element from article
-gem 'pismo'
-
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

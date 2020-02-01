@@ -272,6 +272,7 @@ DEPENDENCIES
   google-cloud-text_to_speech
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
+  nokogiri
   pg (~> 0.21)
   pry-byebug
   pry-rails

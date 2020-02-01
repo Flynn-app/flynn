@@ -24,6 +24,9 @@ gem 'faker'
 # to get text from html
 gem 'boilerpipe-ruby', require: 'boilerpipe'
 
+# scrape from article
+gem 'nokogiri'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

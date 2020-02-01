@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_01_31_224156) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
     t.index ["user_id"], name: "index_audios_on_user_id"
   end
 

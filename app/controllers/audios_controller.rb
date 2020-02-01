@@ -13,10 +13,9 @@ class AudiosController < ApplicationController
     text_content = Boilerpipe::Extractors::ArticleExtractor.text(content)
     @audio.text_to_transcript = text_content
     SynthesizeText.new(@audio.text_to_transcript).synthesize_text
-    file_output = "public/output/output.mp3"
-    Cloudinary::Uploader.upload(file_output, resource_type: :video)
-    @audio.update(new_params)
-    raise
+    # file_output = "public/output/output.mp3"
+    # file = Cloudinary::Uploader.upload(file_output, resource_type: :video)
+    # @audio.audiofile.key = file["public_id"]
     if @audio.save(:validate => false)
       # redirect_to root_path
       redirect_to audio_path(@audio)

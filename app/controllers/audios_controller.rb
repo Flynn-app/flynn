@@ -17,12 +17,11 @@ class AudiosController < ApplicationController
     filename = SynthesizeText.new(@audio.text_to_transcript).synthesize_text
     # file_output = "public/output/output.mp3"
 
-    Cloudinary::Uploader.upload(filename, resource_type: :video)
+    # Cloudinary::Uploader.upload(filename, resource_type: :video)
     file = File.open(filename, "r")
 
     @audio.audiofile.attach(io: file, filename: filename)
 
-    raise
     if @audio.save
       # redirect_to root_path
       redirect_to audio_path(@audio)

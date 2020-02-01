@@ -6,13 +6,13 @@ class AudiosController < ApplicationController
   end
 
   def create
-    @audio = Audio.new
-    @audio.update(new_params)
+    @audio = Audio.new(new_params)
+    @audio.user = current_user
     content = URI.open(@audio.text_url).read
 
     text_content = Boilerpipe::Extractors::ArticleExtractor.text(content)
     @audio.text_to_transcript = text_content
-    if @audio.save(:validate => false)
+    if @audio.save
       # redirect_to root_path
       SynthesizeText.new(@audio.text_to_transcript).synthesize_text
       redirect_to request.referrer

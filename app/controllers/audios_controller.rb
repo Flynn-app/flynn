@@ -6,16 +6,21 @@ class AudiosController < ApplicationController
   end
 
   def create
-    @audio = Audio.new
-    @audio.update(new_params)
-    content = URI.open(@audio.text_url).read
+    @audio = Audio.new(audio_params)
 
+    content = URI.open(@audio.text_url).read
     text_content = Boilerpipe::Extractors::ArticleExtractor.text(content)
     @audio.text_to_transcript = text_content
-    SynthesizeText.new(@audio.text_to_transcript).synthesize_text
+
+    filename = SynthesizeText.new(@audio.text_to_transcript).synthesize_text
     # file_output = "public/output/output.mp3"
-    # file = Cloudinary::Uploader.upload(file_output, resource_type: :video)
-    # @audio.audiofile.key = file["public_id"]
+
+    Cloudinary::Uploader.upload(filename, resource_type: :video)
+    file = File.open(filename, "r")
+
+    @audio.audiofile.attach(io: file, filename: filename)
+
+    raise
     if @audio.save(:validate => false)
       # redirect_to root_path
       redirect_to audio_path(@audio)
@@ -30,7 +35,7 @@ class AudiosController < ApplicationController
 
   private
 
-  def new_params
+  def audio_params
     params.require(:audio).permit(:text_url, :audiofile)
   end
 end

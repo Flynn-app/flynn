@@ -27,6 +27,9 @@ gem 'boilerpipe-ruby', require: 'boilerpipe'
 # scrape from article
 gem 'nokogiri'
 
+# detect the lang of text
+gem 'whatlanguage'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

@@ -1,5 +1,6 @@
 class AudiosController < ApplicationController
   require 'open-uri'
+  require 'whatlanguage'
 
   def new
     @audio = Audio.new
@@ -16,6 +17,8 @@ class AudiosController < ApplicationController
     content = URI.open(@audio.text_url).read
     text_content = Boilerpipe::Extractors::ArticleExtractor.text(content)
     @audio.text_to_transcript = text_content
+    wl = WhatLanguage.new(:all)
+    @audio.language = wl.language(@audio.text_to_transcript).to_s
 
     filename = SynthesizeText.new(@audio.text_to_transcript).synthesize_text
     # file_output = "public/output/output.mp3"

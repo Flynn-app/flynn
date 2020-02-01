@@ -15,13 +15,12 @@ class SynthesizeText
       language_code: "fr-FR",
       ssml_gender:   "FEMALE"
     }
-    audio_config = { audio_encoding: "MP3" }
+    audio_config = { audio_encoding: Audio::FILE_EXTENSION.upcase }
 
     response = client.synthesize_speech input_text, voice, audio_config
 
     # TODO: generate filename +return filename at end of method
-    filename = @text.split(' ').first
-
+    filename = @text.split(' ').first + extension
     # The response's audio_content is binary.
     File.open filename, "wb" do |file|
       # Write the response to the output file.
@@ -31,6 +30,12 @@ class SynthesizeText
     puts "Audio content written to file #{filename}"
     return filename
     # [END tts_synthesize_text]
+  end
+
+  private
+
+  def extension
+    ".#{Audio::FILE_EXTENSION}"
   end
 
   # def file_output
@@ -88,7 +93,6 @@ class SynthesizeText
   #   end
   # end
 end
-
 
 
 

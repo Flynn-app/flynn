@@ -3,5 +3,5 @@
 <p>
 <br>
 <br>
- <audio controls src="<%= cloudinary_url("nrldpepqg9imehjeouhx", :resource_type=>"video") %>
+ <audio controls src="<%= cloudinary_url(@audio.audiofile.key + ".#{Audio::FILE_EXTENSION}", resource_type: :raw) %>
 "> Your browser does not support the <code>audio</code> element.</audio>

@@ -16,7 +16,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem 'google-cloud-text_to_speech'
-
+gem 'cloudinary'
 
 gem 'pundit'
 gem 'faker'

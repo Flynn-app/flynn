@@ -19,15 +19,26 @@ class SynthesizeText
 
     response = client.synthesize_speech input_text, voice, audio_config
 
+    # TODO: generate filename +return filename at end of method
+    filename = @text.split(' ').first
+
     # The response's audio_content is binary.
-    File.open "public/output/output.mp3", "wb" do |file|
+    File.open filename, "wb" do |file|
       # Write the response to the output file.
       file.write response.audio_content
     end
 
-    puts "Audio content written to file 'output.mp3'"
+    puts "Audio content written to file #{filename}"
+    return filename
     # [END tts_synthesize_text]
   end
+
+  # def file_output
+  #   File.open "public/output/output.mp3", "wb" do |file|
+  #     # Write the response to the output file.
+  #     file.write @response.audio_content
+  #   end
+  # end
 
   # def synthesize_ssml ssml:
   #   # [START tts_synthesize_ssml]

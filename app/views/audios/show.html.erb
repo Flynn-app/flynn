@@ -1,6 +1,5 @@
-</p> <%= @audio.text_url %>
-<%= @audio.text_to_transcript %>
-<p>
+<h1> <%= @audio.title %></h1>
+ <p> <%= @audio.text_to_transcript %><p>
 <br>
 <br>
  <audio controls src="<%= cloudinary_url(@audio.audiofile.key, resource_type: :video) %>

@@ -1,6 +1,5 @@
 class AudiosController < ApplicationController
   require 'open-uri'
-  require 'nokogiri'
 
   def new
     @audio = Audio.new

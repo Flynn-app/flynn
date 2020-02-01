@@ -47,7 +47,6 @@ GEM
     arel (9.0.0)
     autoprefixer-rails (9.7.4)
       execjs
-    awesome_print (1.8.0)
     bcrypt (3.1.13)
     bindex (0.8.1)
     boilerpipe-ruby (0.4.1)
@@ -56,7 +55,6 @@ GEM
       msgpack (~> 1.0)
     builder (3.2.4)
     byebug (11.1.1)
-    chronic (0.10.2)
     coderay (1.1.2)
     concurrent-ruby (1.1.5)
     crass (1.0.6)
@@ -76,7 +74,6 @@ GEM
       i18n (>= 1.6, < 2)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
-    fast-stemmer (1.0.2)
     ffi (1.12.1)
     font-awesome-sass (5.6.1)
       sassc (>= 1.11)
@@ -136,17 +133,9 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.7)
       mini_portile2 (~> 2.4.0)
-    nokogumbo (2.0.2)
-      nokogiri (~> 1.8, >= 1.8.4)
     orm_adapter (0.5.0)
     os (1.0.1)
     pg (0.21.0)
-    pismo (0.7.4)
-      awesome_print
-      chronic
-      fast-stemmer
-      nokogiri
-      sanitize
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -198,10 +187,6 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rly (0.2.3)
-    sanitize (5.1.0)
-      crass (~> 1.0.2)
-      nokogiri (>= 1.8.0)
-      nokogumbo (~> 2.0)
     sassc (2.2.1)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -266,7 +251,6 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
   pg (~> 0.21)
-  pismo
   pry-byebug
   pry-rails
   puma

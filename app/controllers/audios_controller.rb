@@ -11,7 +11,8 @@ class AudiosController < ApplicationController
 
     @audio.user = current_user
 
-    @audio.title = @audio.text_url.split("/").last.split(".").first
+    @audio.title = @audio.text_url.split("/").last.split(".").first.capitalize
+                   .gsub('-', ' ').gsub('_', '')
     content = URI.open(@audio.text_url).read
     text_content = Boilerpipe::Extractors::ArticleExtractor.text(content)
     @audio.text_to_transcript = text_content

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :audios, only: [ :create, :index ]
+      resources :audios, only: [ :create, :index, :show ]
     end
   end
 end

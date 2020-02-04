@@ -1,8 +1,13 @@
-<h1> <%= @audio.title %></h1>
- <p> <%= @audio.text_to_transcript %><p>
-<br>
-<br>
- <audio controls src="<%= cloudinary_url(@audio.audiofile.key, resource_type: :video) %>
-"> Your browser does not support the <code>audio</code> element.</audio>
 
-<!-- <audio controls src="<%= cloudinary_url(@audio.audiofile.key + ".#{Audio::FILE_EXTENSION}", resource_type: :video) %> -->
+<div class="container">
+
+    <h1> <%= @audio.title %></h1>
+     <p> <%= @audio.text_to_transcript %></p>
+    <br>
+    <br>
+
+
+</div>
+  <% audiofile = cloudinary_url(@audio.audiofile.key, resource_type: :video) %>
+  <%= render './shared/audio_player', audio_file: audiofile %>
+

@@ -43,3 +43,6 @@ yarn-debug.log*
 
 # Ignore google credentials json
 /config/google*
+
+# all mp3
+*.mp3

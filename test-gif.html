@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;" />
+  <title></title>
+</head>
+<body style="font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 13px">
+  <span style="font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 13px">
+    <p>
+      Bonjour {!Lead.Salutation}. {!Lead.LastName},
+      <br>
+      <br>
+      J'ai essayé de vous joindre à plusieurs reprises mais sans succès. Je suis en charge des régularisations pour les Titres-restaurant Lunchr et je reviens vers vous concernant votre affiliation.<br>
+    </p>
+  </span>
+  <div>
+    <span style="font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 13px">
+      Veuillez trouver ci-dessous le lien pour intégrer dès aujourd'hui notre réseau d'acceptation : <br>
+    </span>
+  </div>
+    <!--Button-->
+  <div style="margin: 30px 0; text-align:center">
+    <a href="{!Lead.Lien_du_contrat__c}" style="font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 13px; color:#ffffff; background-color: #2caf90; border-radius: 20px;padding: 7px 20px 9px 20px; text-transform: uppercase;">Affiliation Lunchr &amp; {!Lead.Company}</a>
+  </div>
+  <!--JE VEUX CENTRER LE GIF-->
+  <div style="font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 13px; margin: 30px 0; width: 100%; text-align: center">
+    <img alt="affiliez-vous en 2 mins" border="0" height="300" src="https://res.cloudinary.com/dydglcyon/image/upload/v1574862507/affiliation_resto_k1gvtj.gif" style="width: 100px; height: 100px; border-width: 0px; border-style: solid; margin:15px;" width="300">
+  </div>
+  <br>
+  <span style="font-size:12px;font-family: Roboto, Helvetica, Arial, sans-serif; font-size: 13px">
+    Si vous avez la moindre question, n'hésitez pas à me contacter sur ma ligne directe :
+    {!Lead.OwnerPhone}
+    <br>
+    <br>
+    Bien à vous,<br>
+    {!Lead.OwnerFullName}
+  </span>
+<span style="font-family: Roboto, Helvetica, Arial, sans-serif; font-size:13px;color:#A9A9A9;">
+  <p>
+  LUNCHR (SAS) - 824 012 173 R.C.S. Montpellier<br>
+  Etablissement secondaire : 86 rue Notre Dame de Nazareth - 75003 PARIS<br>
+  SIRET : 82401217300053<br>
+  </p>
+</span>
+</body>
+</html>

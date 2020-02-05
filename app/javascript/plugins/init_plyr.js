@@ -7,6 +7,8 @@ const player = new Plyr(document.getElementById('player'), {
     autoplay: false,
     invertTime: true,
     toggleInvert: true,
-});
+    tooltips: { controls: false, seek: false },
+    control: 'settings',
+  });
 
 export { player };

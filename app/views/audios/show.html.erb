@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="content-container">
 
     <h1> <%= @audio.title %></h1>
      <p> <%= @audio.text_to_transcript %></p>
@@ -9,5 +9,5 @@
 
 </div>
   <% audiofile = cloudinary_url(@audio.audiofile.key, resource_type: :video) %>
-  <%= render './shared/audio_player', audio_file: audiofile %>
+  <%= render './shared/audio_player', audio_file: audiofile, audio: @audio %>
 

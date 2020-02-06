@@ -1,55 +1,45 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
-<!--
-User Profile Sidebar by @keenthemes
-A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
-Licensed under MIT
--->
-    <div class="row profile">
-      <div class="profile-sidebar">
-        <!-- SIDEBAR USERPIC -->
-        <div class="profile-userpic">
-          <img src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg" class="img-responsive" alt="">
-        </div>
-        <!-- END SIDEBAR USERPIC -->
-        <!-- SIDEBAR USER TITLE -->
-        <div class="profile-usertitle">
-          <div class="profile-usertitle-name">
-            Marcus Doe
-          </div>
-          <div class="profile-usertitle-job">
-            Developer
-          </div>
-        </div>
-        <!-- END SIDEBAR BUTTONS -->
-        <!-- SIDEBAR MENU -->
-        <div class="profile-usermenu">
-          <ul class="nav">
-            <li class="active">
-              <a href="#">
-              <i class="glyphicon glyphicon-home"></i>
-              Overview </a>
-            </li>
-            <li>
-              <a href="#">
-              <i class="glyphicon glyphicon-user"></i>
-              Account Settings </a>
-            </li>
-            <li>
-              <a href="#" target="_blank">
-              <i class="glyphicon glyphicon-ok"></i>
-              Tasks </a>
-            </li>
-            <li>
-              <a href="#">
-              <i class="glyphicon glyphicon-flag"></i>
-              Help </a>
-            </li>
-          </ul>
-        </div>
-        <!-- END MENU -->
+<div class="row profile">
+  <div class="profile-sidebar">
+    <!-- SIDEBAR USERPIC -->
+    <div class="profile-userpic">
+      <%= image_tag "https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2890&q=80", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+    </div>
+    <!-- END SIDEBAR USERPIC -->
+    <!-- SIDEBAR USER TITLE -->
+    <div class="profile-usertitle">
+      <div class="profile-usertitle-name">
+        @pjheissat
       </div>
+      <div class="profile-usertitle-job">
+        Pierre-Jean Heissat
+      </div>
+    </div>
+    <!-- END SIDEBAR BUTTONS -->
+    <!-- SIDEBAR MENU -->
+    <div class="profile-usermenu">
+      <ul class="nav">
+        <li class="active">
+          <a href="#">
+          Mes derniers ajouts </a>
+        </li>
+        <li>
+          <a href="#">
+          Mes playlists </a>
+        </li>
+        <li>
+          <a href="#">
+          Mes abonnements </a>
+        </li>
+        <li>
+          <a href="#">
+          Mes audios </a>
+        </li>
+      </ul>
+    </div>
+    <!-- END MENU -->
   </div>
+</div>

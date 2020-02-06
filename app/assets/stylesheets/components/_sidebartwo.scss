@@ -7,6 +7,9 @@ Licensed under MIT
 .row profile {
   background: #F1F3FA;
   height:100%;
+  border-right-style:solid;
+  border-right-color: black;
+  height: 100vh;
 }
 
 /* Profile container */
@@ -18,6 +21,10 @@ Licensed under MIT
 .profile-sidebar {
   padding: 20px 0 10px 0;
   background: #fff;
+}
+
+.profile-userpic {
+  text-align: center;
 }
 
 .profile-userpic img {
@@ -81,8 +88,9 @@ Licensed under MIT
 
 .profile-usermenu ul li a {
   color: #93a3b5;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
+  padding: 16px;
 }
 
 .profile-usermenu ul li a i {
@@ -100,10 +108,10 @@ Licensed under MIT
 }
 
 .profile-usermenu ul li.active a {
-  color: #5b9bd1;
-  background-color: #f6f9fb;
+  color: white;
+  background-color: $blue-flynn;
   border-left: 2px solid #5b9bd1;
-  margin-left: -2px;
+  border-radius: 5px;
 }
 
 /* Profile Content */

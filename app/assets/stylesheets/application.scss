@@ -10,17 +10,14 @@
 
 // Your CSS partials
 @import "components/index";
-@import "components/sidebar";
 @import "pages/index";
 @import "components/sidebartwo";
 @import "components/dashboard";
+@import "components/navbar";
 
 
 .navbar_container {
   height: 100vh;
 }
 
-.sidebar_container {
-  height: 100vh;
-}
 

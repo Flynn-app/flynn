@@ -1,0 +1,80 @@
+.player-track {
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  border-top: 1px solid $light-grey;
+  background-color: #FFF;
+  .audio-img {
+    margin: 10px;
+    padding-left: 10px;
+    width: 50px;
+    height: 50px;
+    img {border-radius: 5px}
+  }
+  .track-details {
+    padding: 10px;
+    font-size: 12px;
+    color: $dark-grey;
+  }
+}
+
+
+.plyr--full-ui {
+  flex-grow: 1;
+}
+
+.plyr--audio .plyr__controls {
+  color: $inter-grey !important;
+  padding: 20px !important;
+}
+
+button.plyr__controls__item {
+    background-color: $blue-flynn;
+    color: $white !important;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50%;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    svg {
+      width: 12px;
+      height: 12px;
+    }
+  }
+
+
+.plyr--full-ui input[type=range] {
+  color: $blue-flynn !important;
+}
+
+.plyr__progress input[type=range], .plyr__progress__buffer {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: calc(100% + 0px) !important;
+}
+
+
+.plyr--full-ui input[type=range]::-webkit-slider-thumb {
+  background:$white !important;
+  border:2px solid $blue-flynn !important;
+  box-shadow:none !important;
+  height:12px !important;
+  position:relative;
+  padding: 6px;
+  -webkit-transition:all .2s ease;
+  transition:all .2s ease;
+  width:12px !important;
+  -webkit-appearance:none;
+  margin-top:-6px !important;
+}
+
+.plyr--full-ui input[type=range]::-moz-range-track{
+  background:0 0;
+  border:0;
+  border-radius:2.5px;
+  height:5px;
+  -moz-transition:box-shadow .3s ease;
+  transition:box-shadow .3s ease;
+  user-select:none
+}

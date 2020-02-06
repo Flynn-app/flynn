@@ -36,13 +36,14 @@ class AudiosController < ApplicationController
       @audio.language = wl.language(@audio.text_to_transcript).to_s
       @audio.iso = wl.language_iso(@audio.text_to_transcript).to_s
     end
-      filename = SynthesizeText.new(@audio.text_to_transcript).synthesize_text
-      # file_output = "public/output/output.mp3"
-      # Cloudinary::Uploader.upload(filename, resource_type: :video)
-      File.open(filename, "r") do |file|
-        @audio.audiofile.attach(io: file, filename: filename)
-        File.delete(file)
-      end
+
+    filename = SynthesizeText.new(@audio.text_to_transcript).synthesize_text
+    # file_output = "public/output/output.mp3"
+    # Cloudinary::Uploader.upload(filename, resource_type: :video)
+    File.open(filename, "r") do |file|
+      @audio.audiofile.attach(io: file, filename: filename)
+      File.delete(file)
+    end
 
     if @audio.save
       # redirect_to root_path

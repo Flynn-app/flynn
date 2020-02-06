@@ -46,3 +46,4 @@ yarn-debug.log*
 
 # all mp3
 *.mp3
+/config/coucoubis.json

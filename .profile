@@ -1,1 +1,1 @@
-echo ${GOOGLE_CREDENTIALS} > /app/config/google/coucoubis.json
+echo ${GOOGLE_CREDENTIALS} > config/coucoubis.json

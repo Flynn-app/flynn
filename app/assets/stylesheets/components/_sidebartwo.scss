@@ -4,15 +4,12 @@ A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themefores
 Licensed under MIT
 ***/
 
-.row profile {
-  background: #F1F3FA;
-  height:100%;
-  border-right-style:solid;
-  border-right-color: black;
-  height: 100vh;
+/* Profile container */
+
+.sidebar_container {
+  width: 16%;
 }
 
-/* Profile container */
 .profile {
   margin: 20px 0;
 }
@@ -110,8 +107,7 @@ Licensed under MIT
 .profile-usermenu ul li.active a {
   color: white;
   background-color: $blue-flynn;
-  border-left: 2px solid #5b9bd1;
-  border-radius: 5px;
+  border-radius: 0 5px 5px 0;
 }
 
 /* Profile Content */

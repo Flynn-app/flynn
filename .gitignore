@@ -42,12 +42,8 @@ yarn-debug.log*
 .env*
 
 # Ignore google credentials json
-<<<<<<< HEAD
 /config/google*
 
 # all mp3
 *.mp3
-=======
-/config/google/*
-/config/google/
->>>>>>> 4100ef8021188426edab9e78fab5a47c7d0ca5c0
+/config/coucoubis.json

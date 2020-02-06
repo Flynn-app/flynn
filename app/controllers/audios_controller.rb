@@ -14,26 +14,34 @@ class AudiosController < ApplicationController
 
     @audio.user = current_user
 
-    content = URI.open(@audio.text_url).read
-    html_doc = Nokogiri::HTML(content)
+    if (defined? params[:text_to_transcript]) && (defined? params[:title])
+      @audio.title = params[:title].to_s
+      @audio.text_to_transcript = params[:text_to_transcript]
 
-    @audio.title = get_title(html_doc)
+      wl = WhatLanguage.new(:all)
 
-    text_content = Boilerpipe::Extractors::ArticleExtractor.text(content)
-    @audio.text_to_transcript = text_content
-    wl = WhatLanguage.new(:all)
-    @audio.language = wl.language(@audio.text_to_transcript).to_s
-    @audio.iso = wl.language_iso(@audio.text_to_transcript).to_s
+      @audio.language = wl.language(@audio.text_to_transcript).to_s
+      @audio.iso = wl.language_iso(@audio.text_to_transcript).to_s
+    elsif (defined? params[:text_url])
+      content = URI.open(@audio.text_url).read
+      html_doc = Nokogiri::HTML(content)
 
-    filename = SynthesizeText.new(@audio.text_to_transcript).synthesize_text
-    # file_output = "public/output/output.mp3"
+      @audio.title = get_title(html_doc)
 
-    # Cloudinary::Uploader.upload(filename, resource_type: :video)
-    File.open(filename, "r") do |file|
-      @audio.audiofile.attach(io: file, filename: filename)
-      File.delete(file)
+      text_content = Boilerpipe::Extractors::ArticleExtractor.text(content)
+      @audio.text_to_transcript = text_content
+      wl = WhatLanguage.new(:all)
+      @audio.language = wl.language(@audio.text_to_transcript).to_s
+      @audio.iso = wl.language_iso(@audio.text_to_transcript).to_s
     end
+      filename = SynthesizeText.new(@audio.text_to_transcript).synthesize_text
+      # file_output = "public/output/output.mp3"
 
+      # Cloudinary::Uploader.upload(filename, resource_type: :video)
+      File.open(filename, "r") do |file|
+        @audio.audiofile.attach(io: file, filename: filename)
+        File.delete(file)
+      end
     if @audio.save
       # redirect_to root_path
       redirect_to audio_path(@audio)
@@ -49,7 +57,7 @@ class AudiosController < ApplicationController
   private
 
   def audio_params
-    params.require(:audio).permit(:text_url, :audiofile)
+    params.require(:audio).permit(:text_url, :audiofile, :text_to_transcript, :title)
   end
 
   def get_title(doc)

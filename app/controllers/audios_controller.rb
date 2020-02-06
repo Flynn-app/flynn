@@ -21,6 +21,7 @@ class AudiosController < ApplicationController
       @audio.language = wl.language(@audio.text_to_transcript).to_s
       @audio.iso = wl.language_iso(@audio.text_to_transcript).to_s
 
+
     elsif (params[:audio][:text_url].present?)
 
       @audio.text_url = params[:audio][:text_url]

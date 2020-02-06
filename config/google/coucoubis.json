@@ -1,1 +1,12 @@
-
+{
+  "type": "service_account",
+  "project_id": "wired-glider-266522",
+  "private_key_id": "e85b2677ccb4b96de616a3af46c47f947e6a7a39",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCjdsUT3PmkgwwW\nEQB7A+PmQ4HplKT1IBSKHqQyre6pxx1N6ajIbIhu1veL1b3vmzQ401/CvyY4Vrct\n0uxqQNavNf5z9VsjzI/8ZYCyDbQWVOJM5PsImXA5OZA/BuzGa0JRSkwqzfRpvoPN\n/ssPHupAVwPHPOPl16mSLTgumOJ8W60kHFPj7YhXI6jDA62QcXcP6M7FjoFlMfae\np1Gl3ALPN5S3GDSve68oGlluPq15FAFd3qDpqHA559WrI5iOwvwxctDiBYWs+zxe\ncJLx0hCLhtzlS1avK2RNDh4H8CtJqJV0q8226SXJ8zcDZAFDFM1ojjnQvrYbOXIB\n8H9he1eJAgMBAAECggEAIHtNmo6WucLDoE/lE0y42Mzxz/c2VzI2eqKvmJV43xo+\nn7iOTjNI4hOL0ajZqvbhh+gyt2lR4DCVCkFHMq7rKhpV03d+Eo1H0EzgJ6Fy91wL\nMuHuYy1QQELIv8lxu9Tc8vfLTlcqGegeW0zlzz2iqUHRMaJPG+FApBghuZquKK0i\nnFcB83LG/Th9mLV+XLvXdeEIQnLsHGfE5UYsC6eo37+SS4saKUi3BQWpLrJez/dM\npydZklptWBQntb5GA0g/YhhTqG2VSOV/xPem/ZhPLKAGYoORA9fcWNrFGzBdkMBQ\n3kwlakSLQmxd3ZWakfdy+gKKiPvxpo776s/QU9mefQKBgQDMu5mPC7/ps1PhvWFJ\nifZENgIvaycxpdICVg/28MGavxFSdCH5gl/ZjI942QqObBDRC6B0zasnHtYgvm8t\niQQVn5byR9VD2iP24hEfByFD0w6bmx1/hgKzy9HcEy3r++Exl2CImrXq6WdI1zPg\nhoer4zxFJutF8HRdnOBFkJtYBQKBgQDMZaDsYJrAdNlrFn/By0H+xyg+JSlVeK1x\n17lZ7zFx6x1yQk4pb+smihjzZfMqnijJfd5ddN4jfsEiFQI6lZKUIy5D/iYtoqTa\n/+aJsB0u5LnBRtaS06ZFMCYte7I00ujSKGWSrpQfjuZhawUq2qMoo0OBmuu1Rj54\n/kNCi7RstQKBgGr8/lpKgZfXJtao6NZNSmyK7Mlq7ah8RysBXoZlekcr4hl8puSE\nxSIi2jcE9QdIYeFcehWQBQkEjFHAMslQ+Nlz9KXX9BLpRDIYIWpdh3yyJsgaX2fs\n2CytLpYbT7wqfJw1xzSb5MVGA7uE+o8yvmOM9EoO9JQv/B+Pg4PW9dchAoGAE+at\nRXaeerCl3qxhIhBVS6Y+f9aEcMMAOD5l2KDWcp4OzuovzA8OmUEG7uP1Sif+Fqg/\nt1/CpTgZO+VJw0R+8hd+0LX1J6pXXM9ftfZE0SUKBQyNpdwfq0rl3LXXgxcp/hRa\n125SE8SJH+EYrrR9AF7tGrhnzM2bFZLEH72UgqUCgYB9F3YMHF05GqZ2oLfdkd6k\nw9Cag7QHoYR45F7yNvKBVgBda2xxid0p5buzWwK81yf9iCoit42v78paorQ/IPPl\njcasv4XssUYqEg2JGNnP/yWDVTmP3M/CJ6WHjhS8d67x0gbdDvRA/QVlitkmHh0/\nK4IAM+zGPuTxq7JxAApxTg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "text-speech@wired-glider-266522.iam.gserviceaccount.com",
+  "client_id": "113709833496288493462",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/text-speech%40wired-glider-266522.iam.gserviceaccount.com"
+}

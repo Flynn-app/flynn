@@ -1,11 +1,24 @@
+<div class="container">
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#url" role="tab" aria-controls="url" aria-selected="true">URL</a>
+      <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#copypaste" role="tab" aria-controls="copypaste" aria-selected="false">Copy Paste</a>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="url" role="tabpanel" aria-labelledby="url-tab">
+      <%= simple_form_for(@audio) do |f| %>
+        <%= f.input :text_url, placeholder: 'https://www.20minutes.fr/economie/2713659-20200207-ile-france-combien-ca-coute-mettre-velo' %>
+        <%= f.submit "add url", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+    <div class="tab-pane fade" id="copypaste" role="tabpanel" aria-labelledby="copypaste-tab">
+      <%= simple_form_for(@audio) do |f| %>
+        <%= f.input :title, placeholder: 'Ile-de-France : Combien ça coûte de se mettre au vélo ?' %>
+        <%= f.input :text_to_transcript, as: :text, placeholder: '« A Paris à vélo on dépasse autos ! » Vélos en libre-service, essor de l’assistance électrique (VAE), grèves… Le vélo à la cote depuis quelques années en Ile-de-France.' %>
+        <%= f.submit "Transcrire", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<%= simple_form_for(@audio) do |f| %>
-  <%= f.input :text_url %>
-  <%= f.submit "add url", class: "btn btn-primary" %>
-<% end %>
-
-<%= simple_form_for(@audio) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :text_to_transcript, as: :text, :input_html => { :cols => 1, :rows => 5 } %>
-  <%= f.submit "Transcrire", class: "btn btn-primary" %>
-<% end %>

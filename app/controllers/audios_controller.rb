@@ -15,7 +15,7 @@ class AudiosController < ApplicationController
     if params[:audio][:text_to_transcript].present? && params[:audio][:title].present?
       # @audio.title = params[:audio][:title]
       # @audio.text_to_transcript = params[:audio][:text_to_transcript]
-
+      raise
       wl = WhatLanguage.new(:all)
 
       @audio.language = wl.language(@audio.text_to_transcript).to_s

@@ -16,13 +16,13 @@ class AudiosController < ApplicationController
       # @audio.title = params[:audio][:title]
       # @audio.text_to_transcript = params[:audio][:text_to_transcript]
       raise
-      wl = WhatLanguage.new(:all)
 
+      wl = WhatLanguage.new(:all)
       @audio.language = wl.language(@audio.text_to_transcript).to_s
       @audio.iso = wl.language_iso(@audio.text_to_transcript).to_s
 
 
-    elsif (params[:audio][:text_url].present?)
+    elsif params[:audio][:text_url].present? && params[:audio][:title].nil?
 
       # @audio.text_url = params[:audio][:text_url]
       content = URI.open(@audio.text_url).read

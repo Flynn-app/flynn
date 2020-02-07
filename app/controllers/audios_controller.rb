@@ -24,7 +24,7 @@ class AudiosController < ApplicationController
 
     elsif (params[:audio][:text_url].present?)
 
-      @audio.text_url = params[:audio][:text_url]
+      # @audio.text_url = params[:audio][:text_url]
       content = URI.open(@audio.text_url).read
       html_doc = Nokogiri::HTML(content)
 

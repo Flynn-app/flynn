@@ -10,7 +10,7 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
     <!-- <link rel="stylesheet" href="https://cdn.plyr.io/3.5.6/plyr.css" /> -->
   </head>
-  <body>
+  <body class="<%= controller.controller_name %>_<%= controller.action_name %>">
   <%= render 'shared/flashes' %>
   <div class="container-fluid p-0">
     <div class="d-flex">

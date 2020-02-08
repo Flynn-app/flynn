@@ -3,6 +3,7 @@ class AudiosController < ApplicationController
   require 'nokogiri'
   require 'whatlanguage'
 
+
   def new
     @audio = Audio.new
     authorize @audio
@@ -10,34 +11,23 @@ class AudiosController < ApplicationController
 
   def create
     @audio = Audio.new(audio_params)
+
     @audio.user = current_user
 
-    if params[:audio][:text_to_transcript].present? && params[:audio][:title].present?
-      # @audio.title = params[:audio][:title]
-      # @audio.text_to_transcript = params[:audio][:text_to_transcript]
-      wl = WhatLanguage.new(:all)
+    content = URI.open(@audio.text_url).read
+    html_doc = Nokogiri::HTML(content)
 
-      @audio.language = wl.language(@audio.text_to_transcript).to_s
-      @audio.iso = wl.language_iso(@audio.text_to_transcript).to_s
+    @audio.title = get_title(html_doc)
 
-    elsif params[:audio][:text_url].present? && params[:audio][:title].nil?
-      # @audio.text_url = params[:audio][:text_url]
-      content = URI.open(@audio.text_url).read
-      html_doc = Nokogiri::HTML(content)
-
-      @audio.title = get_title(html_doc)
-
-      text_content = Boilerpipe::Extractors::ArticleExtractor.text(content)
-      @audio.text_to_transcript = text_content
-
-      wl = WhatLanguage.new(:all)
-      @audio.language = wl.language(@audio.text_to_transcript).to_s
-      @audio.iso = wl.language_iso(@audio.text_to_transcript).to_s
-    end
+    text_content = Boilerpipe::Extractors::ArticleExtractor.text(content)
+    @audio.text_to_transcript = text_content
+    wl = WhatLanguage.new(:all)
+    @audio.language = wl.language(@audio.text_to_transcript).to_s
+    @audio.iso = wl.language_iso(@audio.text_to_transcript).to_s
 
     filename = SynthesizeText.new(@audio.text_to_transcript).synthesize_text
-
     # file_output = "public/output/output.mp3"
+
     # Cloudinary::Uploader.upload(filename, resource_type: :video)
     File.open(filename, "r") do |file|
       @audio.audiofile.attach(io: file, filename: filename)
@@ -59,7 +49,7 @@ class AudiosController < ApplicationController
   private
 
   def audio_params
-    params.require(:audio).permit(:text_url, :audiofile, :text_to_transcript, :title)
+    params.require(:audio).permit(:text_url, :audiofile)
   end
 
   def get_title(doc)

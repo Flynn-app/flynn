@@ -40,10 +40,9 @@ class AudiosController < ApplicationController
     # file_output = "public/output/output.mp3"
     upload_cloudinary = Cloudinary::Uploader.upload(filename, resource_type: :video)
     @audio.audio_url = upload_cloudinary["url"]
-    # File.open(filename, "r") do |file|
-    #   @audio.audiofile.attach(io: file, filename: filename)
-    #   File.delete(file)
-    # end
+    File.open(filename, "r") do |file|
+      File.delete(file)
+    end
 
     if @audio.save
       # redirect_to root_path

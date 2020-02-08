@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get 'users/show'
+  get 'dashboards/profile', to: "dashboards#profile"
+  get 'dashboards/:id/public/', to: "dashboards#public_profile", as: 'public'
+
   resources :audios, only: [:new, :create, :show]
-  resources :users
 
   devise_for :users
   root to: 'pages#home'

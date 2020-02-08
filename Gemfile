@@ -18,6 +18,7 @@ gem 'webpacker'
 gem 'google-cloud-text_to_speech'
 gem 'cloudinary'
 gem 'jquery-rails'
+gem 'friendly_id', '~> 5.2.4'
 
 gem 'pundit'
 gem 'faker'

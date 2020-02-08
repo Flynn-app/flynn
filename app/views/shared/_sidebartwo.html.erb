@@ -1,13 +1,12 @@
+<script type="./javascripts/" src="toggle_active.js"></script>
+
 <div class="sidebar_container">
 
   <div class="profile border-right bg-white vh-100 m-0">
     <div class="profile-sidebar">
-      <!-- SIDEBAR USERPIC -->
       <div class="profile-userpic">
         <%= image_tag "https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2890&q=80", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
       </div>
-      <!-- END SIDEBAR USERPIC -->
-      <!-- SIDEBAR USER TITLE -->
       <div class="profile-usertitle">
         <div class="profile-usertitle-name">
           @pjheissat
@@ -16,29 +15,14 @@
           Pierre-Jean Heissat
         </div>
       </div>
-      <!-- END SIDEBAR BUTTONS -->
-      <!-- SIDEBAR MENU -->
       <div class="profile-usermenu">
         <ul class="nav">
-          <li class="active">
-            <a href="#">
-            Mes derniers ajouts </a>
-          </li>
-          <li>
-            <a href="#">
-            Mes playlists </a>
-          </li>
-          <li>
-            <a href="#">
-            Mes abonnements </a>
-          </li>
-          <li>
-            <a href="#">
-            Mes audios </a>
-          </li>
+          <li class="sidebar_link"><%= link_to "Mes derniers ajouts", new_audio_path %></li>
+          <li class="sidebar_link"><%= link_to "Mes playlists", audio_path(10) %></li>
+          <li class="sidebar_link"><%= link_to "Mes abonnements", new_audio_path %></li>
+          <li class="sidebar_link"><%= link_to "Mes audios", new_audio_path %></li>
         </ul>
       </div>
-      <!-- END MENU -->
     </div>
   </div>
 </div>

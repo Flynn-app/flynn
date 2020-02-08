@@ -1,0 +1,17 @@
+<div class="bio-container">
+  <div class="bio-avatar">
+    <%= image_tag('https://source.unsplash.com/50x50/?avatar') %>
+  </div>
+  <div class='bio-text'>
+    <h3 class="name"><%= user.nickname %></h3>
+    <p class="bio"><%= user.user_bio %></p>
+    <div class="numbers">
+      <div class="follow-numbers">
+        <%= (20..687).to_a.sample %> followers • <%= (20..687).to_a.sample %> following
+      </div>
+      <div class="audio-numbers">
+        <%= (1..80).to_a.sample %> audios • <%= (1..20).to_a.sample %> playlists
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,8 +1,36 @@
 .bio-container {
   display: flex;
   align-items: center;
+  justify:center;
   max-width: 800px;
-  border: 1px solid $inter-grey;
-  border-radius: 10px;
-
+  background-color: $white;
+  // box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  // border-radius: 10px;
+  .bio-avatar {
+    padding : 20px;
+    img {
+      width: 118px;
+      height: 118px;
+      border-radius: 50%
+    }
+  }
+  .bio-text {
+    padding: 15px;
+    flex-grow: 1;
+    .name {
+      color: $blue-flynn;
+    }
+    p {
+      color: $dark-grey;
+      font-size: 1rem;
+      line-height: 1.6rem;
+    }
+    .numbers {
+      color: $medium-grey;
+      font-size: 0.8rem;
+      padding: 0 100px 0 0;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 }

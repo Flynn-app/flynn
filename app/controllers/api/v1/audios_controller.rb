@@ -25,11 +25,11 @@ class Api::V1::AudiosController < Api::V1::BaseController
     @audio.iso = wl.language_iso(@audio.text_to_transcript).to_s
 
     filename = SynthesizeText.new(@audio.text_to_transcript).synthesize_text
-    # file_output = "public/output/output.mp3"
+    upload_cloudinary = Cloudinary::Uploader.upload(filename, resource_type: :video)
+    @audio.audio_url = upload_cloudinary["url"]
 
-    # Cloudinary::Uploader.upload(filename, resource_type: :video)
     File.open(filename, "r") do |file|
-      @audio.audiofile.attach(io: file, filename: filename)
+      # @audio.audiofile.attach(io: file, filename: filename)
       File.delete(file)
     end
 

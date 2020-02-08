@@ -17,6 +17,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'google-cloud-text_to_speech'
 gem 'cloudinary'
+gem 'jquery-rails'
 
 gem 'pundit'
 gem 'faker'

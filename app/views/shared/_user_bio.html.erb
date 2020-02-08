@@ -1,0 +1,10 @@
+<div class="bio-container">
+  <div class="image-wrap p-3">
+    <%= image_tag('https://source.unsplash.com/50x50/?avatar', height:'100', width:'100', class:'border border-gray rounded-circle') %>
+  </div>
+  <div>
+    <h3 class="name"><%= @user.first_name %> <%= @user.last_name %></h3>
+    <p class="email"><%= @user.email %></p>
+  </div>
+
+</div>

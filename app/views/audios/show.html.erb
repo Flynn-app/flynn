@@ -4,9 +4,11 @@
     <div class="article-header">
       <h1> <%= @audio.title %></h1>
       <div class="original-link">
-        Article original sur <%= link_to @audio.text_url do  %>
-          <%= URI.parse(@audio.text_url).host.sub(/\Awww\./, '') %>
-          <% end %>
+        <% if @audio.text_url.present? %>
+          Article original sur <%= link_to @audio.text_url do  %>
+            <%= URI.parse(@audio.text_url).host.sub(/\Awww\./, '') %>
+            <% end %>
+        <% end %>
       </div>
     </div>
     <div class="article-content">
@@ -14,6 +16,6 @@
     </div>
   </div>
 </div>
-  <% audiofile = cloudinary_url(@audio.audiofile.key, resource_type: :video) %>
+  <% audiofile = cloudinary_url(@audio.audio_url, resource_type: :video) %>
   <%= render './shared/audio_player', audio_file: audiofile, audio: @audio %>
 

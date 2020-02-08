@@ -32,6 +32,9 @@ gem 'nokogiri'
 # detect the lang of text
 gem 'whatlanguage'
 
+# accept post on api from external page
+gem 'rack-cors'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

@@ -19,7 +19,7 @@ module Flynn
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
-        resource '*', headers: :any, methods: [:get, :post, :options]
+        resource '/api/v1/audios', headers: :any, methods: [:post]
       end
     end
      # config.autoload_paths += %W( services )

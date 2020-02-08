@@ -12,7 +12,7 @@ class Api::V1::AudiosController < Api::V1::BaseController
     @audio = Audio.new(audio_params)
     @audio.user = User.first
     # TODO correct with real user login and cookie
-
+    # binding.pry
     content = URI.open(@audio.text_url).read
     html_doc = Nokogiri::HTML(content)
 

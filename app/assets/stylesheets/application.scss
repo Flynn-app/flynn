@@ -1,4 +1,4 @@
-// Graphical variables
+ // Graphical variables
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
@@ -10,6 +10,12 @@
 
 // Your CSS partials
 @import "components/index";
-@import "components/sidebar";
 @import "pages/index";
+@import "components/sidebartwo";
+@import "components/dashboard";
+@import "components/navbar";
 @import "pages/audios/show";
+
+
+
+

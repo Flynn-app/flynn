@@ -8,6 +8,11 @@ Licensed under MIT
 
 .sidebar_container {
   width: 16%;
+  min-width: 230px;
+}
+
+.sidebar_container a {
+  color: $dark-grey;
 }
 
 .profile {
@@ -72,20 +77,15 @@ Licensed under MIT
 }
 
 .profile-usermenu {
-  margin-top: 30px;
-}
-
-.profile-usermenu ul li:last-child {
-  border-bottom: none;
+  margin-top: 120px;
 }
 
 .profile-usermenu ul li {
-  color: $blue-flynn;
+  color: $dark-grey;
   font-size: 16px;
   font-weight: 400;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  margin: 16px 2px 16px 4px;
+  padding: 16px 0px 16px 4px;
+  margin: 8px 2px 8px 4px;
   flex-grow: 1;
   text-decoration: none;
 }
@@ -97,6 +97,7 @@ Licensed under MIT
   text-decoration: none;
   a {
     color: white;
+    text-decoration: none;
   }
 }
 

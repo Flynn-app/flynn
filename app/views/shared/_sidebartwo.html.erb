@@ -1,5 +1,3 @@
-<script type="./javascripts/" src="toggle_active.js"></script>
-
 <div class="sidebar_container">
 
   <div class="profile border-right bg-white vh-100 m-0">
@@ -17,7 +15,9 @@
       </div>
       <div class="profile-usermenu">
         <ul class="nav">
-          <li class="sidebar_link"><%= link_to "Mes derniers ajouts", new_audio_path %></li>
+          <li class="sidebar_link <%= 'active' if params[:controller] == 'audios' && params[:action] == 'new' %>">
+            <%= link_to "Mes derniers ajouts", new_audio_path %>
+          </li>
           <li class="sidebar_link"><%= link_to "Mes playlists", audio_path(10) %></li>
           <li class="sidebar_link"><%= link_to "Mes abonnements", new_audio_path %></li>
           <li class="sidebar_link"><%= link_to "Mes audios", new_audio_path %></li>

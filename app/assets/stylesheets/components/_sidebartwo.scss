@@ -85,26 +85,28 @@ Licensed under MIT
   font-weight: 400;
   padding-top: 16px;
   padding-bottom: 16px;
-  margin-right: 8px;
+  margin: 16px 2px 16px 4px;
   flex-grow: 1;
-  margin-top: 16px;
-  margin-bottom: 16px;
   text-decoration: none;
-  margin-left: 8px;
 }
 
 .profile-usermenu ul li:hover {
-  //background-color: $blue-flynn;
-  //color: white;
+  background-color: $blue-flynn;
+  color: white;
   border-radius: 0 5px 5px 0;
   text-decoration: none;
+  a {
+    color: white;
+  }
 }
 
 .profile-usermenu ul li.active {
-  color: white;
   background-color: $blue-flynn;
   border-radius: 0 5px 5px 0;
-  text-decoration: none;
+  color: white;
+  a {
+    color: white;
+  }
 }
 
 /* Profile Content */

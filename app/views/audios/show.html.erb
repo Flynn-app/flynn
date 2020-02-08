@@ -1,12 +1,18 @@
 
 <div class="content-container">
-
-    <h1> <%= @audio.title %></h1>
-     <p> <%= @audio.text_to_transcript %></p>
-    <br>
-    <br>
-
-
+  <div class="content">
+    <div class="article-header">
+      <h1> <%= @audio.title %></h1>
+      <div class="original-link">
+        Article original sur <%= link_to @audio.text_url do  %>
+          <%= URI.parse(@audio.text_url).host.sub(/\Awww\./, '') %>
+          <% end %>
+      </div>
+    </div>
+    <div class="article-content">
+      <p><%= @audio.text_to_transcript %></p>
+    </div>
+  </div>
 </div>
   <% audiofile = cloudinary_url(@audio.audiofile.key, resource_type: :video) %>
   <%= render './shared/audio_player', audio_file: audiofile, audio: @audio %>

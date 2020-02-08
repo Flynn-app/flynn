@@ -75,41 +75,38 @@ Licensed under MIT
   margin-top: 30px;
 }
 
-.profile-usermenu ul li {
-  border-bottom: 1px solid #f0f4f7;
-  margin-top: 16px;
-  margin-bottom: 16px;
-}
-
 .profile-usermenu ul li:last-child {
   border-bottom: none;
 }
 
-.profile-usermenu ul li a {
-  color: #93a3b5;
+.profile-usermenu ul li {
+  color: $blue-flynn;
   font-size: 16px;
   font-weight: 400;
-  padding: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  margin: 16px 2px 16px 4px;
+  flex-grow: 1;
+  text-decoration: none;
 }
 
-.profile-usermenu ul li a i {
-  margin-right: 8px;
-  font-size: 14px;
-}
-
-.profile-usermenu ul li a:hover {
-  background-color: #fafcfd;
-  color: #5b9bd1;
+.profile-usermenu ul li:hover {
+  background-color: $blue-flynn;
+  color: white;
+  border-radius: 0 5px 5px 0;
+  text-decoration: none;
+  a {
+    color: white;
+  }
 }
 
 .profile-usermenu ul li.active {
-  border-bottom: none;
-}
-
-.profile-usermenu ul li.active a {
-  color: white;
   background-color: $blue-flynn;
   border-radius: 0 5px 5px 0;
+  color: white;
+  a {
+    color: white;
+  }
 }
 
 /* Profile Content */

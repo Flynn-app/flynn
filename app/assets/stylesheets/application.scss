@@ -8,12 +8,15 @@
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
-// Your CSS partials
+// CSS Components
 @import "components/index";
-@import "pages/index";
 @import "components/sidebartwo";
 @import "components/dashboard";
 @import "components/navbar";
+@import "components/user_bio";
+
+// CSS Pages
+@import "pages/index";
 @import "pages/audios/show";
 
 

@@ -38,9 +38,9 @@ class AudiosController < ApplicationController
     filename = SynthesizeText.new(@audio.text_to_transcript).synthesize_text
 
     # file_output = "public/output/output.mp3"
-    # Cloudinary::Uploader.upload(filename, resource_type: :video)
+    upload_cloudinary = Cloudinary::Uploader.upload(filename, resource_type: :video)
+    @audio.audio_url = upload_cloudinary["url"]
     File.open(filename, "r") do |file|
-      @audio.audiofile.attach(io: file, filename: filename)
       File.delete(file)
     end
 

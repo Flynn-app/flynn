@@ -15,7 +15,7 @@
   <div class="container-fluid p-0">
     <div class="d-flex">
       <%= render "shared/sidebartwo" unless request.fullpath=='/' %>
-      <div class="main_container flex-grow-1 px-5">
+      <div class="main_container">
         <%= render 'shared/navbar' %>
         <%= yield %>
       </div>

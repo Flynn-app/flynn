@@ -3,8 +3,8 @@
     <%= image_tag('https://source.unsplash.com/50x50/?avatar', height:'100', width:'100', class:'border border-gray rounded-circle') %>
   </div>
   <div>
-    <h3 class="name"><%= @user.first_name %> <%= @user.last_name %></h3>
-    <p class="email"><%= @user.email %></p>
+    <h3 class="name"><%= user.nickname %></h3>
+    <p class="email"><%= user.user_bio %></p>
   </div>
 
 </div>

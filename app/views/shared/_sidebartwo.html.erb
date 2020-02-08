@@ -16,11 +16,11 @@
       <div class="profile-usermenu">
         <ul class="nav">
           <li class="sidebar_link <%= 'active' if params[:controller] == 'audios' && params[:action] == 'new' %>">
-            <%= link_to "Mes derniers ajouts", new_audio_path %>
+            <i class="fas fa-clock"></i><%= link_to "Mes derniers ajouts", new_audio_path %>
           </li>
-          <li class="sidebar_link"><%= link_to "Mes playlists", audio_path(10) %></li>
-          <li class="sidebar_link"><%= link_to "Mes abonnements", new_audio_path %></li>
-          <li class="sidebar_link"><%= link_to "Mes audios", new_audio_path %></li>
+          <li class="sidebar_link"><i class="fas fa-stream"></i><%= link_to "Mes playlists", audio_path(10) %></li>
+          <li class="sidebar_link"><i class="fas fa-users"></i><%= link_to "Mes abonnements", new_audio_path %></li>
+          <li class="sidebar_link"><i class="fas fa-headphones-alt"></i><%= link_to "Mes audios", new_audio_path %></li>
         </ul>
       </div>
     </div>

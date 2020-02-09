@@ -1,4 +1,4 @@
-class DashboardsController < ApplicationController
+class ProfilesController < ApplicationController
 
   def profile
     skip_authorization
@@ -9,4 +9,5 @@ class DashboardsController < ApplicationController
     skip_authorization
     @user = User.friendly.find(params[:id])
   end
+
 end

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   scope "/home" do
     resources :users
+  end
 
   devise_for :users
   root to: 'pages#home'

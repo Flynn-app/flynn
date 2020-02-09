@@ -7,9 +7,12 @@
   .audio-img {
     margin: 10px;
     padding-left: 10px;
-    width: 50px;
-    height: 50px;
-    img {border-radius: 5px}
+    img {
+      border-radius: 5px;
+      width: 70px;
+      height: 60px;
+      object-fit:cover;
+    }
   }
   .track-details {
     padding: 10px;
@@ -25,7 +28,7 @@
 
 .plyr--audio .plyr__controls {
   color: $inter-grey !important;
-  padding: 20px !important;
+  padding: 30px !important;
 }
 
 button.plyr__controls__item {

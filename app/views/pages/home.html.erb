@@ -3,4 +3,4 @@
   <%= render 'shared/user_bio', user: @user %>
 </div>
 
-<%= link_to User.first.nickname, public_path(User.first) %>
+<%= link_to User.first.nickname, profile_path(User.first) %>

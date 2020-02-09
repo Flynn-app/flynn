@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  # get 'dashboards/profile', to: "dashboards#profile"
+  get 'profile/:id', to: "profile#profile", as: 'profile'
   # get 'dashboards/:id/public/', to: "dashboards#public_profile", as: 'public'
 
   resources :audios, only: [:new, :create, :show]
 
-  scope "/home" do
+  scope "/" do
     resources :users
   end
 

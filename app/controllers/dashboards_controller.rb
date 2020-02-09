@@ -1,6 +1,5 @@
 class DashboardsController < ApplicationController
 
-
   def profile
     skip_authorization
     @user = User.friendly.find(current_user.id)

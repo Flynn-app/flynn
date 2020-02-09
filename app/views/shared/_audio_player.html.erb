@@ -5,7 +5,7 @@
     <%= image_tag(audio.text_image) %>
   </div>
   <div class="track-details">
-    <%= audio.title.truncate(35) %>
+    <%= audio.title.truncate(70) %>
   </div>
   <audio id="player" controls>
       <source src="<%= audio_file %>" type="audio/mp3" />

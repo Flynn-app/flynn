@@ -13,6 +13,10 @@
   <body class="<%= controller.controller_name %>_<%= controller.action_name %>">
   <%= render 'shared/flashes' %>
   <div class="container-fluid p-0">
+    <div class="player-on-top">
+      <%= render 'shared/audio_player', audio_file: Audio.first.audio_url, audio: Audio.first %>
+    </div>
+
     <div class="d-flex">
       <%= render "shared/sidebartwo" unless request.fullpath=='/' %>
       <div class="main_container">

@@ -1,3 +1,10 @@
+.player-on-top {
+  position: fixed;
+  width: 100vw;
+  bottom: 0;
+  z-index: 1;
+}
+
 .player-track {
   display: flex;
   flex-direction: row;

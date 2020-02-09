@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'users/show'
   resources :audios, only: [:new, :create, :show]
-  resources :users
+  scope "/home" do
+    resources :users
+  end
 
   devise_for :users
   root to: 'pages#home'

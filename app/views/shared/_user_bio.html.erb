@@ -3,7 +3,7 @@
     <%= image_tag('https://source.unsplash.com/50x50/?avatar') %>
   </div>
   <div class='bio-text'>
-    <h3 class="name"><%= user.nickname %></h3>
+    <h3 class="name"><%= link_to user.nickname, user_path(user) %></h3>
     <p class="bio"><%= user.user_bio %></p>
     <div class="numbers">
       <div class="follow-numbers">

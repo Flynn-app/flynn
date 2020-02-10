@@ -1,10 +1,11 @@
 
 <div class="player-track">
   <div class="audio-img">
-    <img src="https://source.unsplash.com/50x50/?abstract, <%= (0..200).to_a.sample %>" >
+    <!-- <img src="https://source.unsplash.com/50x50/?abstract, <%#= (0..200).to_a.sample %>" > -->
+    <%= image_tag(audio.text_image) %>
   </div>
   <div class="track-details">
-    <%= audio.title.truncate(35) %>
+    <%= audio.title.truncate(70) %>
   </div>
   <audio id="player" controls>
       <source src="<%= audio_file %>" type="audio/mp3" />

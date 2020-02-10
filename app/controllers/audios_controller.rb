@@ -43,7 +43,6 @@ class AudiosController < ApplicationController
     @audio.audio_url = upload_cloudinary["url"]
     @audio.duration = calc_duration(upload_cloudinary["duration"])
 
-
     File.open(filename, "r") do |file|
       File.delete(file)
     end

@@ -1,7 +1,7 @@
 
 
 <div class="playlists-container">
-  <div class="playlists-section">
+  <div class="playlists-title-section">
     <% if current_user %>
       <h2>Vos playlists</h2>
     <% else %>
@@ -10,7 +10,7 @@
     <p class="playlists-count"><%= (1..12).to_a.sample %> playlists</p>
   </div>
   <div class="playlists-cards-container">
-    <div class="playlist-card no-playlist">
+    <div class="playlist-card add-playlist">
       <i class="fas fa-plus-circle"></i>
       Ajouter une playlist
     </div>

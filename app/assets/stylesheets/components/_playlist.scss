@@ -1,9 +1,9 @@
 .playlists-container {
-  padding: 50px 0;
+  margin-top: 50px;
 }
 
 
-.playlists-section {
+.playlists-title-section {
   display: flex;
   flex-direction:column;
   margin-bottom: 20px;
@@ -39,7 +39,7 @@
   margin: 0 5px;
 }
 
-.no-playlist {
+.add-playlist {
   background-color: $light-grey;
   width: 180px;
   color: $inter-grey;
@@ -48,6 +48,7 @@
   box-shadow:none;
   flex-direction: column;
   cursor: pointer;
+  margin: 0 5px 0 0;
   i {
     font-size: 2rem;
     margin: 10px;

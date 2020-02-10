@@ -61,7 +61,7 @@ class AudiosController < ApplicationController
   private
 
   def audio_params
-    params.require(:audio).permit(:text_url, :audiofile, :text_to_transcript, :title)
+    params.require(:audio).permit(:text_url, :text_to_transcript, :title)
   end
 
   def get_title(doc)

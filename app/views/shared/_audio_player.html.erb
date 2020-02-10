@@ -1,8 +1,11 @@
 
 <div class="player-track">
   <div class="audio-img">
-    <!-- <img src="https://source.unsplash.com/50x50/?abstract, <%#= (0..200).to_a.sample %>" > -->
-    <%= image_tag(audio.text_image) %>
+    <% if audio.text_image.present? %>
+      <%= image_tag(audio.text_image) %>
+    <% else %>
+      <img src="https://source.unsplash.com/50x50/?abstract, <%= (0..200).to_a.sample %>" >
+    <% end %>
   </div>
   <div class="track-details">
     <%= audio.title.truncate(70) %>

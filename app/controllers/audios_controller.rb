@@ -41,6 +41,7 @@ class AudiosController < ApplicationController
     # file_output = "public/output/output.mp3"
     upload_cloudinary = Cloudinary::Uploader.upload(filename, resource_type: :video)
     @audio.audio_url = upload_cloudinary["url"]
+    duration = upload_cloudinary["duration"]
     File.open(filename, "r") do |file|
       File.delete(file)
     end
@@ -60,7 +61,7 @@ class AudiosController < ApplicationController
   private
 
   def audio_params
-    params.require(:audio).permit(:text_url, :audiofile, :text_to_transcript, :title)
+    params.require(:audio).permit(:text_url, :text_to_transcript, :title)
   end
 
   def get_title(doc)

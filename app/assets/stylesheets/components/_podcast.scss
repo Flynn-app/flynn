@@ -41,8 +41,10 @@
     font-size: 2rem;
     margin: 10px;
   }
-  &:hover {
+  a {color:$inter-grey;}
+  &:hover, &:hover a{
     color: $blue-flynn;
+    text-decoration: none;
   }
 }
 

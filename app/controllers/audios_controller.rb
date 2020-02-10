@@ -41,7 +41,9 @@ class AudiosController < ApplicationController
     # file_output = "public/output/output.mp3"
     upload_cloudinary = Cloudinary::Uploader.upload(filename, resource_type: :video)
     @audio.audio_url = upload_cloudinary["url"]
-    duration = upload_cloudinary["duration"]
+    @audio.duration = calc_duration(upload_cloudinary["duration"])
+
+
     File.open(filename, "r") do |file|
       File.delete(file)
     end
@@ -77,5 +79,9 @@ class AudiosController < ApplicationController
     else
       img_path = "https://source.unsplash.com/50x50/?abstract"
     end
+  end
+
+  def calc_duration(duration)
+    Time.at(duration).utc.strftime("%M:%S").sub(/^0/, '')
   end
 end

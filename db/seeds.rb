@@ -50,7 +50,8 @@ Audio.create!(
   audio_url: "http://res.cloudinary.com/quentinlallemand/video/upload/v1581273176/vexytzmn5fkf7xzpygol.mp3",
   user_id: 1,
   title: "Manchester City : Aymeric Laporte prévient le Real Madrid",
-  iso: "fr"
+  iso: "fr",
+  duration: "1:29"
   )
 print ".Audio1. "
 
@@ -61,7 +62,8 @@ Audio.create!(
   audio_url: "http://res.cloudinary.com/quentinlallemand/video/upload/v1581320682/qn1yxzoc5te3cdndsduq.mp3",
   user_id: 1,
   title: "Test text no url",
-  iso: "fr"
+  iso: "fr",
+  duration: "2:19"
   )
 print ".Audio2."
 
@@ -73,7 +75,8 @@ Audio.create!(
   user_id: 2,
   title: "Ligue 1 : le formidable rebond du Nîmes Olympique en 2020",
   iso: "fr",
-  text_image: "http://www.footmercato.net/images/a/nimes-s-est-completement-relance-dans-la-course-au-maintien_273709.jpg"
+  text_image: "http://www.footmercato.net/images/a/nimes-s-est-completement-relance-dans-la-course-au-maintien_273709.jpg",
+  duration: "3:12"
   )
 print ".Audio3."
 puts "Audios created"

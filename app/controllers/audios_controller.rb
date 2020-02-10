@@ -26,6 +26,7 @@ class AudiosController < ApplicationController
       html_doc = Nokogiri::HTML(content)
 
       @audio.title = get_title(html_doc)
+      @audio.text_image = get_og_image(html_doc)
 
       text_content = Boilerpipe::Extractors::ArticleExtractor.text(content)
       @audio.text_to_transcript = text_content
@@ -67,6 +68,14 @@ class AudiosController < ApplicationController
     tags = ['title', 'h1', 'h2', 'h3']
     tags.each do |tag|
       return doc.search(tag).text unless doc.search(tag).empty?
+    end
+  end
+
+  def get_og_image(doc)
+    if doc.css("meta[property='og:image']").present?
+      img_path = doc.css("meta[property='og:image']").first.attributes["content"].value
+    else
+      img_path = "https://source.unsplash.com/50x50/?abstract"
     end
   end
 end

@@ -1,8 +1,9 @@
+<div class="container">
+<% @audios.each do |audio| %>
 <div class="podcast-card-container">
   <div class="podcast-play-button">
     <i class="fas fa-play"></i>
   </div>
-  <% @audios.each do |audio| %>
   <div class="podcast-image">
     <% if audio.text_image.present? %>
       <%= image_tag(audio.text_image) %>
@@ -16,9 +17,10 @@
   <div class="podcast-duration">
     <%= audio.duration %>
   </div>
-  <% end %>
   <div class="favorites">
     <i class="far fa-heart"></i>
   </div>
+</div>
+<% end %>
 </div>
 

@@ -2,7 +2,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(nickname: params[:nickname])
-    authorize @user
+    # authorize @user
+    skip_authorization
 
     @audio = Audio.find(params[:audio]) if params[:audio]
     @url = @audio.audio_url if params[:audio]
@@ -11,5 +12,6 @@ class UsersController < ApplicationController
       format.html
       format.js
     end
+
   end
 end

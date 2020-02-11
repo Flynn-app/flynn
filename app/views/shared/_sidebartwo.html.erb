@@ -3,12 +3,12 @@
   <div class="profile border-right bg-white vh-100 m-0">
     <div class="profile-sidebar">
       <div class="profile-userpic">
-        <%= image_tag "logo_flynn.png", alt: "Flynn" %>
+        <%= link_to (image_tag("logo_flynn.png", alt: "Flynn")), user_path(current_user.nickname) %>
       </div>
       <div class="profile-usermenu">
         <ul class="nav">
           <li class="sidebar_link <%= 'active' if params[:controller] == 'audios' && params[:action] == 'new' %>">
-            <i class="fas fa-clock"></i><%= link_to "Mes derniers ajouts", new_audio_path %>
+            <i class="fas fa-clock"></i><%= link_to "Mes derniers ajouts", audios_path %>
           </li>
           <li class="sidebar_link"><i class="fas fa-stream"></i><%= link_to "Mes playlists", audio_path(10) %></li>
           <li class="sidebar_link"><i class="fas fa-users"></i><%= link_to "Mes abonnements", new_audio_path %></li>

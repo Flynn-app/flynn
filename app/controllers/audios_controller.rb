@@ -59,6 +59,12 @@ class AudiosController < ApplicationController
     authorize @audio
   end
 
+  def index
+    @audios = policy_scope(Audio.all)
+    authorize @audios
+  end
+
+
   private
 
   def audio_params

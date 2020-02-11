@@ -15,7 +15,9 @@
   <div class="container-fluid p-0">
     <% unless request.fullpath=='/' %>
       <div class="player-on-top">
-        <%= render 'shared/audio_player', audio_file: Audio.first.audio_url, audio: Audio.first %>
+        <%#= render 'shared/audio_player', audio_file: Audio.first.audio_url, audio: Audio.first %>
+        <%#= raise %>
+        <%= render 'shared/audio_player', audio: Audio.first %>
       </div>
     <% end %>
     <div class="d-flex">

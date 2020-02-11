@@ -12,4 +12,8 @@ class AudioPolicy < ApplicationPolicy
   def show?
     record_user = user
   end
+
+  def index?
+    record_user = user
+  end
 end

@@ -51,6 +51,7 @@ Audio.create!(
   user_id: 1,
   title: "Manchester City : Aymeric Laporte prévient le Real Madrid",
   iso: "fr",
+  text_image: "https://source.unsplash.com/50x50/?abstract",
   duration: "1:29"
   )
 print ".Audio1. "
@@ -63,6 +64,7 @@ Audio.create!(
   user_id: 1,
   title: "Test text no url",
   iso: "fr",
+  text_image: "https://source.unsplash.com/50x50/?abstract",
   duration: "2:19"
   )
 print ".Audio2."

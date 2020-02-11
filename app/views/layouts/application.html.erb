@@ -21,7 +21,7 @@
       </div>
     <% end %>
     <div class="d-flex">
-      <%= render "shared/sidebartwo" unless request.fullpath=='/' %>
+      <%= render "shared/sidebartwo" unless request.fullpath=='/' || request.fullpath=='/users/sign_in'%>
       <div class="main_container">
         <%= render 'shared/navbar' %>
         <%= yield %>

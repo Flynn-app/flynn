@@ -5,4 +5,4 @@ import "bootstrap";
 
 import { player } from '../plugins/init_plyr';
 
-
+import Mercury from '@postlight/mercury-parser';

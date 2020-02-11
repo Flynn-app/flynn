@@ -1,0 +1,26 @@
+<div class="podcasts-container">
+  <div class="podcasts-title-section">
+    <% if current_user %>
+      <h2>Vos Podcasts</h2>
+    <% else %>
+      <h2>Podcasts de user.firstname</h2>
+    <% end %>
+    <p class="podcasts-count"><%= user.audios.count %> podcasts</p>
+  </div>
+  <% if user.audios.empty? %>
+  <div class="podcasts-cards-container">
+    <div class="add-podcast">
+      <i class="fas fa-plus-circle"></i>
+      <%= link_to 'Ajouter un podcast', new_audio_path %>
+    </div>
+  </div>
+  <% end %>
+
+  <div class="podcasts-cards-container">
+    <% user.audios.each do |audio| %>
+      <%= render 'shared/podcast-card', audio: audio %>
+    <% end %>
+  </div>
+
+
+</div>

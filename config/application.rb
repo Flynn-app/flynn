@@ -16,6 +16,12 @@ module Flynn
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '/api/v1/audios', headers: :any, methods: [:post]
+      end
+    end
      # config.autoload_paths += %W( services )
 
     # Settings in config/environments/* take precedence over those specified here.

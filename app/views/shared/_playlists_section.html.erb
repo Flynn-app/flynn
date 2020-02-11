@@ -1,0 +1,27 @@
+
+
+<div class="playlists-container">
+  <div class="playlists-title-section">
+    <% if current_user %>
+      <h2>Vos playlists</h2>
+    <% else %>
+      <h2>Playlists de user.firstname</h2>
+    <% end %>
+    <p class="playlists-count"><%= (1..12).to_a.sample %> playlists</p>
+  </div>
+  <div class="playlists-cards-container">
+    <div class="playlist-card add-playlist">
+      <i class="fas fa-plus-circle"></i>
+      Ajouter une playlist
+    </div>
+
+    <%# if @user.playlists.exist? %>
+      <%# @user.playlists.each do |playlist| %>
+  <!--       <div class="playlist-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        </div> -->
+      <%# end %>
+    <%# end %>
+  </div>
+
+</div>
+

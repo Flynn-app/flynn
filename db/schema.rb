@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_10_211104) do
+ActiveRecord::Schema.define(version: 2020_02_12_214327) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 2020_02_10_211104) do
     t.string "iso"
     t.string "text_image"
     t.string "duration"
+    t.text "text_html"
     t.index ["user_id"], name: "index_audios_on_user_id"
   end
 

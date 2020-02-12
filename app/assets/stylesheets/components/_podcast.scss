@@ -10,11 +10,11 @@
   margin-bottom: 20px;
   h2 {
     margin-top: 20px;
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   .podcasts-count {
     color: $inter-grey;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -29,7 +29,6 @@
   height: 60px;
   color: $inter-grey;
   border: 1px solid rgba(201,201,201,0.2);
-  font-size: 0.9rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,7 +57,7 @@
   align-items:center;
   justify-content: space-between;
   color: $dark-grey;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   .podcast-play-button {
     width: 50px;
     display: flex;

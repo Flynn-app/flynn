@@ -16,7 +16,8 @@ const mercuryExtract = buttonMercury.addEventListener("click", (event) => {
                    "Accept": "application/json"
          },
         body: JSON.stringify({ "audio": { "title": `${data.title}`,
-                                          "text_to_transcript": `${data.content}`
+                                          "text_to_transcript": `${data.content.innerText}`,
+                                          "text_html": `${data.content}`
         }})
       })
   }

@@ -9,17 +9,16 @@ class Api::V1::AudiosController < Api::V1::BaseController
   end
 
   def create
-    binding.pry
     @audio = Audio.new(audio_params)
     @audio.user = User.first
     # TODO correct with real user login and cookie
-    content = URI.open(@audio.text_url).read
-    html_doc = Nokogiri::HTML(content)
+    # content = URI.open(@audio.text_url).read
+    # html_doc = Nokogiri::HTML(content)
 
-    @audio.title = get_title(html_doc)
+    # @audio.title = get_title(html_doc)
 
-    text_content = Boilerpipe::Extractors::ArticleExtractor.text(content)
-    @audio.text_to_transcript = text_content
+    # text_content = Boilerpipe::Extractors::ArticleExtractor.text(content)
+    # @audio.text_to_transcript = text_content
     wl = WhatLanguage.new(:all)
     @audio.language = wl.language(@audio.text_to_transcript).to_s
     @audio.iso = wl.language_iso(@audio.text_to_transcript).to_s
@@ -44,7 +43,7 @@ class Api::V1::AudiosController < Api::V1::BaseController
 
   def audio_params
     # params.require(:audio).permit(:text_url)
-    params.require(:audio).permit(:title, :text_to_transcript)
+    params.require(:audio).permit(:title, :text_to_transcript, :text_html)
   end
 
   def set_audio

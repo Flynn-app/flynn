@@ -6,7 +6,23 @@ import "bootstrap";
 import { player } from '../plugins/init_plyr';
 
 import Mercury from '@postlight/mercury-parser';
-const url = "https://www.lemonde.fr/international/article/2020/02/11/coronavirus-villes-desertes-teletravail-et-quarantaine-le-quotidien-en-chine-raconte-par-des-expatries_6029196_3210.html"
-const url2 = "https://www.20minutes.fr/high-tech/2715459-20200211-video-galaxy-s20-128-megapixels-8k-nouveaux-samsung-smartphones-photo-ultimes"
-const url3 = "https://korben.info/onedev-une-alternative-legere-a-gitlab.html"
-Mercury.parse(url3).then(result => console.log(result));
+const cors = 'https://cors-anywhere.herokuapp.com/'
+const targetSite = 'https://www.lemonde.fr/societe/article/2020/02/12/la-cour-d-appel-de-paris-ordonne-la-liberation-de-patrick-balkany_6029338_3224.html'
+const url = `${cors}${targetSite}`;
+
+const sendData = (data) => {
+  // const site_url = window.location.href;
+  const url = 'http://127.0.0.1:3000/api/v1/audios';
+    fetch(url, {
+    method: 'POST',
+    headers: { "Content-Type": "application/json",
+               "Accept": "application/json"
+     },
+    body: JSON.stringify({ "audio": { "title": `${data.title}`,
+                                      "content": `${data.content}`
+    } } )
+  })
+}
+
+
+// Mercury.parse(url).then(result => sendData(result);

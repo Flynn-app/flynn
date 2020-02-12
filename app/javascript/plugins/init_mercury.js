@@ -9,16 +9,16 @@ const mercuryExtract = buttonMercury.addEventListener("click", (event) => {
   const urlTarget = `${cors}${targetSite}`;
 
   const sendData = (data) => {
-    const url = 'http://127.0.0.1:3000/api/v1/audios';
+    const url = 'http://192.168.0.16:3000/api/v1/audios';
       fetch(url, {
-      method: 'POST',
-      headers: { "Content-Type": "application/json",
-                 "Accept": "application/json"
-       },
-      body: JSON.stringify({ "audio": { "title": `${data.title}`,
-                                        "content": `${data.content}`
-      } } )
-    })
+        method: 'POST',
+        headers: { "Content-Type": "application/json",
+                   "Accept": "application/json"
+         },
+        body: JSON.stringify({ "audio": { "title": `${data.title}`,
+                                          "text_to_transcript": `${data.content}`
+        }})
+      })
   }
   Mercury.parse(urlTarget).then(result => sendData(result));
 })

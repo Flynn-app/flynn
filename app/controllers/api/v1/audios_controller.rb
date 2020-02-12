@@ -44,7 +44,7 @@ class Api::V1::AudiosController < Api::V1::BaseController
 
   def audio_params
     # params.require(:audio).permit(:text_url)
-    params.require(:audio).permit(:title, :content)
+    params.require(:audio).permit(:title, :text_to_transcript)
   end
 
   def set_audio

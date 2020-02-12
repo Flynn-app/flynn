@@ -2,7 +2,7 @@ import Mercury from '@postlight/mercury-parser';
 
 const buttonMercury = document.getElementById("mercuryButton");
 
-const mercuryExtract = buttonMercury.addEventListener(click, event () => {
+const mercuryExtract = buttonMercury.addEventListener("click", (event) => {
 
   const cors = 'https://cors-anywhere.herokuapp.com/';
   let targetSite = document.getElementById("mercuryInput").value;
@@ -20,7 +20,7 @@ const mercuryExtract = buttonMercury.addEventListener(click, event () => {
       } } )
     })
   }
-  Mercury.parse(urlTarget).then(result => sendData(result);
+  Mercury.parse(urlTarget).then(result => sendData(result));
 })
 
 export { mercuryExtract };

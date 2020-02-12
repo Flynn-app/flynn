@@ -9,6 +9,7 @@ class Api::V1::AudiosController < Api::V1::BaseController
   end
 
   def create
+    binding.pry
     @audio = Audio.new(audio_params)
     @audio.user = User.first
     # TODO correct with real user login and cookie
@@ -42,7 +43,8 @@ class Api::V1::AudiosController < Api::V1::BaseController
   private
 
   def audio_params
-    params.require(:audio).permit(:text_url)
+    # params.require(:audio).permit(:text_url)
+    params.require(:audio).permit(:title, :content)
   end
 
   def set_audio

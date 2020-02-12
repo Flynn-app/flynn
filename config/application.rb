@@ -19,13 +19,15 @@ module Flynn
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'
-        resource '/api/v1/audios', headers: :any, methods: [:post]
+        # resource '*', headers: :any, methods: [:post]
+        resource '*', headers: :any, methods: [:get, :post, :delete, :put, :patch, :options, :head]
+        # resource '/api/v1/audios', headers: :any, methods: [:post]
       end
     end
      # config.autoload_paths += %W( services )
 
     #for Ajax
-    config.action_view.embed_authenticity_token_in_remote_forms = true
+    # config.action_view.embed_authenticity_token_in_remote_forms = true
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

@@ -1,5 +1,5 @@
 .playlists-container {
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 
@@ -9,11 +9,11 @@
   margin-bottom: 20px;
   h2 {
     margin-top: 20px;
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   .playlists-count {
     color: $inter-grey;
-    font-size: 0.8rem;
+    font-size: 1.2rem;
   }
 }
 
@@ -25,8 +25,8 @@
 .playlist-card {
   background-size: cover;
   background-position: center;
-  height: 180px;
-  width: 280px;
+  height: 120px;
+  width: 240px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,17 +41,20 @@
 
 .add-playlist {
   background-color: $light-grey;
-  width: 180px;
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
   color: $inter-grey;
   border: 1px solid rgba(201,201,201,0.2);
-  font-size: 0.9rem;
-  box-shadow:none;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
+  text-align: center;
   cursor: pointer;
   margin: 0 5px 0 0;
   i {
-    font-size: 2rem;
-    margin: 10px;
+    font-size: 3rem;
+    margin: 5px;
   }
   &:hover {
     color: $blue-flynn;

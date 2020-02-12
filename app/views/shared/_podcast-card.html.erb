@@ -12,7 +12,7 @@
     <% end %>
   </div>
   <p class="podcast-title">
-    <%= audio.title %>
+    <%= audio.title.truncate(100) %>
   </p>
   <div class="podcast-duration">
     <%= audio.duration %>

@@ -1,16 +1,9 @@
 
 <div class="player-track">
-  <div class="audio-img">
-    <% if audio.text_image.present? %>
-      <%= image_tag(audio.text_image) %>
-    <% else %>
-      <img src="https://source.unsplash.com/50x50/?abstract, <%= (0..200).to_a.sample %>" >
-    <% end %>
-  </div>
-  <div class="track-details">
-    <%= audio.title.truncate(70) %>
+  <div class="audio-details">
+    <%= render 'shared/audio_player_track_details', audio: audio %>
   </div>
   <audio id="player" controls>
-      <source src="<%= audio_file %>" type="audio/mp3" />
+      <source src="<%= audio.audio_url %>" type="audio/mp3" />
   </audio>
 </div>

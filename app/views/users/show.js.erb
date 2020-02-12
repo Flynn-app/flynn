@@ -1,0 +1,28 @@
+console.log('Bien ou Bien. ??')
+document.querySelector('.audio-details').innerHTML = '<%= j render "shared/audio_player_track_details", audio: @audio %>'
+
+
+// import 'plyr/dist/plyr.css';
+// import Plyr from 'plyr';
+
+// const player = new Plyr(document.getElementById('player'), {
+//   autoplay: false,
+//   invertTime: true,
+//   toggleInvert: true,
+//   tooltips: { controls: false, seek: false },
+//   control: 'settings',
+// });
+
+player.src = "<%= @url %>";
+document.querySelector('.plyr__control').click()
+
+// player.source = {
+//     type: 'audio',
+//     title: 'Example title',
+//     sources: [
+//         {
+//             src: "<%= @url %>",
+//             type: 'audio/mp3',
+//         }
+//     ]
+// };

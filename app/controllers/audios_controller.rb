@@ -48,8 +48,14 @@ class AudiosController < ApplicationController
     end
 
     if @audio.save
-      # redirect_to root_path
-      redirect_to audio_path(@audio)
+
+      redirect_to do |format|
+        # format.html { redirect_to audio_path(@audio) }
+        # format.js { render action: 'show', id: @audio.id }
+        format.js { render :show, id: @audio.id }
+      end
+
+      # redirect_to audio_path(@audio)
     end
     authorize @audio
   end
@@ -62,6 +68,14 @@ class AudiosController < ApplicationController
   def index
     @audios = policy_scope(Audio.all)
     authorize @audios
+
+    @audio = Audio.find(params[:audio]) if params[:audio]
+    @url = @audio.audio_url if params[:audio]
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
 

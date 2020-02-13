@@ -15,6 +15,10 @@ Licensed under MIT
   color: $dark-grey;
 }
 
+.sidebar_container i {
+  margin-right: 8px;
+}
+
 .profile {
   margin: 20px 0;
 }
@@ -34,9 +38,6 @@ Licensed under MIT
   margin: 0 auto;
   width: 50%;
   height: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  border-radius: 50%;
 }
 
 .profile-usertitle {

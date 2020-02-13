@@ -11,7 +11,7 @@ User.create!(
   email: "test@test.com",
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  nickname: '@'+Faker::Internet.username,
+  nickname: '@John_Preston',
   password:  '123456',
   password_confirmation: '123456',
   user_bio: Faker::Quote.matz
@@ -22,7 +22,7 @@ User.create!(
   email: "test2@test.com",
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  nickname: '@'+Faker::Internet.username,
+  nickname: '@Martin_Sanchez',
   password:  '123456',
   password_confirmation: '123456',
   user_bio: Faker::Quote.matz
@@ -33,7 +33,7 @@ User.create!(
   email: "test3@test.com",
   first_name: Faker::Name.first_name,
   last_name: Faker::Name.last_name,
-  nickname: '@'+Faker::Internet.username,
+  nickname: '@Salome_Rakhia',
   password:  '123456',
   password_confirmation: '123456',
   user_bio: Faker::Quote.matz
@@ -51,6 +51,7 @@ Audio.create!(
   user_id: 1,
   title: "Manchester City : Aymeric Laporte prévient le Real Madrid",
   iso: "fr",
+  text_image: "https://source.unsplash.com/50x50/?abstract",
   duration: "1:29"
   )
 print ".Audio1. "
@@ -63,6 +64,7 @@ Audio.create!(
   user_id: 1,
   title: "Test text no url",
   iso: "fr",
+  text_image: "https://source.unsplash.com/50x50/?abstract",
   duration: "2:19"
   )
 print ".Audio2."

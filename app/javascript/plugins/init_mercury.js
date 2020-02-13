@@ -14,9 +14,8 @@ const mercuryExtract = buttonMercury.addEventListener("click", (event) => {
 }
 
   const sendData = (data) => {
-    console.log(data)
     const test = data ;
-    const url = 'http://192.168.0.16:3000/api/v1/audios';
+    const url = 'http://127.0.0.1:3000/api/v1/audios';
       fetch(url, {
         method: 'POST',
         headers: { "Content-Type": "application/json",

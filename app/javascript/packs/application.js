@@ -5,11 +5,10 @@ import "bootstrap";
 
 // import { player } from '../plugins/init_plyr';
 
-
-import { mercuryExtract } from '../plugins/init_mercury.js'
-
 import 'plyr/dist/plyr.css';
+
 import Plyr from 'plyr';
+
 
 const player = new Plyr(document.getElementById('player'), {
   autoplay: false,
@@ -21,3 +20,5 @@ const player = new Plyr(document.getElementById('player'), {
 
 // export { player };
 
+
+import { mercuryExtract } from '../plugins/init_mercury.js';

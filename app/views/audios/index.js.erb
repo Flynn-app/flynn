@@ -1,0 +1,5 @@
+console.log('Bien ou Bien 2 ??')
+document.querySelector('.audio-details').innerHTML = '<%= j render "shared/audio_player_track_details", audio: @audio %>'
+
+player.src = "<%= @url %>";
+document.querySelector('.plyr__control').click()

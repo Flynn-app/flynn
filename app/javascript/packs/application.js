@@ -6,8 +6,8 @@ import "bootstrap";
 // import { player } from '../plugins/init_plyr';
 
 import 'plyr/dist/plyr.css';
-
 import Plyr from 'plyr';
+import { mercuryToAudio } from '../plugins/init_mercury.js';
 
 
 const player = new Plyr(document.getElementById('player'), {
@@ -18,43 +18,6 @@ const player = new Plyr(document.getElementById('player'), {
   control: 'settings',
 });
 
-// export { player };
-// import Mercury from '@postlight/mercury-parser';
-import { mercuryToAudio } from '../plugins/init_mercury.js';
-
 if (document.getElementById("mercuryButton")) {
   mercuryToAudio();
 }
-//   const buttonMercury = document.getElementById("mercuryButton");
-
-//   buttonMercury.addEventListener("click", (event) => {
-
-//     const cors = 'https://cors-anywhere.herokuapp.com/';
-//     let targetSite = document.getElementById("mercuryInput").value;
-//     const urlTarget = `${cors}${targetSite}`;
-
-//     const extractContent = (html) => {
-//       return (new DOMParser).parseFromString(html, "text/html") .
-//           documentElement . textContent;
-//   }
-
-//     const sendData = (data) => {
-//       const test = data ;
-//       const url = 'http://127.0.0.1:3000/api/v1/audios';
-//         fetch(url, {
-//           method: 'POST',
-//           headers: { "Content-Type": "application/json",
-//                      "Accept": "application/json"
-//            },
-//           body: JSON.stringify({ "audio": { "title": `${data.title}`,
-//                                             "text_to_transcript": `${extractContent(data.content)}`,
-//                                             "text_html": `${data.content}`
-//           }})
-//         })
-//     }
-//     Mercury.parse(urlTarget).then(result => sendData(result));
-//     window.location = '/';
-//   })
-// }
-
-

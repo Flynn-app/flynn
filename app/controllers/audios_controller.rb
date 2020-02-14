@@ -52,7 +52,7 @@ class AudiosController < ApplicationController
       redirect_to do |format|
         # format.html { redirect_to audio_path(@audio) }
         # format.js { render action: 'show', id: @audio.id }
-        format.js { render :show, id: @audio.id }
+        format.js
       end
 
       # redirect_to audio_path(@audio)

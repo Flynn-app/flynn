@@ -35,7 +35,6 @@ class Api::V1::AudiosController < Api::V1::BaseController
 
     if @audio.save
       # redirect_to root_path
-      puts "Save ok by api"
     end
     authorize @audio
   end
@@ -44,7 +43,7 @@ class Api::V1::AudiosController < Api::V1::BaseController
 
   def audio_params
     # params.require(:audio).permit(:text_url)
-    params.require(:audio).permit(:title, :text_to_transcript, :text_html)
+    params.require(:audio).permit(:title, :text_to_transcript, :text_html, :text_url)
   end
 
   def set_audio

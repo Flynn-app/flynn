@@ -48,14 +48,7 @@ class AudiosController < ApplicationController
     end
 
     if @audio.save
-
-      redirect_to do |format|
-        # format.html { redirect_to audio_path(@audio) }
-        # format.js { render action: 'show', id: @audio.id }
-        format.js
-      end
-
-      # redirect_to audio_path(@audio)
+      redirect_to user_path(current_user.nickname)
     end
     authorize @audio
   end

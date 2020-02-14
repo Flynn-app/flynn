@@ -3,14 +3,18 @@ class PlaylistsController < ApplicationController
 
   def index
     @playlists = Playlist.all
+    authorize @playlists
   end
 
   def show
+    @user = current_user
+    authorize @playlist
   end
 
   def new
     @user = current_user
     @playlist = Playlist.new
+    authorize @playlist
   end
 
   def create

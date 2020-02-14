@@ -11,6 +11,8 @@
         <%= f.input :text_url, placeholder: 'https://www.20minutes.fr/economie/2713659-20200207-ile-france-combien-ca-coute-mettre-velo' %>
         <%= f.submit "add url", class: "btn btn-primary" %>
       <% end %>
+      <input class="form-control" type="text" placeholder="https://lemonde.fr => Mercury parser :-)" id="mercuryInput">
+      <button type="button" class="btn btn-primary" id="mercuryButton">Envoyer via mercury</button>
     </div>
     <div class="tab-pane fade" id="copypaste" role="tabpanel" aria-labelledby="copypaste-tab">
       <%= simple_form_for(@audio) do |f| %>

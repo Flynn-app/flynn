@@ -7,6 +7,8 @@ import "bootstrap";
 
 import 'plyr/dist/plyr.css';
 import Plyr from 'plyr';
+import { mercuryToAudio } from '../plugins/init_mercury.js';
+
 
 const player = new Plyr(document.getElementById('player'), {
   autoplay: false,
@@ -16,4 +18,6 @@ const player = new Plyr(document.getElementById('player'), {
   control: 'settings',
 });
 
-// export { player };
+if (document.getElementById("mercuryButton")) {
+  mercuryToAudio();
+}

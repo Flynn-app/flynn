@@ -12,7 +12,7 @@
   <div class="playlists-cards-container">
     <div class="add-playlist">
       <i class="fas fa-plus-circle"></i>
-      <%= link_to 'Ajouter une playlist', new_user_playlist_path(@user) %>
+      <%= link_to 'Ajouter une playlist', new_user_playlist_path(@user.nickname) %>
     </div>
 
     <% if @user.playlists.exists? %>

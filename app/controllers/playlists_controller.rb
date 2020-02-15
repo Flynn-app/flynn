@@ -24,7 +24,7 @@ class PlaylistsController < ApplicationController
     authorize @playlist
 
     if @playlist.save!
-      redirect_to user_playlist_path(@playlist.user.nickname)
+      redirect_to user_playlist_path(@playlist.user.nickname, @playlist)
     else
       render :new
     end

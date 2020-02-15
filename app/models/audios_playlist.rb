@@ -1,0 +1,2 @@
+class AudiosPlaylist < ApplicationRecord
+end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_15_164958) do
+ActiveRecord::Schema.define(version: 2020_02_15_165650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,8 +49,6 @@ ActiveRecord::Schema.define(version: 2020_02_15_164958) do
     t.string "text_image"
     t.string "duration"
     t.text "text_html"
-    t.bigint "playlist_id"
-    t.index ["playlist_id"], name: "index_audios_on_playlist_id"
     t.index ["user_id"], name: "index_audios_on_user_id"
   end
 
@@ -88,7 +86,6 @@ ActiveRecord::Schema.define(version: 2020_02_15_164958) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "audios", "playlists"
   add_foreign_key "audios", "users"
   add_foreign_key "audios_playlists", "audios"
   add_foreign_key "audios_playlists", "playlists"

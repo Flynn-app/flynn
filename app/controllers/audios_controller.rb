@@ -48,7 +48,7 @@ class AudiosController < ApplicationController
     end
 
     if @audio.save
-      redirect_to user_path(current_user.nickname)
+      redirect_to audio_path(@audio.id)
     end
     authorize @audio
   end

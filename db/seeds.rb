@@ -1,11 +1,11 @@
 require 'faker'
 
-
-puts "Delete Audio database"
-Audio.destroy_all
 puts "Delete User database"
 User.destroy_all
-
+puts "Delete Playlist database"
+Playlist.destroy_all
+puts "Delete Audio database"
+Audio.destroy_all
 
 
 puts "Create User"
@@ -43,9 +43,28 @@ User.create!(
 print "."
 puts "Users created"
 
-puts "Create Audios"
-
 users = User.all
+
+puts "Create Playlist"
+Playlist.create!(
+  name: "la playlist 1",
+  description: Faker::Quote.matz,
+  category: Faker::Food.fruits,
+  user: users.first
+)
+print "."
+
+Playlist.create!(
+  name: "la playlist 2",
+  description: Faker::Quote.matz,
+  category: Faker::Food.fruits,
+  user: users.sample
+)
+print "."
+
+puts "Playlists created"
+
+puts "Create Audios"
 
 Audio.create!(
   text_url: "http://www.footmercato.net/flash-mercato/manchester-city-aymeric-laporte-previent-le-real-madrid_273705",
@@ -56,7 +75,8 @@ Audio.create!(
   title: "Manchester City : Aymeric Laporte prévient le Real Madrid",
   iso: "fr",
   text_image: "https://source.unsplash.com/50x50/?abstract",
-  duration: "1:29"
+  duration: "1:29",
+  playlist: Playlist.first
   )
 print ".Audio1. "
 
@@ -69,7 +89,8 @@ Audio.create!(
   title: "Test text no url",
   iso: "fr",
   text_image: "https://source.unsplash.com/50x50/?abstract",
-  duration: "2:19"
+  duration: "2:19",
+  playlist: Playlist.first
   )
 print ".Audio2."
 

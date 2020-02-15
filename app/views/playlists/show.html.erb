@@ -1,3 +1,47 @@
-<h1><%= @playlist.name %></h1>
 
-<p><%= @playlist.description %></p>
+<div class="container">
+
+  <div class="playlist-container">
+    <div class="playlist-infos-container">
+      <div class="playlist-image">
+        <img src="https://source.unsplash.com/200x200/?abstract">
+      </div>
+      <div class="playlist-infos">
+        <h1 class="playlist-title"><%= @playlist.name %></h1>
+        <div class="playlist-numbers">
+          <div class="audio-numbers">
+            <%= @playlist.audios.count %> audios, <%= (1..2).to_a.sample %>h<%= (1..59).to_a.sample %>m
+          </div>
+        </div>
+        <div class="playlist-description">
+          <%#= @playlist.description %>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Aut a, voluptate! Minus id quia eaque? Repudiandae beatae earum autem
+          fugit atque fugiat debitis, temporibus, libero quidem! Inventore dolores odit similique!
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Veniam minima expedita et quos reprehenderit repellat,
+          rerum laborum ullam a omnis. Quo recusandae reprehenderit asperiores,
+          soluta in eius, illum quisquam voluptate.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+          Soluta incidunt illo illum dignissimos aliquam qui voluptas,
+          animi vero, obcaecati natus aperiam neque expedita nisi blanditiis
+          vel, optio fuga. Doloremque, autem.
+        </div>
+        <div class="btn btn-primary playlist-play-button">
+          Lire
+        </div>
+      </div>
+    </div>
+
+
+    <% @playlist.audios.each do |audio| %>
+    <%= render 'shared/podcast-card', audio: audio %>
+    <% end %>
+
+  </div>
+
+
+</div>
+
+
+

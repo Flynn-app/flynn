@@ -7,7 +7,7 @@ class PlaylistsController < ApplicationController
   end
 
   def show
-    @user = current_user
+    # @user = current_user
     authorize @playlist
   end
 
@@ -18,10 +18,13 @@ class PlaylistsController < ApplicationController
   end
 
   def create
-    @playlist = current_user.playlists.build(playlist_params)
+    # @playlist = current_user.playlists.build(playlist_params)
+    @playlist = Playlist.new(playlist_params)
+    @playlist.user = current_user
+    authorize @playlist
 
     if @playlist.save!
-      redirect_to user_playlist_path(@playlist)
+      redirect_to user_playlist_path(@playlist.user.nickname)
     else
       render :new
     end
@@ -46,6 +49,6 @@ class PlaylistsController < ApplicationController
   end
 
   def playlist_params
-    params.require(:playlist).permit(:name, :description)
+    params.require(:playlist).permit(:name, :description, :category)
   end
 end

@@ -9,7 +9,11 @@ class PlaylistPolicy < ApplicationPolicy
     true
   end
 
+  def index?
+    true
+  end
+
   def show?
-    record_user = user
+    true
   end
 end

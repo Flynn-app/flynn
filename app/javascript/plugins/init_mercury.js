@@ -26,10 +26,15 @@ const mercuryToAudio = () => {
                                             "text_html": `${data.content}`,
                                             "text_url": `${document.getElementById("mercuryInput").value}`
           }})
-        })
+        }).then(response => response.json())
+        .then(rep => redirect(rep.id))
     }
   Mercury.parse(urlTarget).then(result => sendData(result));
   })
+}
+
+const redirect = (id) => {
+  window.location= `/audios/${id}` ;
 }
 
 export { mercuryToAudio };

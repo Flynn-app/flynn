@@ -34,8 +34,6 @@ class Api::V1::AudiosController < Api::V1::BaseController
     end
 
     if @audio.save
-      # redirect_to root_path
-    end
     authorize @audio
   end
 

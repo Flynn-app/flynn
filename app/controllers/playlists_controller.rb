@@ -21,7 +21,7 @@ class PlaylistsController < ApplicationController
     @playlist = current_user.playlists.build(playlist_params)
 
     if @playlist.save!
-      redirect_to user_playlist(@playlist)
+      redirect_to user_playlist_path(@playlist)
     else
       render :new
     end

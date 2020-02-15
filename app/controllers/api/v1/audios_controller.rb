@@ -34,6 +34,8 @@ class Api::V1::AudiosController < Api::V1::BaseController
     end
 
     if @audio.save
+      render json: @audio
+    end
     authorize @audio
   end
 

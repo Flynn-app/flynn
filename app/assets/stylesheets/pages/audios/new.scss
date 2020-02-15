@@ -1,0 +1,112 @@
+$duration: .2s;
+$distance: 8px;
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+
+#audio_new {
+    max-width: 800px;
+}
+
+#audio_new .btn-holder{
+  width: 160px;
+  height: 40px;
+  margin: 40px auto;
+}
+
+#audio_new .simple_form .new_audio {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+#audio_new .container{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+#nav-tab {
+  text-align: left;
+  display: flex;
+  justify-content: start;
+  margin-bottom: 32px;
+  border: none;
+}
+
+// #audio_new .btn-holder {
+//   margin: 32px;
+//   text-align: center;
+//   display: flex;
+//   justify-content: space-evenly;
+// }
+
+#audio_new ul {
+  list-style-type: none;
+  margin: 0;
+  text-align: center;
+  margin-top: 10%;
+  margin-bottom: 40px;
+
+  li {
+    display: inline-block;
+    margin: 0 20px;
+  }
+}
+
+#audio_new a {
+  font-size: 1.6rem;
+  color: $brown;
+  position: relative;
+  text-decoration: none;
+  padding-bottom: 8px;
+  margin: 24px 24px 0 0;
+
+   &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 2px;
+        left: 0; right: 0;
+        height: 2px;
+        background-color: $blue-flynn;
+    }
+    &:before {
+        opacity: 0;
+        transform: translateY(- $distance);
+        transition: transform 0s $easeOutBack, opacity 0s;
+    }
+    // &:first-child:after {
+    //     opacity: 1;
+    //     transform: translateY($distance/2);
+    //     transition: transform $duration $easeOutBack, opacity $duration;
+    // }
+    &:after {
+        opacity: 0;
+        transform: translateY($distance/2);
+        transition: transform $duration $easeOutBack, opacity $duration;
+    }
+    &:hover,
+    &:focus {
+        // &:first-child:after {
+        //     opacity: 0;
+        // }
+        &:before,
+        &:after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        &:before {
+            transition: transform $duration $easeOutBack, opacity $duration;
+        }
+        &:after {
+            transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
+        }
+    }
+}
+
+.nav-tabs .nav-link, .nav-tabs .nav-item.show .nav-link {
+  border: 0px;
+  margin-bottom: 16px;
+  &:hover {
+    border:0px;
+  }
+}

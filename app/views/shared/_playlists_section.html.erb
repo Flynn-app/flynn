@@ -12,15 +12,13 @@
   <div class="playlists-cards-container">
     <div class="add-playlist">
       <i class="fas fa-plus-circle"></i>
-      Ajouter une playlist
+      <%= link_to 'Ajouter une playlist', new_user_playlist_path(@user.nickname) %>
     </div>
 
-    <%# if @user.playlists.exist? %>
-      <%# @user.playlists.each do |playlist| %>
-  <!--       <div class="playlist-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-        </div> -->
-      <%# end %>
-    <%# end %>
+    <% if @user.playlists.exists? %>
+      <%= render 'shared/playlist-card' %>
+    <% end %>
+
   </div>
 
 </div>

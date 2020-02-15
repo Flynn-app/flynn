@@ -20,15 +20,17 @@ class PlaylistsController < ApplicationController
   def create
     # @playlist = current_user.playlists.build(playlist_params)
     @playlist = Playlist.new(playlist_params)
-    @playlist.user = current_user
+    @user = User.find(params[:user_id])
+    @playlist.user = @user
+
+    # @playlist.user = current_user
     authorize @playlist
 
-    if @playlist.save!
-      redirect_to user_playlist_path(@playlist.user.nickname)
+    if @playlist.save
+      redirect_to user_playlist_path(@user, @playlist)
     else
       render :new
     end
-
   end
 
   def edit

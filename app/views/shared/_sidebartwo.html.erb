@@ -3,7 +3,8 @@
   <div class="profile border-right bg-white vh-100 m-0">
     <div class="profile-sidebar">
       <div class="profile-userpic">
-        <%= link_to (image_tag("logo_flynn.png", alt: "Flynn")), user_path(current_user.nickname) %>
+        <%#= link_to (image_tag("logo_flynn.png", alt: "Flynn")), user_path(current_user.nickname) %>
+        <%= link_to (image_tag("logo_flynn.png", alt: "Flynn")), user_path(current_user) %>
       </div>
       <div class="profile-usermenu">
         <ul class="nav">

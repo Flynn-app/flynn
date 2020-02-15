@@ -1,6 +1,6 @@
 <h1>coucou</h1>
 
-<%= simple_form_for [@user, @playlist] do |f| %>
+<%= simple_form_for [@playlist, @user] do |f| %>
   <%= f.input :name, placeholder: 'super playlist' %>
   <%= f.input :description, placeholder: 'cette playlist est très très bien' %>
   <%= f.input :category, placeholder: 'Thémarique que la playlist' %>

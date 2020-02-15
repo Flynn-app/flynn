@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   def show
-    @user = User.find_by(nickname: params[:nickname])
+    # @user = User.find_by(nickname: params[:nickname])
+    @user = User.find(params[:id])
      # authorize @user
     skip_authorization
 

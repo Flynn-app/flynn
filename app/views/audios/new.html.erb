@@ -1,23 +1,22 @@
 <div class="container" id="audio_new">
-    <ul>
-      <li><a class="tab-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#url" role="tab" aria-controls="url" aria-selected="true">Depuis un lien</a></li>
-      <li><a class="tab-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#copypaste" role="tab" aria-controls="copypaste" aria-selected="false">Depuis un texte brut</a></li>
-    </ul>
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#url" role="tab" aria-controls="url" aria-selected="true">Transcrire à partir d'un URL</a>
+        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#copypaste" role="tab" aria-controls="copypaste" aria-selected="false">Transcrire à partir d'un écrit</a>
+    </div>
+  </nav>
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="url" role="tabpanel" aria-labelledby="url-tab">
-      <input class="form-control" type="text" placeholder="https://lemonde.fr => Mercury parser :-)" id="mercuryInput">
-      <button type="button" class="btn btn-primary" id="mercuryButton">Envoyer via mercury</button>
+      <label>Adresse du texte à transcrire</label>
+      <input class="form-control" type="text" placeholder="Mettez ici l'URL du texte à transcrire" id="mercuryInput">
+      <button type="button" class="btn btn-primary btn-holder" id="mercuryButton">Transcrire en audio</button>
     </div>
     <div class="tab-pane fade" id="copypaste" role="tabpanel" aria-labelledby="copypaste-tab">
       <%= simple_form_for(@audio) do |f| %>
-        <%= f.input :title, placeholder: 'Ile-de-France : Combien ça coûte de se mettre au vélo ?' %>
-        <%= f.input :text_to_transcript, as: :text, placeholder: '« A Paris à vélo on dépasse autos ! » Vélos en libre-service, essor de l’assistance électrique (VAE), grèves… Le vélo à la cote depuis quelques années en Ile-de-France.' %>
-        <%= f.submit "Transcrire", class: "btn btn-primary" %>
+        <%= f.input :title, :label => "Titre du texte", placeholder: "Mettez ici le texte du texte à transcrire" %>
+        <%= f.input :text_to_transcript, :label => "Texte à transcrire", as: :text, placeholder: "Mettez ici le contenu du texte à transcrire" %>
+        <%= f.submit "Transcrire en audio", class: "btn btn-primary btn-holder"%>
       <% end %>
     </div>
   </div>
 </div>
-
-
-
-

@@ -10,21 +10,45 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
     max-width: 800px;
 }
 
-#audio_new .container{
-  text-align:center;
-  display:flex;
+#audio_new .btn-holder{
+  width: 160px;
+  height: 40px;
+  margin: 40px auto;
+}
+
+#audio_new .simple_form .new_audio {
+  text-align: center;
+  display: flex;
   justify-content: center;
 }
 
-#audio_new body {
-  // Mettre du code ici
+#audio_new .container{
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
+
+#nav-tab {
+  text-align: left;
+  display: flex;
+  justify-content: start;
+  margin-bottom: 32px;
+  border: none;
+}
+
+// #audio_new .btn-holder {
+//   margin: 32px;
+//   text-align: center;
+//   display: flex;
+//   justify-content: space-evenly;
+// }
 
 #audio_new ul {
   list-style-type: none;
   margin: 0;
   text-align: center;
   margin-top: 10%;
+  margin-bottom: 40px;
 
   li {
     display: inline-block;
@@ -33,11 +57,12 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
 }
 
 #audio_new a {
-  font-size: 16px;
+  font-size: 1.6rem;
   color: $brown;
   position: relative;
   text-decoration: none;
   padding-bottom: 8px;
+  margin: 24px 24px 0 0;
 
    &:before,
     &:after {
@@ -72,4 +97,12 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
             transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
         }
     }
+}
+
+.nav-tabs .nav-link, .nav-tabs .nav-item.show .nav-link {
+  border: 0px;
+  margin-bottom: 16px;
+  &:hover {
+    border:0px;
+  }
 }

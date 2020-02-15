@@ -1,0 +1,75 @@
+$red: #F37272;
+$brown: #584E4A;
+$whitey: #f0f0f0;
+
+$duration: .2s;
+$distance: 8px;
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+
+#audio_new {
+    max-width: 800px;
+}
+
+#audio_new .container{
+  text-align:center;
+  display:flex;
+  justify-content: center;
+}
+
+#audio_new body {
+  // Mettre du code ici
+}
+
+#audio_new ul {
+  list-style-type: none;
+  margin: 0;
+  text-align: center;
+  margin-top: 10%;
+
+  li {
+    display: inline-block;
+    margin: 0 20px;
+  }
+}
+
+#audio_new a {
+  font-size: 16px;
+  color: $brown;
+  position: relative;
+  text-decoration: none;
+  padding-bottom: 8px;
+
+   &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 2px;
+        left: 0; right: 0;
+        height: 2px;
+        background-color: $blue-flynn;
+    }
+    &:before {
+        opacity: 0;
+        transform: translateY(- $distance);
+        transition: transform 0s $easeOutBack, opacity 0s;
+    }
+    &:after {
+        opacity: 0;
+        transform: translateY($distance/2);
+        transition: transform $duration $easeOutBack, opacity $duration;
+    }
+    &:hover,
+    &:focus {
+        &:before,
+        &:after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        &:before {
+            transition: transform $duration $easeOutBack, opacity $duration;
+        }
+        &:after {
+            transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
+        }
+    }
+}

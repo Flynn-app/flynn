@@ -13,12 +13,12 @@
     width: 200px;
     height: 200px;
     border-radius: 5px;
-    box-shadow: -5px 10px 40px rgba(0,0,0,0.4)
+    box-shadow: 0px 10px 40px 10px rgba(0, 0, 0, 0.3);
   }
 }
 
 .playlist-infos {
-  margin: 20px 0;
+  margin: 20px 10px;
   display: flex;
   justify-content:center;
   flex-direction: column;

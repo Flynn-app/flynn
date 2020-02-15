@@ -1,11 +1,13 @@
 require 'faker'
 
-puts "Delete User database"
-User.destroy_all
 puts "Delete Playlist database"
 Playlist.destroy_all
+puts "Delete Audio/playlist association database"
+AudiosPlaylist.destroy_all
 puts "Delete Audio database"
 Audio.destroy_all
+puts "Delete User database"
+User.destroy_all
 
 
 puts "Create User"
@@ -76,7 +78,6 @@ Audio.create!(
   iso: "fr",
   text_image: "https://source.unsplash.com/50x50/?abstract",
   duration: "1:29",
-  playlist: Playlist.first
   )
 print ".Audio1. "
 
@@ -90,7 +91,6 @@ Audio.create!(
   iso: "fr",
   text_image: "https://source.unsplash.com/50x50/?abstract",
   duration: "2:19",
-  playlist: Playlist.first
   )
 print ".Audio2."
 
@@ -107,3 +107,21 @@ Audio.create!(
   )
 print ".Audio3."
 puts "Audios created"
+
+audios = Audio.all
+playlists = Playlist.all
+
+AudiosPlaylist.create!(
+  audio: audios.sample,
+  playlist_id: playlists.sample
+  )
+print ".Audio association to playlist.x1"
+
+AudiosPlaylist.create!(
+  audio: audios.sample,
+  playlist: playlists.sample
+  )
+print ".Audio association to playlist.x2"
+
+puts "Audio/playlist associations created"
+

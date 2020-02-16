@@ -14,9 +14,17 @@ class Api::V1::AudiosController < Api::V1::BaseController
     # binding.pry
     # TODO correct with real user login and cookie
     # content = URI.open(@audio.text_url).read
-    # html_doc = Nokogiri::HTML(content)
+    @html_doc = Nokogiri::HTML(@audio.text_html)
+    binding.pry
 
-    # @audio.title = get_title(html_doc)
+    @html_doc.xpath('//p | //h1 | //h2 | //h3 | //h4 | //h5 | //h6 | //title ').each do |tag|
+      tag.add_class("record")
+    end
+
+    @audio.text_html = @html_doc.to_html
+
+
+    # @audio.title = get_title(@html_doc)
 
     # text_content = Boilerpipe::Extractors::ArticleExtractor.text(content)
     # @audio.text_to_transcript = text_content

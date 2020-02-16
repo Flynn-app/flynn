@@ -22,12 +22,12 @@ const mercuryToAudio = () => {
                      "Accept": "application/json"
            },
           body: JSON.stringify({ "audio": { "title": `${data.title}`,
-                                            "text_to_transcript": `${extractContent(data.content)}`,
+                                            // "text_to_transcript": `${extractContent(data.content)}`,
                                             "text_html": `${data.content}`,
                                             "text_url": `${document.getElementById("mercuryInput").value}`
           }})
         }).then(response => response.json())
-        .then(rep => redirect(rep.id))
+        // .then(rep => redirect(rep.id))
     }
   Mercury.parse(urlTarget).then(result => sendData(result));
   })

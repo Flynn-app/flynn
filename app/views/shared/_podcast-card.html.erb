@@ -11,9 +11,12 @@
       <img src="https://source.unsplash.com/50x50/?abstract, <%= (0..200).to_a.sample %>" >
     <% end %>
   </div>
-  <p class="podcast-title">
+  <div class="podcast-title">
     <%= audio.title.truncate(100) %>
-  </p>
+  </div>
+  <div class="podcast-date">
+    <%= audio.created_at.strftime("%d-%m-%Y") %>
+  </div>
   <div class="podcast-duration">
     <%= audio.duration %>
   </div>

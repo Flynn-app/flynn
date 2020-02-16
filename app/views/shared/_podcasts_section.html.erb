@@ -17,7 +17,7 @@
   <% end %>
 
   <div class="podcasts-cards-container">
-    <% user.audios.reverse.each do |audio| %>
+    <% user.audios.each do |audio| %>
       <%#= link_to user_path(current_user, params: { audio: audio.id }), remote: true do %>
         <%= render 'shared/podcast-card', audio: audio %>
       <%# end %>

@@ -11,8 +11,22 @@
       <img src="https://source.unsplash.com/50x50/?abstract, <%= (0..200).to_a.sample %>" >
     <% end %>
   </div>
-  <div class="podcast-title">
-    <%= audio.title.truncate(100) %>
+  <div class="podcast-text">
+    <div class="podcast-title">
+      <%= audio.title.truncate(100) %>
+    </div>
+    <div class="podcast-desc">
+      <%= audio.text_to_transcript.truncate(210) %>
+    </div>
+    <div class="podcast-media">
+      <% if audio.text_url.present? %>
+        <%= link_to audio.text_url do  %>
+          <%= URI.parse(audio.text_url).host.sub(/\Awww\./, '') %>
+        <% end %>
+      <% else %>
+        Import
+      <% end %>
+    </div>
   </div>
   <div class="podcast-date">
     <%= audio.created_at.strftime("%d-%m-%Y") %>
@@ -20,8 +34,11 @@
   <div class="podcast-duration">
     <%= audio.duration %>
   </div>
-  <div class="favorites">
+  <div class="podcast-favorites">
     <i class="far fa-heart"></i>
+  </div>
+  <div class="podcast-3dots">
+    <i class="fas fa-ellipsis-h"></i>
   </div>
 </div>
 

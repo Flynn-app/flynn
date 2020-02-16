@@ -10,7 +10,7 @@
         <%= (20..687).to_a.sample %> followers • <%= (20..687).to_a.sample %> following
       </div>
       <div class="audio-numbers">
-        <%= (1..80).to_a.sample %> audios • <%= (1..20).to_a.sample %> playlists
+        <%= user.audios.count %> podcasts • <%= user.playlists.count %> playlists
       </div>
     </div>
   </div>

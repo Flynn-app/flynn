@@ -2,20 +2,27 @@
   margin-top: 30px;
 }
 
+/////////////////// PLAYLIST SECTION ///////////////////
+
 .playlists-title-section {
   display: flex;
-  flex-direction:column;
-  margin-bottom: 20px;
-  h2 {
-    margin-top: 20px;
+  align-items: start;
+  // justify-content: space-between;
+  padding: 20px 0;
+  .playlists-titles {
+    display: flex;
+    flex-direction:column;
+    h2 {
     font-size: 2rem;
-  }
+    }
   .playlists-count {
     color: $inter-grey;
     font-size: 1.2rem;
+    }
   }
 }
 
+/////////////////// PLAYLIST CARD ///////////////////
 
 .playlists-cards-container {
   display: flex;
@@ -24,8 +31,8 @@
 .playlist-card {
   background-size: cover;
   background-position: center;
-  height: 120px;
-  width: 240px;
+  height: 160px;
+  width: 160px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,9 +40,10 @@
   font-size: 24px;
   font-weight: bold;
   // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin: 0 5px;
+  border-radius: 5px;
+  box-shadow: 0px 10px 40px 10px rgba(0, 0, 0, 0.3);
+  margin: 0 20px;
+  &:first-child { margin: 0 20px 0 0;}
 }
 
 .add-playlist {

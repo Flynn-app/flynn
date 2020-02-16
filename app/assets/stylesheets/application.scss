@@ -14,13 +14,14 @@
 @import "components/navbar";
 @import "components/user_bio";
 @import "components/playlist_section";
-@import "components/playlist_content";
 @import "components/podcast";
+@import "components/button";
 
 // CSS pages
 @import "pages/index";
 @import "pages/audios/show";
 @import "pages/audios/new";
+@import "pages/playlists/show";
 
 
 

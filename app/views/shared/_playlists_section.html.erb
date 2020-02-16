@@ -10,10 +10,12 @@
     <p class="playlists-count"><%= user.playlists.count %> playlists</p>
   </div>
   <div class="playlists-cards-container">
+    <% if user.playlists.empty? %>
     <div class="add-playlist">
       <i class="fas fa-plus-circle"></i>
       <%= link_to 'Ajouter une playlist', new_user_playlist_path(@user.nickname) %>
     </div>
+    <% end %>
 
     <% if @user.playlists.exists? %>
       <%= render 'shared/playlist-card' %>

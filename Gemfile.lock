@@ -218,6 +218,7 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rly (0.2.3)
+    ruby-mp3info (0.8.10)
     sassc (2.2.1)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -298,6 +299,7 @@ DEPENDENCIES
   rack-cors
   rails (= 5.2.4.1)
   redis
+  ruby-mp3info
   sassc-rails
   simple_form
   spring

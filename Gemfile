@@ -34,6 +34,9 @@ gem 'whatlanguage'
 # accept post on api from external page
 gem 'rack-cors'
 
+# get duration of mp3
+gem 'ruby-mp3info'
+
 group :development do
   gem 'web-console', '>= 3.3.0'
 end

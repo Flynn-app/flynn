@@ -1,0 +1,21 @@
+.plus-button {
+  padding: 0 5px;
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+  line-height: 2;
+  color: $medium-grey;
+  // background-color: $light-blue;
+  // border-radius: 5px;
+  i {
+    font-size: 2rem;
+    margin-left: 5px;
+  }
+  a {
+    color: $medium-grey;
+  }
+  i:hover {
+    font-size: 2.5rem;
+    color: $blue-flynn;
+  }
+}

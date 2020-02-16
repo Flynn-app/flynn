@@ -7,17 +7,22 @@
 
 .podcasts-title-section {
   display: flex;
-  flex-direction:column;
-  margin-bottom: 20px;
-  h2 {
-    margin-top: 20px;
-    font-size: 2rem;
-  }
-  .podcasts-count {
-    color: $inter-grey;
-    font-size: 1.2rem;
+  align-items: start;
+  // justify-content: space-between;
+  padding: 20px 0;
+  .podcasts-titles {
+    display: flex;
+    flex-direction:column;
+    h2 {
+      font-size: 2rem;
+    }
+    .podcasts-count {
+      color: $inter-grey;
+      font-size: 1.2rem;
+    }
   }
 }
+
 
 .podcasts-cards-container {
   display: flex;

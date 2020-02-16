@@ -2,12 +2,21 @@
 
 <div class="playlists-container">
   <div class="playlists-title-section">
-    <% if current_user %>
-      <h2>Vos playlists</h2>
-    <% else %>
-      <h2>Playlists de user.firstname</h2>
-    <% end %>
-    <p class="playlists-count"><%= user.playlists.count %> playlists</p>
+    <div class="playlists-titles">
+      <% if current_user %>
+        <h2>Vos playlists</h2>
+      <% else %>
+        <h2>Playlists de user.firstname</h2>
+      <% end %>
+      <p class="playlists-count"><%= user.playlists.count %> playlists</p>
+    </div>
+    <div class="plus-button">
+      <% if user.playlists.exists? %>
+          <%= link_to new_user_playlist_path(@user.nickname) do %>
+            <i class="fas fa-plus-circle"></i>
+          <% end %>
+      <% end %>
+    </div>
   </div>
   <div class="playlists-cards-container">
     <% if user.playlists.empty? %>

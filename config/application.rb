@@ -25,6 +25,8 @@ module Flynn
       end
     end
      # config.autoload_paths += %W( services )
+    config.time_zone = "Paris"
+    config.active_record.default_timezone = :local
 
     #for Ajax
     # config.action_view.embed_authenticity_token_in_remote_forms = true

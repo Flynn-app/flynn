@@ -28,7 +28,7 @@ class Api::V1::AudiosController < Api::V1::BaseController
         File.rename(filename, "#{i}.mp3")
         # File.delete(file)
       end
-      filenames << ["#{i}.mp3", duration ]
+      filenames << "#{i}.mp3"
       tag['data-start'] = duration
       Mp3Info.open("#{i}.mp3") do |mp3info|
         duration += mp3info.length

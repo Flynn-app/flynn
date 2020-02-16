@@ -3,6 +3,7 @@ class Api::V1::AudiosController < Api::V1::BaseController
   require 'open-uri'
   require 'nokogiri'
   require 'whatlanguage'
+  require "mp3info"
 
   def index
     @audios = policy_scope(Audio)
@@ -15,8 +16,9 @@ class Api::V1::AudiosController < Api::V1::BaseController
     # TODO correct with real user login and cookie
     # content = URI.open(@audio.text_url).read
     html_doc = Nokogiri::HTML(@audio.text_html)
-    # filenames = []
+    filenames = []
     i = 0
+    duration = 0
     html_doc.xpath('//p | //h1 | //h2 | //h3 | //h4 | //h5 | //h6 | //title ').each do |tag|
       i += 1
       tag.add_class("record")
@@ -25,6 +27,11 @@ class Api::V1::AudiosController < Api::V1::BaseController
         # @audio.audiofile.attach(io: file, filename: filename)
         File.rename(filename, "#{i}.mp3")
         # File.delete(file)
+      end
+      filenames << ["#{i}.mp3", duration ]
+      tag['data-start'] = duration
+      Mp3Info.open("#{i}.mp3") do |mp3info|
+        duration += mp3info.length
       end
     end
     binding.pry

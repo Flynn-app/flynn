@@ -7,7 +7,7 @@
     <% else %>
       <h2>Playlists de user.firstname</h2>
     <% end %>
-    <p class="playlists-count"><%= (1..12).to_a.sample %> playlists</p>
+    <p class="playlists-count"><%= user.playlists.count %> playlists</p>
   </div>
   <div class="playlists-cards-container">
     <div class="add-playlist">

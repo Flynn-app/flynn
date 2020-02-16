@@ -14,14 +14,21 @@ class Api::V1::AudiosController < Api::V1::BaseController
     # binding.pry
     # TODO correct with real user login and cookie
     # content = URI.open(@audio.text_url).read
-    @html_doc = Nokogiri::HTML(@audio.text_html)
-    binding.pry
-
-    @html_doc.xpath('//p | //h1 | //h2 | //h3 | //h4 | //h5 | //h6 | //title ').each do |tag|
+    html_doc = Nokogiri::HTML(@audio.text_html)
+    # filenames = []
+    i = 0
+    html_doc.xpath('//p | //h1 | //h2 | //h3 | //h4 | //h5 | //h6 | //title ').each do |tag|
+      i += 1
       tag.add_class("record")
+      filename = SynthesizeText.new(tag.content).synthesize_text
+      File.open(filename, "r") do |file|
+        # @audio.audiofile.attach(io: file, filename: filename)
+        File.rename(filename, "#{i}.mp3")
+        # File.delete(file)
+      end
     end
-
-    @audio.text_html = @html_doc.to_html
+    binding.pry
+    @audio.text_html = html_doc.to_html
 
 
     # @audio.title = get_title(@html_doc)
@@ -33,8 +40,9 @@ class Api::V1::AudiosController < Api::V1::BaseController
     @audio.iso = wl.language_iso(@audio.text_to_transcript).to_s
 
     filename = SynthesizeText.new(@audio.text_to_transcript).synthesize_text
-    upload_cloudinary = Cloudinary::Uploader.upload(filename, resource_type: :video)
-    @audio.audio_url = upload_cloudinary["url"]
+
+    # upload_cloudinary = Cloudinary::Uploader.upload(filename, resource_type: :video)
+    # @audio.audio_url = upload_cloudinary["url"]
 
     File.open(filename, "r") do |file|
       # @audio.audiofile.attach(io: file, filename: filename)

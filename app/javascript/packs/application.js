@@ -8,6 +8,7 @@ import "bootstrap";
 import 'plyr/dist/plyr.css';
 import Plyr from 'plyr';
 import { mercuryToAudio } from '../plugins/init_mercury.js';
+import { carousel } from '../components/carousel.js';
 
 
 const player = new Plyr(document.getElementById('player'), {

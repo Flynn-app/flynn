@@ -35,7 +35,9 @@
     <%= audio.duration %>
   </div>
   <div class="podcast-favorites">
-    <i class="far fa-heart"></i>
+    <%= link_to user_path(current_user, params: { favorites_audio: audio.id }), remote: true do %>
+      <i class="far fa-heart"></i>
+    <% end %>
   </div>
   <div class="podcast-3dots">
     <i class="fas fa-ellipsis-h"></i>

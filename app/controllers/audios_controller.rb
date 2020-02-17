@@ -71,6 +71,15 @@ class AudiosController < ApplicationController
     end
   end
 
+  def add_favorites
+    @audio = Audio.find(params[:favorites_audio]) if params[:favorites_audio]
+    @audio.update!(playlist_id: 1)
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
   private
 

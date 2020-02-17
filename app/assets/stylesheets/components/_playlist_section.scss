@@ -8,42 +8,61 @@
 
 .slick-wrapper {
   width: calc(100% + 30px); //we need more width for the shadows on the edges
-  padding: 0 15px; //space for the shadows
-  margin-left: -15px; //put the div in its original position
+  padding: 0 50px; //space for the shadows
+  margin: -50px; //put the div in its original position
   overflow: hidden;
 }
 
 .slick-list {
-  box-sizing: initial;
-  padding: 50px 0px !important;
   overflow: visible !important;
+  padding: 70px 0px !important;
 }
 
 .slick-slide {
-   opacity: 0;
-   transition: opacity 500ms;
-   &.slick-active {
-   opacity: 1;
- }
+  opacity: 0;
+  .drop-shadow {
+  box-shadow: none; //no shadow for a hidden slide
+  transition: box-shadow 0.1s ease-in-out; //little effect to fade the shadow
+  }
 }
 
-.slick-prev, .slick-next {
-  font-size: 14px;
-  line-height: 0;
+.slick-slide.slick-active {
+  opacity: 1;
+  .drop-shadow {
+  box-shadow: 0px 10px 40px 10px rgba(0, 0, 0, 0.3); //only the active slides have the shadow
+  }
+}
+
+// .slick-list {
+//   box-sizing: initial;
+//   padding: 50px 0px !important;
+//   overflow: visible !important;
+// }
+
+// .slick-slide {
+//    opacity: 0;
+//    transition: opacity 500ms;
+//    &.slick-active {
+//    opacity: 1;
+//  }
+// }
+
+.slick-arrow {
   position: absolute;
-  top: 0%;
-  display: block;
-  width: 20px;
-  height: 20px;
-  padding: 0;
-  -webkit-transform: translate(0, -50%);
-  -ms-transform: translate(0, -50%);
-  transform: translate(0, -50%);
+  z-index: 2;
+  top: 10%;
+  font-size: 1.6rem;
+  color: $medium-grey;
   cursor: pointer;
-  color: black;
-  border: none;
-  outline: none;
-  background: transparent;
+  &.fa-chevron-left {
+    right: 85px;
+  }
+  &.fa-chevron-right {
+    right: 60px;
+  }
+  &:hover {
+    color: $blue-flynn;
+  }
 }
 
 

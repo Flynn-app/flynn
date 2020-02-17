@@ -6,9 +6,11 @@ const slick_carousel = () => {
 
   $(document).ready(function(){
     $('.playlists-cards-carousel').slick({
-      infinite: false,
+      infinite: true,
       slidesToShow: 6,
       slidesToScroll: 1,
+      prevArrow: '<i class="fas fa-chevron-left"></i>',
+      nextArrow: '<i class="fas fa-chevron-right"></i>',
       responsive: [
     {
       breakpoint: 1024,

@@ -6,66 +6,6 @@
   width: 100%;
 }
 
-.slick-wrapper {
-  width: calc(100% + 30px); //we need more width for the shadows on the edges
-  padding: 0 50px; //space for the shadows
-  margin: -50px; //put the div in its original position
-  overflow: hidden;
-}
-
-.slick-list {
-  overflow: visible !important;
-  padding: 70px 0px !important;
-}
-
-.slick-slide {
-  opacity: 0;
-  .drop-shadow {
-  box-shadow: none; //no shadow for a hidden slide
-  transition: box-shadow 0.1s ease-in-out; //little effect to fade the shadow
-  }
-}
-
-.slick-slide.slick-active {
-  opacity: 1;
-  .drop-shadow {
-  box-shadow: 0px 10px 40px 10px rgba(0, 0, 0, 0.3); //only the active slides have the shadow
-  }
-}
-
-// .slick-list {
-//   box-sizing: initial;
-//   padding: 50px 0px !important;
-//   overflow: visible !important;
-// }
-
-// .slick-slide {
-//    opacity: 0;
-//    transition: opacity 500ms;
-//    &.slick-active {
-//    opacity: 1;
-//  }
-// }
-
-.slick-arrow {
-  position: absolute;
-  z-index: 2;
-  top: 10%;
-  font-size: 1.6rem;
-  color: $medium-grey;
-  cursor: pointer;
-  &.fa-chevron-left {
-    right: 85px;
-  }
-  &.fa-chevron-right {
-    right: 60px;
-  }
-  &:hover {
-    color: $blue-flynn;
-  }
-}
-
-
 /////////////////// PLAYLIST SECTION ///////////////////
 
 .playlists-title-section {

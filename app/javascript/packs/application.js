@@ -6,6 +6,7 @@ import Plyr from 'plyr';
 import { mercuryToAudio } from '../plugins/init_mercury.js';
 import { carousel } from '../components/carousel.js';
 import { slick_carousel } from '../components/init_slick.js';
+import { color_detect } from '../plugins/init_colorthief.js';
 
 
 const player = new Plyr(document.getElementById('player'), {
@@ -22,3 +23,5 @@ if (document.getElementById("mercuryButton")) {
 
 carousel();
 slick_carousel();
+color_detect();
+

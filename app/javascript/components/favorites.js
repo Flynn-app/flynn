@@ -11,8 +11,6 @@ const favorites = () => {
     });
   });
 
-
-
   const sendData = (data) => {
     const audio_id = data ;
     const url = `${ENV['SERVER_ADDRESS']}/api/v1/audios_playlists/`;

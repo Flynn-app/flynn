@@ -2,22 +2,40 @@
 
 <div class="playlists-container">
   <div class="playlists-title-section">
-    <% if current_user %>
-      <h2>Vos playlists</h2>
-    <% else %>
-      <h2>Playlists de user.firstname</h2>
-    <% end %>
-    <p class="playlists-count"><%= user.playlists.count %> playlists</p>
+    <div class="playlists-titles">
+      <% if current_user %>
+        <h2>Vos playlists</h2>
+      <% else %>
+        <h2>Playlists de user.firstname</h2>
+      <% end %>
+      <p class="playlists-count"><%= user.playlists.count %> playlists</p>
+    </div>
+    <div class="plus-button">
+      <% if user.playlists.exists? %>
+          <%= link_to new_user_playlist_path(@user.nickname) do %>
+            <i class="fas fa-plus-circle"></i>
+          <% end %>
+      <% end %>
+    </div>
   </div>
   <div class="playlists-cards-container">
+    <% if user.playlists.empty? %>
     <div class="add-playlist">
       <i class="fas fa-plus-circle"></i>
       <%= link_to 'Ajouter une playlist', new_user_playlist_path(@user.nickname) %>
     </div>
-
-    <% if @user.playlists.exists? %>
-      <%= render 'shared/playlist-card' %>
     <% end %>
+
+
+    <div class="playlists-cards-carousel slick-wrapper">
+            <% if @user.playlists.exists? %>
+              <% @user.playlists.each do |playlist| %>
+                <%= link_to user_playlist_path(playlist.user.nickname, playlist) do %>
+                  <%= render 'shared/playlist-card', playlist: playlist %>
+                <% end %>
+              <% end %>
+            <% end %>
+    </div>
 
   </div>
 

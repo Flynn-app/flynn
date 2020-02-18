@@ -4,7 +4,7 @@
   <div class="playlist-container">
     <div class="playlist-infos-container">
       <div class="playlist-image">
-        <img src="https://source.unsplash.com/200x200/?abstract">
+        <%= cl_image_tag @playlist.playlist_image.key, height: 300, width: 400, crop: :fill %>
       </div>
       <div class="playlist-infos">
         <h1 class="playlist-title"><%= @playlist.name %></h1>

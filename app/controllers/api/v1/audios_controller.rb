@@ -18,16 +18,15 @@ class Api::V1::AudiosController < Api::V1::BaseController
     filenames = []
     i = 0
     duration = 0
-    text_all = ""
+    # text_all = ""
     html_doc.xpath('//p | //h1 | //h2 | //h3 | //h4 | //h5 | //h6 | //title ').each do |tag|
       i += 1
       tag.add_class("record")
-      text_all << tag.content << " "
+      # text_all << tag.content << " "
       filename = SynthesizeText.new(tag.content).synthesize_text
+      # rename part for of mp3
       File.open(filename, "r") do |file|
-        # @audio.audiofile.attach(io: file, filename: filename)
         File.rename(filename, "#{i}.mp3")
-        # File.delete(file)
       end
       filenames << "#{i}.mp3"
       tag['data-start'] = duration
@@ -43,10 +42,10 @@ class Api::V1::AudiosController < Api::V1::BaseController
         end
       end
 
-      all_text_for_google = SynthesizeText.new(text_all).synthesize_text
 
     end
-    binding.pry
+    # all_text_for_google = SynthesizeText.new(text_all).synthesize_text
+    # upload_cloudinary = Cloudinary::Uploader.upload(all_text_for_google, resource_type: :video)
     @audio.text_html = html_doc.to_html
 
 
@@ -58,12 +57,7 @@ class Api::V1::AudiosController < Api::V1::BaseController
     @audio.language = wl.language(@audio.text_to_transcript).to_s
     @audio.iso = wl.language_iso(@audio.text_to_transcript).to_s
 
-    filename = SynthesizeText.new(@audio.text_to_transcript).synthesize_text
-
-    # upload_cloudinary = Cloudinary::Uploader.upload(filename, resource_type: :video)
-    # @audio.audio_url = upload_cloudinary["url"]
-
-    File.open(filename, "r") do |file|
+    File.open(all_text_for_google, "r") do |file|
       # @audio.audiofile.attach(io: file, filename: filename)
       File.delete(file)
     end

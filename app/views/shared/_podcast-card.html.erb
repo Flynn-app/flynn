@@ -34,10 +34,10 @@
   <div class="podcast-duration">
     <%= audio.duration %>
   </div>
-  <div class="podcast-favorites">
-    <%= link_to user_path(current_user, params: { favorites_audio: audio.id }), remote: true do %>
+  <div class="podcast-favorites" data-audio-id="<%= audio.id %>">
+    <%#= link_to user_path(current_user, params: { favorites_audio: audio.id }), remote: true do %>
       <i class="far fa-heart"></i>
-    <% end %>
+    <%# end %>
   </div>
   <div class="podcast-3dots">
     <i class="fas fa-ellipsis-h"></i>

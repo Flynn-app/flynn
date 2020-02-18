@@ -19,9 +19,11 @@ class Api::V1::AudiosController < Api::V1::BaseController
     filenames = []
     i = 0
     duration = 0
+    text_all = ""
     html_doc.xpath('//p | //h1 | //h2 | //h3 | //h4 | //h5 | //h6 | //title ').each do |tag|
       i += 1
       tag.add_class("record")
+      text_all << tag.content << " "
       filename = SynthesizeText.new(tag.content).synthesize_text
       File.open(filename, "r") do |file|
         # @audio.audiofile.attach(io: file, filename: filename)
@@ -32,6 +34,14 @@ class Api::V1::AudiosController < Api::V1::BaseController
       tag['data-start'] = duration
       Mp3Info.open("#{i}.mp3") do |mp3info|
         duration += mp3info.length
+      end
+
+      # Delete file
+
+      filenames.each do |filename|
+        File.open(filename, "r") do |file|
+        File.delete(file)
+      end
       end
     end
     binding.pry

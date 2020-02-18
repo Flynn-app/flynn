@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_18_185537) do
+ActiveRecord::Schema.define(version: 2020_02_18_223617) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2020_02_18_185537) do
   create_table "audios_playlists", force: :cascade do |t|
     t.bigint "audio_id"
     t.bigint "playlist_id"
+    t.boolean "favorite"
     t.index ["audio_id"], name: "index_audios_playlists_on_audio_id"
     t.index ["playlist_id"], name: "index_audios_playlists_on_playlist_id"
   end

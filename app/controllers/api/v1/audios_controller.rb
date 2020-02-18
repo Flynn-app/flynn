@@ -12,7 +12,6 @@ class Api::V1::AudiosController < Api::V1::BaseController
   def create
     @audio = Audio.new(audio_params)
     @audio.user = User.first
-    # binding.pry
     # TODO correct with real user login and cookie
     # content = URI.open(@audio.text_url).read
     html_doc = Nokogiri::HTML(@audio.text_html)
@@ -40,9 +39,12 @@ class Api::V1::AudiosController < Api::V1::BaseController
 
       filenames.each do |filename|
         File.open(filename, "r") do |file|
-        File.delete(file)
+          File.delete(file)
+        end
       end
-      end
+
+      all_text_for_google = SynthesizeText.new(text_all).synthesize_text
+
     end
     binding.pry
     @audio.text_html = html_doc.to_html

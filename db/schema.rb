@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_15_165650) do
+ActiveRecord::Schema.define(version: 2020_02_16_171952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2020_02_15_165650) do
     t.index ["user_id"], name: "index_audios_on_user_id"
   end
 
-  create_table "audios_playlists", id: false, force: :cascade do |t|
+  create_table "audios_playlists", force: :cascade do |t|
     t.bigint "audio_id"
     t.bigint "playlist_id"
     t.index ["audio_id"], name: "index_audios_playlists_on_audio_id"

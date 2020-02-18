@@ -33,17 +33,22 @@ class Api::V1::AudiosController < Api::V1::BaseController
       Mp3Info.open("#{i}.mp3") do |mp3info|
         duration += mp3info.length
       end
-
-      # Delete file
-
-      filenames.each do |filename|
-        File.open(filename, "r") do |file|
-          File.delete(file)
-        end
-      end
-
-
     end
+    concatfile = ""
+    filenames.each { | file | concatfile << file << '|' }
+    #concatfile.chop
+    binding.pry
+    exitfile = "#{(0...55).map { (65 + rand(26)).chr }.join}-#{Time.now.strftime('%Y-%m-%d-%H-%M-%S')}.mp3"
+    `ffmpeg -i "concat:#{concatfile.chop}" -acodec copy #{exitfile}`
+    # ffmpeg -i "concat:20181021_080743.MP3|20181021_090745.MP3|20181021_100745.MP3" -acodec copy 20181021.mp3
+
+    # Delete file
+    # filenames.each do |filename|
+    #   File.open(filename, "r") do |file|
+    #     File.delete(file)
+    #   end
+    # end
+
     # all_text_for_google = SynthesizeText.new(text_all).synthesize_text
     # upload_cloudinary = Cloudinary::Uploader.upload(all_text_for_google, resource_type: :video)
     @audio.text_html = html_doc.to_html

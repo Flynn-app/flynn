@@ -74,34 +74,41 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
         transform: translateY(- $distance);
         transition: transform 0s $easeOutBack, opacity 0s;
     }
-    // &:first-child:after {
-    //     opacity: 1;
-    //     transform: translateY($distance/2);
-    //     transition: transform $duration $easeOutBack, opacity $duration;
-    // }
     &:after {
         opacity: 0;
         transform: translateY($distance/2);
         transition: transform $duration $easeOutBack, opacity $duration;
     }
-    &:hover,
-    &:focus {
-        // &:first-child:after {
-        //     opacity: 0;
-        // }
-        &:before,
-        &:after {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        &:before {
-            transition: transform $duration $easeOutBack, opacity $duration;
-        }
-        &:after {
-            transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
-        }
-    }
+    // &:hover,
+    // &:focus {
+    //     // &:first-child:after {
+    //     //     opacity: 0;
+    //     // }
+    //     &:before,
+    //     &:after {
+    //         opacity: 1;
+    //         transform: translateY(0);
+    //     }
+    //     &:before {
+    //         transition: transform $duration $easeOutBack, opacity $duration;
+    //     }
+    //     &:after {
+    //         transition: transform 0s $duration $easeOutBack, opacity 0s $duration;
+    //     }
+    // }
 }
+
+#audio_new a.nav-item.nav-link.active:after {
+        opacity: 1;
+        transform: translateY($distance/2);
+        transition: transform $duration $easeOutBack, opacity $duration;
+}
+
+// #audio_new a.nav-item.nav-link:focus:before {
+//         opacity: 0;
+//         transform: translateY($distance/2);
+//         transition: transform $duration $easeOutBack, opacity $duration;
+// }
 
 .nav-tabs .nav-link, .nav-tabs .nav-item.show .nav-link {
   border: 0px;

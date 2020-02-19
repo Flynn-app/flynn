@@ -4,7 +4,11 @@
   <div class="playlist-container">
     <div class="playlist-infos-container">
       <div class="playlist-image">
-        <img src="https://source.unsplash.com/200x200/?abstract">
+        <% if @playlist.playlist_image.attached? %>
+          <%= cl_image_tag @playlist.playlist_image.key, height: 300, width: 400, crop: :fill %>
+        <% else %>
+          <img src="https://source.unsplash.com/200x200/?abstract">
+        <% end %>
       </div>
       <div class="playlist-infos">
         <h1 class="playlist-title"><%= @playlist.name %></h1>
@@ -14,18 +18,7 @@
           </div>
         </div>
         <div class="playlist-description">
-          <%#= @playlist.description %>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Aut a, voluptate! Minus id quia eaque? Repudiandae beatae earum autem
-          fugit atque fugiat debitis, temporibus, libero quidem! Inventore dolores odit similique!
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Veniam minima expedita et quos reprehenderit repellat,
-          rerum laborum ullam a omnis. Quo recusandae reprehenderit asperiores,
-          soluta in eius, illum quisquam voluptate.
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Soluta incidunt illo illum dignissimos aliquam qui voluptas,
-          animi vero, obcaecati natus aperiam neque expedita nisi blanditiis
-          vel, optio fuga. Doloremque, autem.
+          <%= @playlist.description %>
         </div>
         <div class="btn btn-primary playlist-play-button">
           Lire

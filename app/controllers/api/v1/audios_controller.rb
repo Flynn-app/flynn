@@ -36,22 +36,27 @@ class Api::V1::AudiosController < Api::V1::BaseController
     end
     concatfile = ""
     filenames.each { | file | concatfile << file << '|' }
-    #concatfile.chop
-    #TODO poster sur cloudinary tester et poster sur heroku
-    binding.pry
-    exitfile = "#{(0...55).map { (65 + rand(26)).chr }.join}-#{Time.now.strftime('%Y-%m-%d-%H-%M-%S')}.mp3"
+
+    exitfile = "#{(0...15).map { (65 + rand(26)).chr }.join}-#{Time.now.strftime('%Y-%m-%d-%H-%M-%S')}.mp3"
     `ffmpeg -i "concat:#{concatfile.chop}" -acodec copy #{exitfile}`
+
+    upload_cloudinary = Cloudinary::Uploader.upload(exitfile, resource_type: :video)
+    @audio.audio_url = upload_cloudinary["url"]
+    @audio.duration = calc_duration(upload_cloudinary["duration"])
+
     # ffmpeg -i "concat:20181021_080743.MP3|20181021_090745.MP3|20181021_100745.MP3" -acodec copy 20181021.mp3
 
     # Delete file
-    # filenames.each do |filename|
-    #   File.open(filename, "r") do |file|
-    #     File.delete(file)
-    #   end
-    # end
+    filenames.each do |filename|
+      File.open(filename, "r") do |file|
+        File.delete(file)
+      end
+    end
 
+    File.open(exitfile, "r") do |file|
+        File.delete(file)
+    end
     # all_text_for_google = SynthesizeText.new(text_all).synthesize_text
-    # upload_cloudinary = Cloudinary::Uploader.upload(all_text_for_google, resource_type: :video)
     @audio.text_html = html_doc.to_html
 
 
@@ -63,10 +68,10 @@ class Api::V1::AudiosController < Api::V1::BaseController
     @audio.language = wl.language(@audio.text_to_transcript).to_s
     @audio.iso = wl.language_iso(@audio.text_to_transcript).to_s
 
-    File.open(all_text_for_google, "r") do |file|
-      # @audio.audiofile.attach(io: file, filename: filename)
-      File.delete(file)
-    end
+    # File.open(all_text_for_google, "r") do |file|
+    #   # @audio.audiofile.attach(io: file, filename: filename)
+    #   File.delete(file)
+     # end
 
     if @audio.save
       render json: @audio
@@ -96,5 +101,9 @@ class Api::V1::AudiosController < Api::V1::BaseController
     tags.each do |tag|
       return doc.search(tag).text unless doc.search(tag).empty?
     end
+  end
+
+  def calc_duration(duration)
+    Time.at(duration).utc.strftime("%M:%S").sub(/^0/, '')
   end
 end

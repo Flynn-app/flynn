@@ -35,7 +35,7 @@
     <%= audio.duration %>
   </div>
   <div class="podcast-favorites" data-audio-id="<%= audio.id %>">
-    <% if audio.audios_playlists.first.favorite? %>
+    <% if !audio.audios_playlists.first.nil? && audio.audios_playlists.first.favorite?  %>
       <i class="fas fa-heart"></i>
     <% else %>
       <i class="far fa-heart"></i>

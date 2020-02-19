@@ -37,6 +37,7 @@ class Api::V1::AudiosController < Api::V1::BaseController
     concatfile = ""
     filenames.each { | file | concatfile << file << '|' }
     #concatfile.chop
+    #TODO poster sur cloudinary tester et poster sur heroku
     binding.pry
     exitfile = "#{(0...55).map { (65 + rand(26)).chr }.join}-#{Time.now.strftime('%Y-%m-%d-%H-%M-%S')}.mp3"
     `ffmpeg -i "concat:#{concatfile.chop}" -acodec copy #{exitfile}`

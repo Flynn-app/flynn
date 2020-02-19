@@ -10,15 +10,17 @@ const favorites = () => {
       audioFav.querySelector('i').classList.toggle('fas');
       const playlistShowPage = document.querySelector('.playlists_show');
       if (playlistShowPage) {
-      // event.currentTarget.parentElement.style.cssText = "visibility: hidden; opacity: 0; transition: visibility 0s linear 0.33s, opacity 0.33s linear;" ;
-      const cardAnimate = event.currentTarget.parentElement.parentElement
+        const favPlaylist = document.querySelector('.playlist-container[data-fav=favorite]');
+        if (favPlaylist) {
+          const cardAnimate = event.currentTarget.parentElement.parentElement
 
-      cardAnimate.classList.add('card-transition');
-      cardAnimate.classList.add('card-hidden');
+          cardAnimate.classList.add('card-transition');
+          cardAnimate.classList.add('card-hidden');
 
-      cardAnimate.addEventListener('transitionend', () => {
-          cardAnimate.classList.remove('card-transition');
-        }, false);
+          cardAnimate.addEventListener('transitionend', () => {
+              cardAnimate.classList.remove('card-transition');
+            }, false);
+        }
       }
     });
   });

@@ -9,6 +9,12 @@ class PlaylistsController < ApplicationController
   def show
     # @user = current_user
     authorize @playlist
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def new

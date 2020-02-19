@@ -3,6 +3,7 @@ class Api::V1::AudiosController < Api::V1::BaseController
   require 'open-uri'
   require 'nokogiri'
   require 'whatlanguage'
+  require "mp3info"
 
   def index
     @audios = policy_scope(Audio)
@@ -11,12 +12,55 @@ class Api::V1::AudiosController < Api::V1::BaseController
   def create
     @audio = Audio.new(audio_params)
     @audio.user = User.first
-    # binding.pry
     # TODO correct with real user login and cookie
     # content = URI.open(@audio.text_url).read
-    # html_doc = Nokogiri::HTML(content)
+    html_doc = Nokogiri::HTML(@audio.text_html)
+    filenames = []
+    i = 0
+    duration = 0
+    text_all = ""
+    html_doc.xpath('//p | //h1 | //h2 | //h3 | //h4 | //h5 | //h6 | //title ').each do |tag|
+      i += 1
+      tag.add_class("record")
+      text_all << tag.content << " "
+      filename = SynthesizeText.new(tag.content).synthesize_text
+      # rename part for of mp3
+      File.open(filename, "r") do |file|
+        File.rename(filename, "#{i}.mp3")
+      end
+      filenames << "#{i}.mp3"
+      tag['data-start'] = duration
+      Mp3Info.open("#{i}.mp3") do |mp3info|
+        duration += mp3info.length
+      end
+    end
+    concatfile = ""
+    filenames.each { | file | concatfile << file << '|' }
 
-    # @audio.title = get_title(html_doc)
+    exitfile = "#{(0...15).map { (65 + rand(26)).chr }.join}-#{Time.now.strftime('%Y-%m-%d-%H-%M-%S')}.mp3"
+    `ffmpeg -i "concat:#{concatfile.chop}" -acodec copy #{exitfile}`
+
+    upload_cloudinary = Cloudinary::Uploader.upload(exitfile, resource_type: :video)
+    @audio.audio_url = upload_cloudinary["url"]
+    @audio.duration = calc_duration(upload_cloudinary["duration"])
+
+    # ffmpeg -i "concat:20181021_080743.MP3|20181021_090745.MP3|20181021_100745.MP3" -acodec copy 20181021.mp3
+
+    # Delete file
+    filenames.each do |filename|
+      File.open(filename, "r") do |file|
+        File.delete(file)
+      end
+    end
+
+    File.open(exitfile, "r") do |file|
+        File.delete(file)
+    end
+    # all_text_for_google = SynthesizeText.new(text_all).synthesize_text
+    @audio.text_html = html_doc.to_html
+    @audio.text_to_transcript = text_all
+
+    # @audio.title = get_title(@html_doc)
 
     # text_content = Boilerpipe::Extractors::ArticleExtractor.text(content)
     # @audio.text_to_transcript = text_content
@@ -24,14 +68,10 @@ class Api::V1::AudiosController < Api::V1::BaseController
     @audio.language = wl.language(@audio.text_to_transcript).to_s
     @audio.iso = wl.language_iso(@audio.text_to_transcript).to_s
 
-    filename = SynthesizeText.new(@audio.text_to_transcript).synthesize_text
-    upload_cloudinary = Cloudinary::Uploader.upload(filename, resource_type: :video)
-    @audio.audio_url = upload_cloudinary["url"]
-
-    File.open(filename, "r") do |file|
-      # @audio.audiofile.attach(io: file, filename: filename)
-      File.delete(file)
-    end
+    # File.open(all_text_for_google, "r") do |file|
+    #   # @audio.audiofile.attach(io: file, filename: filename)
+    #   File.delete(file)
+     # end
 
     if @audio.save
       render json: @audio
@@ -61,5 +101,9 @@ class Api::V1::AudiosController < Api::V1::BaseController
     tags.each do |tag|
       return doc.search(tag).text unless doc.search(tag).empty?
     end
+  end
+
+  def calc_duration(duration)
+    Time.at(duration).utc.strftime("%M:%S").sub(/^0/, '')
   end
 end

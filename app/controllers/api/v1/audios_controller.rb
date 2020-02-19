@@ -18,11 +18,11 @@ class Api::V1::AudiosController < Api::V1::BaseController
     filenames = []
     i = 0
     duration = 0
-    # text_all = ""
+    text_all = ""
     html_doc.xpath('//p | //h1 | //h2 | //h3 | //h4 | //h5 | //h6 | //title ').each do |tag|
       i += 1
       tag.add_class("record")
-      # text_all << tag.content << " "
+      text_all << tag.content << " "
       filename = SynthesizeText.new(tag.content).synthesize_text
       # rename part for of mp3
       File.open(filename, "r") do |file|
@@ -58,7 +58,7 @@ class Api::V1::AudiosController < Api::V1::BaseController
     end
     # all_text_for_google = SynthesizeText.new(text_all).synthesize_text
     @audio.text_html = html_doc.to_html
-
+    @audio.text_to_transcript = text_all
 
     # @audio.title = get_title(@html_doc)
 

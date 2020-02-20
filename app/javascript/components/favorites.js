@@ -8,6 +8,20 @@ const favorites = () => {
       sendData(audio);
       audioFav.querySelector('i').classList.toggle('far');
       audioFav.querySelector('i').classList.toggle('fas');
+      const playlistShowPage = document.querySelector('.playlists_show');
+      if (playlistShowPage) {
+        const favPlaylist = document.querySelector('.playlist-container[data-fav=favorite]');
+        if (favPlaylist) {
+          const cardAnimate = event.currentTarget.parentElement.parentElement
+
+          cardAnimate.classList.add('card-transition');
+          cardAnimate.classList.add('card-hidden');
+
+          cardAnimate.addEventListener('transitionend', () => {
+              cardAnimate.classList.remove('card-transition');
+            }, false);
+        }
+      }
     });
   });
 
@@ -20,9 +34,19 @@ const favorites = () => {
       "Accept": "application/json"
     },
     body: JSON.stringify({ "audio_id": audio_id})
-    }).then(response => console.log(response))
+    }).then(response => response)
   };
 };
+
+// const reloadPlaylistPage = () => {
+//   const playlistShowPage = document.querySelector('.playlists_show .playlist-favorites')
+//   if (playlistShowPage) {
+//     playlistShowPage.addEventListener("click", (event) => {
+//     // document.location.reload(true);
+//     console.log(event)
+//   });
+//   }
+// }
 
 const redirect = (user) => {
   window.location= `/users/${user}` ;

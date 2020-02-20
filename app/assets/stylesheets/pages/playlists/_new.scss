@@ -20,15 +20,6 @@
   justify-content: center;
 }
 
-/* .custom-file-input:lang(en)::after {
-  content: "Select file...";
-}
-
-.custom-file-input:lang(en)::before {
-  content: "Click me";
-} */
-
-
 .custom-file-input::-webkit-file-upload-button {
   visibility: hidden;
 }

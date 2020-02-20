@@ -15,6 +15,9 @@
     </div>
   </div>
 </div>
+<div class="position-fixed fixed-bottom w-100">
+  <%= render 'shared/audio_player', audio: @audio %>
+</div>
 <!--   <%# audiofile = cloudinary_url(@audio.audio_url, resource_type: :video) %>
   <%#= render './shared/audio_player', audio_file: audiofile, audio: @audio %> -->
 

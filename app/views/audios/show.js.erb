@@ -1,27 +1,6 @@
-alert('Bien ou Bien 3 ??')
-// document.querySelector('.audio-details').innerHTML = '<%= j render "shared/audio_player_track_details", audio: @audio %>'
+console.log('Bien ou Bien 3 ??')
+document.querySelector('.audio-details').innerHTML = '<%= j render "shared/audio_player_track_details", audio: @audio %>';
 
-// player.src = "<%= @url %>";
-// document.querySelector('.plyr__control').click()
+ player.src = "<%= @url %>";
+//document.querySelector('.plyr__control').click()
 
-
-
-// <div class="content-container">
-//   <div class="content">
-//     <div class="article-header">
-//       <h1> <%= @audio.title %></h1>
-//       <div class="original-link">
-//         <% if @audio.text_url.present? %>
-//           Article original sur <%= link_to @audio.text_url do  %>
-//             <%= URI.parse(@audio.text_url).host.sub(/\Awww\./, '') %>
-//             <% end %>
-//         <% end %>
-//       </div>
-//     </div>
-//     <div class="article-content">
-//       <p><%= @audio.text_to_transcript %></p>
-//     </div>
-//   </div>
-// </div>
-//   <% audiofile = cloudinary_url(@audio.audio_url, resource_type: :video) %>
-//   <%= render './shared/audio_player', audio_file: audiofile, audio: @audio %>

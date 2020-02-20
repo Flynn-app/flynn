@@ -56,6 +56,13 @@ class AudiosController < ApplicationController
   def show
     @audio = Audio.find(params[:id])
     authorize @audio
+    @url = @audio.audio_url
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def index

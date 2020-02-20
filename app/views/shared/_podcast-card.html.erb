@@ -14,7 +14,7 @@
     </div>
     <div class="podcast-text">
       <div class="podcast-title">
-        <%= audio.title.truncate(100) %>
+        <a href="/audios/<%= audio.id %>"><%= audio.title.truncate(100) %></a>
       </div>
       <div class="podcast-desc">
         <%= audio.text_to_transcript.truncate(190) %>
@@ -46,8 +46,5 @@
       <i class="fas fa-ellipsis-h"></i>
     </div>
   </div>
-
-
-
 </div>
 

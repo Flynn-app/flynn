@@ -22,6 +22,7 @@ module Flynn
         # resource '*', headers: :any, methods: [:post]
         # resource '*', headers: :any, methods: [:get, :post, :delete, :put, :patch, :options, :head]
         resource '/api/v1/audios', headers: :any, methods: [:post]
+        resource '/api/v1/audios_playlists', headers: :any, methods: [:post]
       end
     end
      # config.autoload_paths += %W( services )

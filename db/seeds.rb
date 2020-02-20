@@ -67,6 +67,22 @@ p2 = Playlist.create!(
 )
 puts "Playlist ##{p2.id} | #{p2.name} created"
 
+p3 = Playlist.create!(
+  name: "la playlist 2",
+  description: Faker::Quote.matz,
+  category: Faker::Food.fruits,
+  user: users.sample
+)
+puts "Playlist ##{p3.id} | #{p3.name} created"
+
+p4 = Playlist.create!(
+  name: "la playlist 2",
+  description: Faker::Quote.matz,
+  category: Faker::Food.fruits,
+  user: users.sample
+)
+puts "Playlist ##{p4.id} | #{p4.name} created"
+
 puts "✔ All playlists have been created"
 puts ""
 puts ""
@@ -115,21 +131,24 @@ puts "Podcast ##{a3.id} created"
 puts "✔ All podcats have been created"
 
 audios = Audio.all
-playlists = Playlist.all
+playlists_all = Playlist.all
+playlists = playlists_all.sample(playlists_all.length - 1)
 puts ""
 puts ""
 
 puts "➕ Create associations"
 
 ap1 = AudiosPlaylist.create!(
-  audio: audios.sample,
-  playlist: Playlist.first
+  audio: a1,
+  playlist: p1,
+  favorite: true
   )
 puts "Association ##{ap1.id} created"
 
 ap2 = AudiosPlaylist.create!(
-  audio: audios.sample,
-  playlist: Playlist.first
+  audio: a2,
+  playlist: playlists_all.first,
+  favorite: true
   )
 puts "Association ##{ap2.id} created"
 

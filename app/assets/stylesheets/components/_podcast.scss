@@ -119,6 +119,7 @@
     width: 50px;
     display: flex;
     justify-content: center;
+    i.fas {color: $blue_flynn}
   }
   .podcast-3dots {
     width: 30px;
@@ -130,5 +131,21 @@
   &:hover {
     background-color: $light-blue;
   }
+}
+
+.podcast-card-transition {
+  opacity: 1;
+  margin: 4px 0;
+  display: block;
+}
+.card-hidden {
+  display: none;
+}
+.card-transition.card-hidden {
+    display: block;
+    opacity: 0;
+}
+.card-transition {
+  transition: opacity 0.3s ease;
 }
 

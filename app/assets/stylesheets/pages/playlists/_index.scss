@@ -1,0 +1,15 @@
+.playlists-page {
+  flex-wrap: wrap;
+  color: $dark_grey;
+  a {
+    text-decoration: none;
+    color: $dark_grey;
+  }
+  .playlist-card {
+    width: 250px;
+    height: 250px;
+    margin: 0;
+  }
+}
+
+

@@ -2,13 +2,20 @@ class PlaylistsController < ApplicationController
   before_action :set_playlist, only: [:show, :update, :edit, :delete]
 
   def index
-    @playlists = Playlist.all
-    authorize @playlists
+    @playlists = policy_scope(Playlist)
+    @user = User.find_by(nickname: params[:user_nickname])
+    @playlists = Playlist.where(user_id: @user)
   end
 
   def show
-    # @user = current_user
+    @user = current_user
     authorize @playlist
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+
   end
 
   def new

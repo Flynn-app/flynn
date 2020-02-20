@@ -13,19 +13,62 @@ if ("<%= @audio.id %>" === audioIdData) {
 
 player.src = "<%= @url %>";
 
-var playBtnDiv = document.querySelector('.podcast-play-button');
-var playBtn = document.querySelector('.podcast-play-button i');
-var started = playBtnDiv.classList.contains('play-true');
-if (started) {
-  playBtn.classList.toggle('fa-play');
-  playBtn.classList.toggle('fa-volume-up');
-} else {
-  playBtn.classList.toggle('fa-volume-up');
-  playBtn.classList.toggle('fa-play');
-}
- document.querySelector('.plyr__control').click();
+// var playBtnDiv = document.querySelector('.podcast-play-button');
+// var playBtn = document.querySelector('.podcast-play-button i');
+// var started = playBtnDiv.classList.contains('play-true');
+// if (started) {
+//   playBtn.classList.toggle('fa-play');
+//   playBtn.classList.toggle('fa-volume-up');
+// } else {
+//   playBtn.classList.toggle('fa-volume-up');
+//   playBtn.classList.toggle('fa-play');
+// }
+//  document.querySelector('.plyr__control').click();
 
-// var buttons = document.querySelectorAll('.podcast-play-button i').forEach((button) => {
+// var button = document.querySelector('.podcast-play-button i');
+var buttonDiv = document.querySelector('.podcast-play-button');
+document.querySelector('.plyr__control').click();
+
+var started = buttonDiv.classList.contains('play-true');
+if (started) {
+  // button.classList.toggle('fa-play');
+  // button.classList.toggle('fa-volume-up');
+  var buttons = document.querySelectorAll('.podcast-play-button a').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      button.classList.toggle('fa-play');
+      button.classList.toggle('fa-volume-up');
+      event.preventDefault();
+      event.stopImmediatePropagation()
+      // btn.parentElement.removeAttribute("href");
+      // event.classList.toggle('fa-play');
+      // event.classList.toggle('fa-volume-up');
+   });
+  })
+} else {
+  console.log("nop")
+}
+
+
+
+//   })
+//   button.classList.toggle('fa-play');
+//   button.classList.toggle('fa-volume-up');
+// };
+
+// button.addEventListener("click", (event) => {
+//   console.log(event);
+// });
+
+//     console.log(event);
+//     document.querySelector('.plyr__control').click();
+//     // const started = e.currentTarget.classList.contains('play-true');
+//     // if (started) {
+//     //   e.preventDefault();
+//     //   button.classList.toggle('fa-play');
+//     //   button.classList.toggle('fa-volume-up');
+//     // };
+//   });
+// });
 
 //   const playBtnDiv = document.querySelector('.podcast-play-button');
 //   const playBtn = document.querySelector('.podcast-play-button i');

@@ -1,13 +1,23 @@
 <div class="container offset-sm-3 col-sm-6" id="playlist_new">
 
-<%= simple_form_for [@user, @playlist] do |f| %>
-  <%= f.input :name, :label => "Nom", placeholder: 'Mettre ici le titre de la playlist' %>
-  <%= f.input :description, :label => "Description", placeholder: 'Mettre ici la description de la playlist' %>
-  <%= f.input :category, :label => "Mettre ici les catégories séparées par une virgule", placeholder: 'Catégories' %>
-  <input as="file" type="file" name="playlist[playlist_image]" id="playlist_playlist_image">
-<br>
-<br>
-  <%= f.submit "Créer une playlist", class: "btn btn-primary btn-holder" %>
-<% end %>
+<form class="simple_form new_playlist" id="new_playlist" novalidate="novalidate" enctype="multipart/form-data" action="/users/1/playlists" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="2Dqdc2qzKaV7a35KY09NX/aAWgcBtBgQ2217UJud7K9zJE3iFZWlzvA2BcouOZosFpblgAAX5xzFoc1o1eNT5A==">
+  <div class="form-group string optional playlist_name"><label class="string optional" for="playlist_name">Nom</label><input class="form-control string optional" placeholder="Mettre ici le titre de la playlist" type="text" name="playlist[name]" id="playlist_name"></div>
+  <div class="form-group text optional playlist_description"><label class="text optional" for="playlist_description">Description</label><textarea class="form-control text optional" placeholder="Mettre ici la description de la playlist" name="playlist[description]" id="playlist_description"></textarea></div>
+  <div class="form-group string optional playlist_category"><label class="string optional" for="playlist_category">Mettre ici les catégories séparées par une virgule</label><input class="form-control string optional" placeholder="Catégories" type="text" name="playlist[category]" id="playlist_category"></div>
+<!--   <input as="file" type="file" name="playlist[playlist_image]" id="playlist_playlist_image"> -->
 
+
+  <div class="input-group mb-3">
+  <div class="custom-file">
+    <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Charger ici une image pour votre playlist</label>
+    <input as="file" type="file" name="playlist[playlist_image]" class="custom-file-input" id="inputGroupFile02">
+  </div>
 </div>
+<br>
+<br>
+  <input type="submit" name="commit" value="Créer une playlist" class="btn btn-primary btn-holder" data-disable-with="Créer une playlist">
+</form>
+</div>
+
+
+

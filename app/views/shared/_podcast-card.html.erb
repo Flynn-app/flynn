@@ -1,48 +1,53 @@
-<div class="podcast-card-container">
-  <div class="podcast-play-button">
-    <%= link_to user_path(current_user, params: { audio: audio.id }), remote: true do %>
+<div class="podcast-card-transition">
+  <div class="podcast-card-container">
+    <div class="podcast-play-button">
+      <%= link_to user_path(current_user, params: { audio: audio.id }), remote: true do %>
       <i class="fas fa-play"></i>
-    <% end %>
-  </div>
-  <div class="podcast-image">
-    <% if audio.text_image.present? %>
-      <%= image_tag(audio.text_image) %>
-    <% else %>
-      <img src="https://source.unsplash.com/90x90/?abstract, <%= (0..200).to_a.sample %>" >
-    <% end %>
-  </div>
-  <div class="podcast-text">
-    <div class="podcast-title">
-      <%= audio.title.truncate(100) %>
-    </div>
-    <div class="podcast-desc">
-      <%= audio.text_to_transcript.truncate(190) %>
-    </div>
-    <div class="podcast-media">
-      <% if audio.text_url.present? %>
-        <%= link_to audio.text_url do  %>
-          <%= URI.parse(audio.text_url).host.sub(/\Awww\./, '') %>
-        <% end %>
-      <% else %>
-        Import
       <% end %>
     </div>
-  </div>
-  <div class="podcast-date">
-    <%= audio.created_at.strftime("%d-%m-%Y") %>
-  </div>
-  <div class="podcast-duration">
-    <%= audio.duration %>
-  </div>
-  <div class="podcast-favorites" data-audio-id="<%= audio.id %>">
-    <% if audio.audios_playlists.find_by(playlist_id: current_user.playlists.first).nil? %>
+    <div class="podcast-image">
+      <% if audio.text_image.present? %>
+      <%= image_tag(audio.text_image) %>
+      <% else %>
+      <img src="https://source.unsplash.com/90x90/?abstract, <%= (0..200).to_a.sample %>" >
+      <% end %>
+    </div>
+    <div class="podcast-text">
+      <div class="podcast-title">
+        <%= audio.title.truncate(100) %>
+      </div>
+      <div class="podcast-desc">
+        <%= audio.text_to_transcript.truncate(190) %>
+      </div>
+      <div class="podcast-media">
+        <% if audio.text_url.present? %>
+        <%= link_to audio.text_url do  %>
+        <%= URI.parse(audio.text_url).host.sub(/\Awww\./, '') %>
+        <% end %>
+        <% else %>
+        Import
+        <% end %>
+      </div>
+    </div>
+    <div class="podcast-date">
+      <%= audio.created_at.strftime("%d-%m-%Y") %>
+    </div>
+    <div class="podcast-duration">
+      <%= audio.duration %>
+    </div>
+    <div class="podcast-favorites" data-audio-id="<%= audio.id %>">
+      <% if audio.audios_playlists.find_by(playlist_id: current_user.playlists.first).nil? %>
       <i class="far fa-heart"></i>
-    <% else %>
+      <% else %>
       <i class="fas fa-heart"></i>
-    <% end %>
+      <% end %>
+    </div>
+    <div class="podcast-3dots">
+      <i class="fas fa-ellipsis-h"></i>
+    </div>
   </div>
-  <div class="podcast-3dots">
-    <i class="fas fa-ellipsis-h"></i>
-  </div>
+
+
+
 </div>
 

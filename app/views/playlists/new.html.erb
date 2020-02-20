@@ -1,11 +1,12 @@
-<div class="container" id="playlist_new">
+<div class="container offset-sm-3 col-sm-6" id="playlist_new">
 
 <%= simple_form_for [@user, @playlist] do |f| %>
-  <%= f.input :name, placeholder: 'super playlist' %>
-  <%= f.input :description, placeholder: 'cette playlist est très très bien' %>
-  <%= f.input :category, placeholder: 'Thémarique que la playlist' %>
-  <%= f.file_field :playlist_image, as: :file %>
-
+  <%= f.input :name, :label => "Nom", placeholder: 'Mettre ici le titre de la playlist' %>
+  <%= f.input :description, :label => "Description", placeholder: 'Mettre ici la description de la playlist' %>
+  <%= f.input :category, :label => "Mettre ici les catégories séparées par une virgule", placeholder: 'Catégories' %>
+  <input as="file" type="file" name="playlist[playlist_image]" id="playlist_playlist_image">
+<br>
+<br>
   <%= f.submit "Créer une playlist", class: "btn btn-primary btn-holder" %>
 <% end %>
 

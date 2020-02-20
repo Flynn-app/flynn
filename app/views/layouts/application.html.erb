@@ -17,7 +17,7 @@
       <div class="player-on-top">
         <%#= render 'shared/audio_player', audio_file: Audio.first.audio_url, audio: Audio.first %>
         <%#= raise %>
-        <%= render 'shared/audio_player', audio: Audio.first %>
+        <%= render 'shared/audio_player', audio: Audio.first unless ( params[:controller] == 'audios' && params[:action] == 'show')%>
       </div>
     <% end %>
     <div class="d-flex">

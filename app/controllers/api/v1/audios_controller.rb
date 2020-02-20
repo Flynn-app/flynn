@@ -42,7 +42,7 @@ class Api::V1::AudiosController < Api::V1::BaseController
 
     upload_cloudinary = Cloudinary::Uploader.upload(exitfile, resource_type: :video)
     @audio.audio_url = upload_cloudinary["url"]
-    @audio.duration = calc_duration(upload_cloudinary["duration"])
+    @audio.duration = upload_cloudinary["duration"]
 
     # ffmpeg -i "concat:20181021_080743.MP3|20181021_090745.MP3|20181021_100745.MP3" -acodec copy 20181021.mp3
 

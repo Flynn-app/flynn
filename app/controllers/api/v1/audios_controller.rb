@@ -21,7 +21,7 @@ class Api::V1::AudiosController < Api::V1::BaseController
 
     # Disassemble html and modify it, create audios of part
     html_doc = Nokogiri::HTML(@audio.text_html)
-    html_doc.xpath('//p | //h1 | //h2 | //h3 | //h4 | //h5 | //h6 | //title ').each do |tag|
+    html_doc.xpath('//p | //h1 | //h2 | //h3 | //h4 | //h5 | //h6 | //title | //li').each do |tag|
 
       tag.add_class("record")
       text_all << tag.content << " "

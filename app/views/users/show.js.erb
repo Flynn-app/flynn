@@ -1,9 +1,179 @@
 console.log('Bien ou Bien. ??')
-document.querySelector('.audio-details').innerHTML = '<%= j render "shared/audio_player_track_details", audio: @audio %>'
-
+document.querySelector('.audio-details').innerHTML = '<%= j render "shared/audio_player_track_details", audio: @audio %>';
 
 player.src = "<%= @url %>";
-document.querySelector('.plyr__control').click()
+
+var audioPlayButtons = document.querySelectorAll('.podcast-play-button').forEach((audioButton) => {
+  if (audioButton.dataset.audioId == "<%= @audio.id %>") {
+    audioButton.querySelector('i').classList.toggle('fa-play');
+    audioButton.querySelector('i').classList.toggle('fa-volume-up');
+  } else {
+    audioButton.querySelector('i').classList.remove('fa-volume-up');
+    audioButton.querySelector('i').classList.add('fa-play');
+  }
+});
+var plyrClick = document.querySelector('.plyr__control');
+plyrClick.click();
+
+player.title = "<%= @audio.id %>"
+
+var checkAudioPlay = document.querySelectorAll('.podcast-play-button').forEach((audio) => {
+  audio.addEventListener("click", (event) => {
+    var playing = document.querySelector('.plyr--playing');
+    if (audio.dataset.audioId == player.title) {
+      // document.querySelector('.plyr__control').click();
+      // console.log('meme audio');
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      document.querySelector('.plyr__control').click();
+      audio.querySelector('i').classList.toggle('fa-volume-up');
+      audio.querySelector('i').classList.toggle('fa-play');
+    } else {
+      var toggle = document.querySelector('.fa-volume-up');
+      toggle.classList.remove();
+    }
+  });
+})
+
+// var checkPlyrClick = plyrClick.addEventListener('click', event => {
+
+//     // if (btnPlaying != null) {
+//     //   var audioId = btnPlaying.parentElement.parentElement.dataset.audioId;
+//     // }
+//     var btnPlaying = document.querySelector('.fa-volume-up');
+//     var plyrPaused = document.querySelector('.plyr--paused');
+
+//     if (plyrPaused) {
+//       console.log('coucou')
+//       btnPlaying.classList.toggle('fa-volume-up');
+//       btnPlaying.classList.toggle('fa-play');
+//     }
+//     // else {
+//     //   // var audioBtns = document.querySelectorAll('.podcast-play-button').forEach((audioBtn) => {
+//     //   // if (audioBtn.dataset.audioId == audioId) {
+//     //   //   audioBtn.querySelector('i').classList.toggle('fa-volume-up');
+//     //   //   audioBtn.querySelector('i').classList.toggle('fa-play');
+//     //   // }
+//     //   // });
+//     //   btnPlaying.classList.toggle('fa-volume-up');
+//     //   btnPlaying.classList.toggle('fa-play');
+//     // }
+// })
+
+
+
+
+
+// var audioIdData = document.querySelector('.podcast-play-button').dataset.audioId;
+// console.log(audioIdData);
+// console.log("<%= @audio.id %>");
+
+// if ("<%= @audio.id %>" === audioIdData) {
+//   console.log('ok');
+//   document.querySelector('.podcast-play-button').classList.add('play-true');
+// };
+
+// 1. selectionner tous les liens
+// 2. sur chaque lien on ajout eventlistener click
+
+// 3. récupérer l'état du player pour savoir si le player joue ou pas le son du bouton sur lequel on a cliqué
+// 4. if false, document click
+// 4. if true, prevent default sur l'event, document click pour pause , et change l'icone
+
+
+// var buttonDiv = document.querySelector('.podcast-play-button');
+
+
+// var buttons = document.querySelectorAll('.podcast-play-button a').forEach((link) => {
+
+// }
+
+// var started = buttonDiv.classList.contains('play-true');
+// if (started) {
+//   // button.classList.toggle('fa-play');
+//   // button.classList.toggle('fa-volume-up');
+//     link.addEventListener("click", (event) => {
+//       button.classList.toggle('fa-play');
+//       button.classList.toggle('fa-volume-up');
+//       event.preventDefault();
+//       event.stopImmediatePropagation()
+//       // btn.parentElement.removeAttribute("href");
+//       // event.classList.toggle('fa-play');
+//       // event.classList.toggle('fa-volume-up');
+//    });
+//   })
+// } else {
+//   console.log("nop")
+// }
+
+
+
+//   })
+//   button.classList.toggle('fa-play');
+//   button.classList.toggle('fa-volume-up');
+// };
+
+// button.addEventListener("click", (event) => {
+//   console.log(event);
+// });
+
+//     console.log(event);
+//     document.querySelector('.plyr__control').click();
+//     // const started = e.currentTarget.classList.contains('play-true');
+//     // if (started) {
+//     //   e.preventDefault();
+//     //   button.classList.toggle('fa-play');
+//     //   button.classList.toggle('fa-volume-up');
+//     // };
+//   });
+// });
+
+//   const playBtnDiv = document.querySelector('.podcast-play-button');
+//   const playBtn = document.querySelector('.podcast-play-button i');
+
+//   if (playBtnDiv) {
+//     playBtnDiv.addEventListener('click',(e) => {
+//       const started = playBtnDiv.classList.contains('play-true');
+//       if (started) {
+//         playBtn.classList.toggle('fa-play');
+//         playBtn.classList.toggle('fa-volume-up');
+//       } else {
+//         playBtn.classList.toggle('fa-volume-up');
+//         playBtn.classList.toggle('fa-play');
+//       }
+//     });
+//     document.querySelector('.plyr__control').click();
+//   };
+// });
+
+// var buttons = document.querySelectorAll('.podcast-play-button i').forEach((button) => {
+//     document.querySelector('.plyr__control').click();
+//     button.classList.toggle('fa-play');
+//     button.classList.toggle('fa-volume-up');
+
+//     button.addEventListener('click', (event) => {
+//       console.log(button)
+//       button.classList.toggle('fa-play');
+//       button.classList.toggle('fa-volume-up');
+//   });
+// });
+
+
+
+
+// function clickButton() {
+//   playButtons = document.querySelectorAll('.podcast-play-button').forEach((playButton) => {
+//     playButton.addEventListener('click', (event) => {
+//       document.querySelector('.plyr__control').click();
+//       console.log('coucou');
+//     });
+//   });
+
+// }
+
+// clickButton();
+
+// document.querySelector('.plyr__control').click()
 
 // player.source = {
 //     type: 'audio',

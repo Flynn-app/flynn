@@ -13,40 +13,51 @@ class Api::V1::AudiosController < Api::V1::BaseController
     @audio = Audio.new(audio_params)
     @audio.user = User.first
     # TODO correct with real user login and cookie
-    # content = URI.open(@audio.text_url).read
-    html_doc = Nokogiri::HTML(@audio.text_html)
+
     filenames = []
     i = 0
     duration = 0
     text_all = ""
-    html_doc.xpath('//p | //h1 | //h2 | //h3 | //h4 | //h5 | //h6 | //title ').each do |tag|
-      i += 1
+
+    # Disassemble html and modify it, create audios of part
+    html_doc = Nokogiri::HTML(@audio.text_html)
+
+    # Add title
+    start_doc = html_doc.at_css "body"
+    start_doc.add_previous_sibling "<h1>#{@audio.title}</h1>"
+    start_doc.xpath('//p | //h1 | //h2 | //h3 | //h4 | //h5 | //h6 | //title | //li').each do |tag|
+
       tag.add_class("record")
       text_all << tag.content << " "
       filename = SynthesizeText.new(tag.content).synthesize_text
-      # rename part for of mp3
+
+      current_part = "#{(0...15).map { (65 + rand(26)).chr }.join}"
+
+      # Rename part for of mp3
       File.open(filename, "r") do |file|
-        File.rename(filename, "#{i}.mp3")
+        File.rename(filename, "#{current_part}.mp3")
       end
-      filenames << "#{i}.mp3"
+      filenames << "#{current_part}.mp3"
+
+      # Add duration time of part
       tag['data-start'] = duration
-      Mp3Info.open("#{i}.mp3") do |mp3info|
+      Mp3Info.open("#{current_part}.mp3") do |mp3info|
         duration += mp3info.length
       end
     end
+
+    # Concatenate part files in one file.mp3
     concatfile = ""
     filenames.each { | file | concatfile << file << '|' }
-
     exitfile = "#{(0...15).map { (65 + rand(26)).chr }.join}-#{Time.now.strftime('%Y-%m-%d-%H-%M-%S')}.mp3"
     `ffmpeg -i "concat:#{concatfile.chop}" -acodec copy #{exitfile}`
 
+    # Upload mp3 of article on cloudinary
     upload_cloudinary = Cloudinary::Uploader.upload(exitfile, resource_type: :video)
     @audio.audio_url = upload_cloudinary["url"]
     @audio.duration = upload_cloudinary["duration"]
 
-    # ffmpeg -i "concat:20181021_080743.MP3|20181021_090745.MP3|20181021_100745.MP3" -acodec copy 20181021.mp3
-
-    # Delete file
+    # Delete files
     filenames.each do |filename|
       File.open(filename, "r") do |file|
         File.delete(file)
@@ -56,22 +67,15 @@ class Api::V1::AudiosController < Api::V1::BaseController
     File.open(exitfile, "r") do |file|
         File.delete(file)
     end
-    # all_text_for_google = SynthesizeText.new(text_all).synthesize_text
+
+    # Assemble html add store data
     @audio.text_html = html_doc.to_html
     @audio.text_to_transcript = text_all
 
-    # @audio.title = get_title(@html_doc)
-
-    # text_content = Boilerpipe::Extractors::ArticleExtractor.text(content)
-    # @audio.text_to_transcript = text_content
+    # Detect Language of article
     wl = WhatLanguage.new(:all)
     @audio.language = wl.language(@audio.text_to_transcript).to_s
     @audio.iso = wl.language_iso(@audio.text_to_transcript).to_s
-
-    # File.open(all_text_for_google, "r") do |file|
-    #   # @audio.audiofile.attach(io: file, filename: filename)
-    #   File.delete(file)
-     # end
 
     if @audio.save
       render json: @audio
@@ -96,12 +100,12 @@ class Api::V1::AudiosController < Api::V1::BaseController
       status: :unprocessable_entity
   end
 
-  def get_title(doc)
-    tags = ['title', 'h1', 'h2', 'h3']
-    tags.each do |tag|
-      return doc.search(tag).text unless doc.search(tag).empty?
-    end
-  end
+  # def get_title(doc)
+  #   tags = ['title', 'h1', 'h2', 'h3']
+  #   tags.each do |tag|
+  #     return doc.search(tag).text unless doc.search(tag).empty?
+  #   end
+  # end
 
   def calc_duration(duration)
     Time.at(duration).utc.strftime("%M:%S").sub(/^0/, '')

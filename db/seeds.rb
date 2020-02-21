@@ -98,7 +98,7 @@ a1 = Audio.create!(
   title: "Erling Braut Håland, la machine à buts du Borussia Dortmund",
   iso: "fr",
   text_image: "http://www.footmercato.net/images/a/focus-sur-erling-braut-haland-l-attaquant-norvegien-de-dortmund_273993.jpg",
-  duration: "1:29",
+  duration: "109",
   )
 puts "Podcast ##{a1.id} created"
 
@@ -111,7 +111,7 @@ a2 = Audio.create!(
   title: "Test text no url",
   iso: "fr",
   text_image: "https://source.unsplash.com/100x100/?abstract",
-  duration: "2:19",
+  duration: "139",
   )
 puts "Podcast ##{a2.id} created"
 
@@ -124,7 +124,7 @@ a3 = Audio.create!(
   title: "Ligue 1 : le formidable rebond du Nîmes Olympique en 2020",
   iso: "fr",
   text_image: "http://www.footmercato.net/images/a/nimes-s-est-completement-relance-dans-la-course-au-maintien_273709.jpg",
-  duration: "3:12"
+  duration: "192"
   )
 puts "Podcast ##{a3.id} created"
 

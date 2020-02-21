@@ -16,7 +16,7 @@
         <h1 class="playlist-title"><%= @playlist.name %></h1>
         <div class="playlist-numbers">
           <div class="audio-numbers">
-            <%= @playlist.audios.count %> audios, <%= (1..2).to_a.sample %>h<%= (1..59).to_a.sample %>m
+            <%= @playlist.audios.count %> audios, <%= @p_duration %>
           </div>
         </div>
         <div class="playlist-description">

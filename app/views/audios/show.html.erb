@@ -1,5 +1,5 @@
 <div class="content-container">
-  <div class="content">
+  <div class="content offset-1 col-10 offset-sm-2 col-sm-8 offset-md-3 col-md-6 ">
     <div class="article-header">
       <h1> <%= @audio.title %></h1>
       <div class="original-link">
@@ -11,7 +11,11 @@
       </div>
     </div>
     <div class="article-content">
-      <%= @audio.text_html.html_safe %>
+      <% if @audio.text_html.nil? %>
+        <%= @audio.text_to_transcript %>
+      <% else %>
+        <%= @audio.text_html.html_safe %>
+      <% end %>
     </div>
   </div>
 </div>

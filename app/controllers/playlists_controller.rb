@@ -11,6 +11,8 @@ class PlaylistsController < ApplicationController
     @user = current_user
     authorize @playlist
 
+    @p_duration = playlist_duration(@playlist)
+
     respond_to do |format|
       format.html
       format.js
@@ -57,5 +59,10 @@ class PlaylistsController < ApplicationController
 
   def playlist_params
     params.require(:playlist).permit(:name, :description, :category, :playlist_image)
+  end
+
+  def playlist_duration(playlist)
+    duration = playlist.audios.inject { |sum, n| sum.duration.to_i + n.duration.to_i }
+    Time.at(duration).utc.strftime("%Mm%S").sub(/^0/, '')
   end
 end

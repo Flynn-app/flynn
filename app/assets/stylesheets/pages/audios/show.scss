@@ -6,17 +6,23 @@
 
 .content-container {
   h1 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     margin-bottom: 1rem;
     font-weight: 400;
   }
   p {
-    font-size: 1rem;
-    line-height: 1.8rem;
+    font-size: 1.4rem;
+    line-height: 1.6;
+  }
+  h2 {
+    line-height: 3;
   }
   .content {
-    margin: 0 auto;
-    width: 700px;
+    // margin: 0 auto;
+    // width: 700px;
+  }
+  picture img{
+    width: 100%
   }
 }
 
@@ -26,7 +32,7 @@
   padding: 10px 0;
   .original-link {
     color: $dark-grey;
-    font-size: 0.7rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
   }
 }

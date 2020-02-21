@@ -35,7 +35,7 @@
       <%= audio.created_at.strftime("%d-%m-%Y") %>
     </div>
     <div class="podcast-duration">
-      <%= audio.duration %>
+      <%= Time.at(audio.duration.to_i).utc.strftime("%M:%S").sub(/^0/, '') unless audio.duration.match(":") %>
     </div>
     <div class="podcast-favorites" data-audio-id="<%= audio.id %>">
       <% if audio.audios_playlists.find_by(playlist_id: current_user.playlists.first).nil? %>

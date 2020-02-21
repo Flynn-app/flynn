@@ -4,6 +4,9 @@ const mercuryToAudio = () => {
   const buttonMercury = document.getElementById("mercuryButton");
   buttonMercury.addEventListener("click", (event) => {
 
+    buttonMercury.innerHTML = '<div class="spinner-border text-light" role="status"><span class="sr-only">Loading...</span></div>';
+    buttonMercury.style.opacity = '0.5';
+
     const cors = 'https://cors-anywhere.herokuapp.com/';
     let targetSite = document.getElementById("mercuryInput").value;
     const urlTarget = `${cors}${targetSite}`;

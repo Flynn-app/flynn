@@ -19,23 +19,25 @@ class Api::V1::AudiosController < Api::V1::BaseController
     duration = 0
     text_all = ""
 
-    # Disassemble html and modify it
+    # Disassemble html and modify it, create audios of part
     html_doc = Nokogiri::HTML(@audio.text_html)
     html_doc.xpath('//p | //h1 | //h2 | //h3 | //h4 | //h5 | //h6 | //title ').each do |tag|
-      i += 1
+
       tag.add_class("record")
       text_all << tag.content << " "
       filename = SynthesizeText.new(tag.content).synthesize_text
 
+      current_part = "#{(0...15).map { (65 + rand(26)).chr }.join}"
+
       # Rename part for of mp3
       File.open(filename, "r") do |file|
-        File.rename(filename, "#{i}.mp3")
+        File.rename(filename, "#{current_part}.mp3")
       end
-      filenames << "#{i}.mp3"
+      filenames << "#{current_part}.mp3"
 
       # Add duration time of part
       tag['data-start'] = duration
-      Mp3Info.open("#{i}.mp3") do |mp3info|
+      Mp3Info.open("#{current_part}.mp3") do |mp3info|
         duration += mp3info.length
       end
     end

@@ -110,6 +110,6 @@ class AudiosController < ApplicationController
   end
 
   def calc_duration(duration)
-    Time.at(duration).utc.strftime("%M:%S").sub(/^0/, '')
+    Time.at(duration.to_i).utc.strftime("%M:%S").sub(/^0/, '')
   end
 end

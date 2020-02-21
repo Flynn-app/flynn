@@ -1,6 +1,19 @@
 
 <div class="container ">
 
+  <div class="follow-unfollow">
+    <% if current_user.following?(@user) %>
+      <% raise %>
+      <%= link_to "Unfollow", unfollow_user_path(@user.nickname), class: 'btn btn-secondary btn-unfollow', remote: true%>
+    <% else current_user != @user %>
+      <%= link_to "Follow", follow_user_path(@user.nickname), class: 'btn btn-secondary btn-unfollow', remote: true%>
+    <% end %>
+  </div>
+
+
+
+
+
  <%= render 'shared/user_bio', user: @user %>
  <%= render 'shared/playlists_section', user: @user %>
  <%= render 'shared/podcasts_section', user: @user %>

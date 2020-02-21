@@ -19,4 +19,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def follow
+    # @follow = Follow.find_by(follower: @current_user, followable: @user)
+    @user = User.find_by(nickname: params[:nickname])
+    current_user.follow(@user)
+    skip_authorization
+
+    respond_to :js
+  end
+
+  def unfollow
+    @user = User.find_by(nickname: params[:nickname])
+    current_user.stop_following(@user)
+    skip_authorization
+
+    respond_to :js
+  end
+
 end

@@ -21,7 +21,11 @@ class Api::V1::AudiosController < Api::V1::BaseController
 
     # Disassemble html and modify it, create audios of part
     html_doc = Nokogiri::HTML(@audio.text_html)
-    html_doc.xpath('//p | //h1 | //h2 | //h3 | //h4 | //h5 | //h6 | //title | //li').each do |tag|
+
+    # Add title
+    start_doc = html_doc.at_css "body"
+    start_doc.add_previous_sibling "<h1>#{@audio.title}</h1>"
+    start_doc.xpath('//p | //h1 | //h2 | //h3 | //h4 | //h5 | //h6 | //title | //li').each do |tag|
 
       tag.add_class("record")
       text_all << tag.content << " "
@@ -96,12 +100,12 @@ class Api::V1::AudiosController < Api::V1::BaseController
       status: :unprocessable_entity
   end
 
-  def get_title(doc)
-    tags = ['title', 'h1', 'h2', 'h3']
-    tags.each do |tag|
-      return doc.search(tag).text unless doc.search(tag).empty?
-    end
-  end
+  # def get_title(doc)
+  #   tags = ['title', 'h1', 'h2', 'h3']
+  #   tags.each do |tag|
+  #     return doc.search(tag).text unless doc.search(tag).empty?
+  #   end
+  # end
 
   def calc_duration(duration)
     Time.at(duration).utc.strftime("%M:%S").sub(/^0/, '')

@@ -3,7 +3,7 @@
   <div class="audio-details">
     <%= render 'shared/audio_player_track_details', audio: audio %>
   </div>
-  <audio id="player" controls>
+  <audio id="player" controls dataset="">
       <source src="<%= audio.audio_url %>" type="audio/mp3" />
   </audio>
 </div>

@@ -1,7 +1,6 @@
 <div class="content-container">
   <div class="content offset-1 col-10 offset-sm-2 col-sm-8 offset-md-3 col-md-6 ">
     <div class="article-header">
-      <h1> <%= @audio.title %></h1>
       <div class="original-link">
         <% if @audio.text_url.present? %>
           Article original sur <%= link_to @audio.text_url do  %>

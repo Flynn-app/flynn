@@ -17,6 +17,13 @@
   .bio-text {
     padding: 15px;
     flex-grow: 1;
+    .bio-title {
+      display: flex;
+      align-items: center;
+      .follow_unfollow {
+        padding-left: 20px;
+      }
+    }
     .name {
       color: $blue-flynn;
       font-size: 2rem;

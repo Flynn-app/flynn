@@ -6,6 +6,15 @@
     <div class="bio-title">
       <h3 class="name"><%= user.nickname %></h3>
       <div class="follow_unfollow"><%= render 'shared/follow_unfollow' %></div>
+      <div>
+        <% if policy(@user).edit? %>
+          <div class="d-flex justify-content-end">
+            <%= link_to edit_user_registration_path, class: "btn btn-secondary mt-3" do %>
+            Edit Profile
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
     <p class="bio"><%= user.user_bio %></p>
     <div class="numbers">

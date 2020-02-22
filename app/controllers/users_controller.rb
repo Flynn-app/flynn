@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find_by(nickname: params[:nickname])
+    @user = authorize User.find_by(nickname: params[:nickname])
      # @user = authorize User.new
   end
 
@@ -52,6 +52,4 @@ class UsersController < ApplicationController
 
     respond_to :js
   end
-
->>>>>>> master
 end

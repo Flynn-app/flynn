@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: 'pages#home'
-  resources :users, only: :show, param: :nickname do
+  resources :users, only: [ :show, :edit ], param: :nickname do
     resources :playlists
   end
 

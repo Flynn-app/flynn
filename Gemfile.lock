@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/tcocca/acts_as_follower.git
+  revision: c5ac7b9601c4af01eb4d9112330b27be4d694ecc
+  branch: master
+  specs:
+    acts_as_follower (0.2.1)
+      activerecord (>= 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -83,8 +91,6 @@ GEM
       railties (>= 3.2, < 6.1)
     erubi (1.9.0)
     execjs (2.7.0)
-    faker (2.10.1)
-      i18n (>= 1.6, < 2)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     ffi (1.12.1)
@@ -276,6 +282,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_follower!
   autoprefixer-rails
   better_errors
   binding_of_caller
@@ -284,7 +291,6 @@ DEPENDENCIES
   cloudinary
   devise
   dotenv-rails
-  faker
   font-awesome-sass (~> 5.6.1)
   google-cloud-text_to_speech
   jbuilder (~> 2.0)

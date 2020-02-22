@@ -19,3 +19,24 @@
     color: $blue-flynn;
   }
 }
+
+.btn-unfollow {
+  padding: 2px 8px;
+  font-size: 1.3rem;
+  border: 1px solid $blue-flynn;
+  color: $blue-flynn;
+  &:hover {
+    color: $blue-flynn;
+  }
+}
+
+.btn-follow {
+  padding: 2px 12px;
+  font-size: 1.3rem;
+  background-color: $blue-flynn;
+  color: $white;
+  &:hover {
+    color: $white;
+    background-color: $dark-blue;
+  }
+}

@@ -11,6 +11,10 @@ if (document.getElementById("mercuryButton")) {
   mercuryToAudio();
 }
 
+if (document.querySelector(".record")) {
+  part_text();
+}
+
 const getFileName = () => {
   if (document.querySelector('#playlist_new')) {
     $('#inputGroupFile02').change(function() {

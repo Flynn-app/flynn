@@ -13,7 +13,7 @@
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
 
-      <%#= f.input :photo, type: :submit,  input_html: { hidden: true }, label: image_tag('profil-image.svg', height:'100', width:'100', class:'border border-gray rounded-circle p-3') %>
+      <%= f.input :avatar, as: :file %>
       <%= f.input :password,
                   hint: "Laissez vide si vous ne souhaitez pas changer",
                   required: false,

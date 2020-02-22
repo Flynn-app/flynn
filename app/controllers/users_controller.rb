@@ -24,8 +24,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = authorize User.find_by(nickname: params[:nickname])
+    @user = User.find_by(nickname: params[:nickname])
     @user.update!(user_params)
+    skip_authorization
 
     redirect_to user_path(@user)
   end
@@ -50,6 +51,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :nickname, :user_bio)
+    params.require(:user).permit(:first_name, :last_name, :nickname, :user_bio, :avatar)
   end
 end

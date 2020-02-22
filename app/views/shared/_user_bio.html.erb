@@ -1,6 +1,10 @@
 <div class="bio-container">
   <div class="bio-avatar">
-    <%= image_tag('https://source.unsplash.com/50x50/?avatar') %>
+    <% if user.avatar.attached? %>
+      <%= cl_image_tag user.avatar.key, height: 130, width: 130, crop: :scale %>
+    <% else %>
+      <%= image_tag('https://source.unsplash.com/50x50/?avatar') %>
+    <% end %>
   </div>
   <div class='bio-text'>
     <div class="bio-title">

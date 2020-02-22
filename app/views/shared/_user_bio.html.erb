@@ -3,11 +3,14 @@
     <%= image_tag('https://source.unsplash.com/50x50/?avatar') %>
   </div>
   <div class='bio-text'>
-    <h3 class="name"><%= user.nickname %></h3>
+    <div class="bio-title">
+      <h3 class="name"><%= user.nickname %></h3>
+      <div class="follow_unfollow"><%= render 'shared/follow_unfollow' %></div>
+    </div>
     <p class="bio"><%= user.user_bio %></p>
     <div class="numbers">
       <div class="follow-numbers">
-        <%= (20..687).to_a.sample %> followers • <%= (20..687).to_a.sample %> following
+        <%= 347 + user.follow_count %> followers • <%= 423 + user.followers_count %> following
       </div>
       <div class="audio-numbers">
         <%= user.audios.count %> podcasts • <%= user.playlists.count %> playlists

@@ -3,13 +3,16 @@
   background: white;
   margin: 0px 0px 16px 0px;
   padding: 15px 40px;
-  height: 72px;
+  height: 102px;
   text-align: right;
-  background-color: $bg-grey;
+  background-color: $white;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
+  ul.navbar-nav {
+    align-items: center;
+  }
 }
 
 .navbar-lewagon .navbar-brand img {

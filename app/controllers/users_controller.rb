@@ -30,12 +30,6 @@ class UsersController < ApplicationController
     redirect_to user_path(@user)
   end
 
-  private
-
-  def user_params
-    params.require(:user).permit(:first_name, :last_name, :nickname, :user_bio)
-  end
-
   def follow
     # @follow = Follow.find_by(follower: @current_user, followable: @user)
     @user = User.find_by(nickname: params[:nickname])
@@ -51,5 +45,11 @@ class UsersController < ApplicationController
     skip_authorization
 
     respond_to :js
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :nickname, :user_bio)
   end
 end

@@ -7,10 +7,10 @@
   // box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
   // border-radius: 10px;
   .bio-avatar {
-    padding : 20px;
+    padding: 10px 20px 0 0;
     img {
-      width: 118px;
-      height: 118px;
+      width: 128px;
+      height: 128px;
       border-radius: 50%
     }
   }
@@ -26,17 +26,15 @@
     }
     .name {
       color: $blue-flynn;
-      font-size: 2rem;
-      line-height: 3rem;
+      font-size: 3.5rem;
     }
     p {
       color: $dark-grey;
-      font-size: 1.4rem;
-      line-height: 2rem;
+      line-height: 2.6rem;
     }
     .numbers {
       color: $medium-grey;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       padding: 0 100px 0 0;
       display: flex;
       justify-content: space-between;

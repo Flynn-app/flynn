@@ -4,12 +4,12 @@
   </div>
   <div class='bio-text'>
     <div class="bio-title">
-      <h3 class="name"><%= user.nickname %></h3>
+      <h3 class="name"><%= user.first_name %> <%= user.last_name %></h3>
       <div class="follow_unfollow"><%= render 'shared/follow_unfollow' %></div>
       <div>
         <% if policy(@user).edit? %>
           <div class="d-flex justify-content-end">
-            <%= link_to edit_user_registration_path, class: "btn btn-secondary mt-3" do %>
+            <%= link_to edit_user_registration_path, class: "btn btn-ghost" do %>
             Edit Profile
             <% end %>
           </div>

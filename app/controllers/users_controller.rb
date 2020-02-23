@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :set_activities
 
   def show
     @user = User.find_by(nickname: params[:nickname])
@@ -54,9 +53,5 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:first_name, :last_name, :nickname, :user_bio, :avatar)
-  end
-
-  def set_activities
-    @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.following_users.ids)
   end
 end

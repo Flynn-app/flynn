@@ -3,8 +3,6 @@ class AudiosController < ApplicationController
   require 'nokogiri'
   require 'whatlanguage'
 
-  before_action :set_activities, only: [:new, :show, :index, :add_favorites ]
-
   def new
     @audio = Audio.new
     authorize @audio
@@ -116,9 +114,5 @@ class AudiosController < ApplicationController
 
   def calc_duration(duration)
     Time.at(duration.to_i).utc.strftime("%M:%S").sub(/^0/, '')
-  end
-
-  def set_activities
-    @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.following_users.ids)
   end
 end

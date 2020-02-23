@@ -17,9 +17,9 @@ gem 'uglifier'
 gem 'webpacker'
 gem 'google-cloud-text_to_speech'
 gem 'cloudinary'
-gem 'jquery-rails'
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 gem 'faker'
+gem 'public_activity'
 
 
 gem 'pundit'

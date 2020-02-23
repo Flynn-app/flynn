@@ -1,0 +1,8 @@
+<%= link_to activity.owner.nickname, activity.owner if activity.owner %>
+vient de créer une playlist
+
+<% if activity.trackable %>
+  <%= link_to activity.trackable.name %>
+<% else %>
+  qui a été supprimée depuis
+<% end %>

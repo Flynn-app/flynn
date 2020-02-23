@@ -49,6 +49,7 @@ class AudiosController < ApplicationController
     end
 
     if @audio.save
+      @audio.create_activity :create, owner: current_user
       redirect_to audio_path(@audio.id)
     end
     authorize @audio

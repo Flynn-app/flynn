@@ -1,0 +1,5 @@
+
+<% if activity.trackable.nickname == current_user.nickname %>
+  <%= link_to activity.owner.nickname, activity.owner if activity.owner %> vient de vous suivre
+<% else %>
+<% end %>

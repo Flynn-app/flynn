@@ -2,6 +2,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   include Pundit
+  include PublicActivity::StoreController
+
 
   # White list
   after_action :verify_authorized, except: :index, unless: :skip_pundit?

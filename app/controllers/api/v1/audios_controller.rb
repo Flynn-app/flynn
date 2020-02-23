@@ -78,6 +78,7 @@ class Api::V1::AudiosController < Api::V1::BaseController
     @audio.iso = wl.language_iso(@audio.text_to_transcript).to_s
 
     if @audio.save
+      @audio.create_activity :create, owner: current_user
       render json: @audio
     end
     authorize @audio

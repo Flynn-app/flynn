@@ -6,11 +6,13 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: 'pages#home'
-  resources :users, only: :show, param: :nickname do
+
+  resources :users, only: [ :show, :edit ], param: :nickname do
     member do
       get :follow
       get :unfollow
     end
+
     resources :playlists
   end
 

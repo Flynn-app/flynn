@@ -4,7 +4,7 @@
 
 
 .slick-wrapper {
-  width: calc(100% + 30px); //we need more width for the shadows on the edges
+  width: calc(100% + 100px); //we need more width for the shadows on the edges
   padding: 0 50px; //space for the shadows
   margin: -50px; //put the div in its original position
   overflow: hidden;
@@ -16,7 +16,7 @@
 
 .slick-list {
   overflow: visible !important;
-  padding: 70px 0px !important;
+  padding: 60px 0px !important;
 }
 
 .slick-slide {
@@ -25,13 +25,16 @@
   box-shadow: none; //no shadow for a hidden slide
   transition: box-shadow 0.1s ease-in-out; //little effect to fade the shadow
   }
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 .slick-slide.slick-active {
   opacity: 1;
   .drop-shadow {
   box-shadow: 0px 10px 40px 10px rgba(0, 0, 0, 0.3); //only the active slides have the shadow
-  }
+}
 }
 
 // .slick-list {
@@ -51,15 +54,15 @@
 .slick-arrow {
   position: absolute;
   z-index: 2;
-  top: 10%;
+  top: 8%;
   font-size: 1.6rem;
   color: $medium-grey;
   cursor: pointer;
   &.fa-chevron-left {
-    right: 85px;
+    right: 110px;
   }
   &.fa-chevron-right {
-    right: 60px;
+    right: 85px;
   }
   &:hover {
     color: $blue-flynn;

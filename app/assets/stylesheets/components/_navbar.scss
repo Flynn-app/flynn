@@ -2,17 +2,79 @@
   justify-content: flex-end;
   background: white;
   margin: 0px 0px 16px 0px;
-  padding: 15px 40px;
-  height: 72px;
+  padding: 0px;
+  height: 88px;
   text-align: right;
-  background-color: $bg-grey;
+  background-color: $white;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
+.navbar-nav {
+  align-items: center;
+  &.links {
+    display: flex;
+    justify-content: space-around;
+    padding:0 12rem;
+  }
+}
+
 .navbar-lewagon .navbar-brand img {
   width: 40px;
   // margin-left: 120px;
+}
+
+
+$duration: .2s;
+$distance: 8px;
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+
+.nav-item {
+  position: relative;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin: 0 10px;
+  font-size: 1.5rem;
+  text-decoration: none;
+  a:after {
+    content: '';
+    position: absolute;
+    margin: 0 auto;
+    bottom: 15px;
+    left: 0; right: 0;
+    height: 2px;
+    background-color: $blue-flynn;
+    transition:.5s;
+    width: 50%;
+  }
+  a:after {
+    opacity: 0;
+    transform: translateY($distance/2);
+    transition: transform $duration $easeOutBack, opacity $duration;
+  }
+  .nav-link:hover  {
+    color: $blue-flynn !important;
+  }
+  .fa-bell {
+    font-size: 2.2rem;
+    // padding-left: 15rem;
+  }
+}
+
+.nav-item.active {
+  a:after {
+    opacity: 1;
+    transform: translateY($distance/2);
+    transition: transform $duration $easeOutBack, opacity $duration;
+  }
+  .nav-link {
+    color: $blue-flynn !important;
+    font-weight: 600;
+  }
+}
+
+.dropdown-toggle::after {
+  display: none;
 }

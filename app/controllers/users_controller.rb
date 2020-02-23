@@ -12,11 +12,23 @@ class UsersController < ApplicationController
 
     # @favorites_audio = Audio.find(params[:favorites_audio]) if params[:favorites_audio]
 
-
     respond_to do |format|
       format.html
       format.js
     end
+  end
+
+  def edit
+    @user = authorize User.find_by(nickname: params[:nickname])
+     # @user = authorize User.new
+  end
+
+  def update
+    @user = User.find_by(nickname: params[:nickname])
+    @user.update!(user_params)
+    skip_authorization
+
+    redirect_to user_path(@user)
   end
 
   def follow
@@ -36,4 +48,9 @@ class UsersController < ApplicationController
     respond_to :js
   end
 
+  private
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :nickname, :user_bio, :avatar)
+  end
 end

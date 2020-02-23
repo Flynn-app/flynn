@@ -38,7 +38,7 @@
         <li class="nav-item dropdown">
           <div class="dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup= "true" aria-expanded="false">
             <% if current_user.avatar.attached? %>
-            <%= cl_image_tag current_user.avatar.key, height: 40, width: 40, crop: :scale, class:'rounded-circle' %>
+              <%= cl_image_tag current_user.avatar.key, height: 40, width: 40, crop: :scale, class:'rounded-circle' %>
             <% else %>
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar " %>
             <% end %>

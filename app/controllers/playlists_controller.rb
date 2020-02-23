@@ -1,5 +1,6 @@
 class PlaylistsController < ApplicationController
   before_action :set_playlist, only: [:show, :update, :edit, :delete]
+  before_action :set_activities
 
   def index
     @playlists = policy_scope(Playlist)
@@ -60,6 +61,10 @@ class PlaylistsController < ApplicationController
 
   def playlist_params
     params.require(:playlist).permit(:name, :description, :category, :playlist_image)
+  end
+
+  def set_activities
+    @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.following_users.ids)
   end
 
   def playlist_duration(playlist)

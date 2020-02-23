@@ -1,5 +1,9 @@
 
 <% if activity.trackable.nickname == current_user.nickname %>
-  <%= link_to activity.owner.nickname, activity.owner if activity.owner %> vient de vous suivre
-<% else %>
+  <% if activity.owner %>
+    <%= link_to '/users/'+activity.owner.nickname do %>
+      <%= activity.owner.first_name %> <%=activity.owner.last_name %>
+    <% end %> a commencé à vous suivre
+  <% end %>
 <% end %>
+

@@ -9,7 +9,8 @@
         <% end %>
       </div>
       <div class="activity-detail">
-        <%= render_activity activity %>
+          <%= render_activity activity %>
+          <div class="activity-date"><%= activity.trackable.created_at.strftime('Le %d-%m à %k:%M') %></div>
       </div>
       <%#= link_to activity.owner.avatar, activity.owner if activity.owner  %>
       <%# raise %>
@@ -24,9 +25,10 @@
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar " %>
           <% end %>
         </div>
-        <div class="activity-detail">
-          <%= render_activity activity %>
-        </div>
+          <div class="activity-detail">
+              <%= render_activity activity %>
+              <div class="activity-date"><%= activity.trackable.created_at.strftime('Le %d-%m à %k:%M') %></div>
+          </div>
         <%#= link_to activity.owner.avatar, activity.owner if activity.owner  %>
         <%# raise %>
       </div>

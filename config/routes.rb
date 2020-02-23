@@ -4,10 +4,10 @@ Rails.application.routes.draw do
   #   resources :users
   # end
 
+  resources :activities
   devise_for :users
   root to: 'pages#home'
 
-  resources :activities
   resources :users, only: [ :show, :edit ], param: :nickname do
     member do
       get :follow

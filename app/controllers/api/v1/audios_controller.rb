@@ -65,7 +65,7 @@ class Api::V1::AudiosController < Api::V1::BaseController
     end
 
     File.open(exitfile, "r") do |file|
-        File.delete(file)
+      File.delete(file)
     end
 
     # Assemble html add store data
@@ -76,6 +76,12 @@ class Api::V1::AudiosController < Api::V1::BaseController
     wl = WhatLanguage.new(:all)
     @audio.language = wl.language(@audio.text_to_transcript).to_s
     @audio.iso = wl.language_iso(@audio.text_to_transcript).to_s
+
+    # Open url to get og:image
+
+    base_url = URI.open(@audio.text_url).read
+    base_doc = Nokogiri::HTML(base_url)
+    @audio.text_image = get_og_image(base_doc)
 
     if @audio.save
       render json: @audio
@@ -97,7 +103,15 @@ class Api::V1::AudiosController < Api::V1::BaseController
 
   def render_error
     render json: { errors: @audio.errors.full_messages },
-      status: :unprocessable_entity
+    status: :unprocessable_entity
+  end
+
+  def get_og_image(doc)
+    if doc.css("meta[property='og:image']").present?
+      img_path = doc.css("meta[property='og:image']").first.attributes["content"].value
+    else
+      img_path = "https://source.unsplash.com/50x50/?abstract"
+    end
   end
 
   # def get_title(doc)

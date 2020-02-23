@@ -1,15 +1,15 @@
 
-<div class="container">
-
+<div class="col-10 col-sm-10 offset-sm-1 mt-5">
 
   <div class="playlist-container" <%= 'data-fav=favorite' if @playlist == @user.playlists.first %>>
+
 
     <div class="playlist-infos-container">
       <div class="playlist-image">
         <% if @playlist.playlist_image.attached? %>
-          <%= cl_image_tag @playlist.playlist_image.key, height: 300, width: 400, crop: :fill %>
+        <%= cl_image_tag @playlist.playlist_image.key, height: 300, width: 400, crop: :fill %>
         <% else %>
-          <img src="https://source.unsplash.com/200x200/?abstract">
+        <img src="https://source.unsplash.com/200x200/?abstract">
         <% end %>
       </div>
       <div class="playlist-infos">
@@ -28,14 +28,15 @@
       </div>
     </div>
 
+    <div class="playlists-cards-container flex-column">
 
-    <% @playlist.audios.each do |audio| %>
+      <% @playlist.audios.reverse.each do |audio| %>
       <%= render 'shared/podcast-card', audio: audio %>
-    <% end %>
+      <% end %>
+
+    </div>
 
   </div>
-
-
 </div>
 
 

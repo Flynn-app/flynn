@@ -6,6 +6,7 @@ class AudiosController < ApplicationController
   def new
     @audio = Audio.new
     authorize @audio
+    @user = User.first
   end
 
   def create
@@ -56,6 +57,7 @@ class AudiosController < ApplicationController
   def show
     @audio = Audio.find(params[:id])
     authorize @audio
+    @user = User.first
     @url = @audio.audio_url
 
     respond_to do |format|

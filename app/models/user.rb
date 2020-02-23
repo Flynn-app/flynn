@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :audios, dependent: :destroy
   has_many :playlists, dependent: :destroy
+  has_one_attached :avatar
+
   acts_as_followable
   acts_as_follower
 end

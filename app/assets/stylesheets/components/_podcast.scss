@@ -14,7 +14,7 @@
     display: flex;
     flex-direction:column;
     h2 {
-      font-size: 2rem;
+      font-size: 2.2rem;
     }
     .podcasts-count {
       color: $inter-grey;
@@ -66,7 +66,7 @@
   align-items:center;
   justify-content: space-around;
   color: $dark-grey;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   .podcast-play-button {
     min-width: 60px;
     font-size: 1.8rem;
@@ -86,12 +86,12 @@
   .podcast-text {
     flex-grow: 1;
     flex-basis: 100%;
-    padding: 0 40px 0 20px;
+    padding: 0 20px 0 20px;
     margin: 0;
-    max-width: 700px;
+    max-width: 680px;
     .podcast-title {
     font-weight: 700;
-    font-size: 1.45rem;
+    font-size: 1.5rem;
     line-height: 1.8;
     }
     .podcast-desc {
@@ -105,24 +105,27 @@
     }
   }
   .podcast-date {
-    width: 120px;
+    width: 150px;
     display: flex;
     justify-content: center;
     margin: 0;
+    font-size: 1.3rem;
   }
   .podcast-duration {
-    width: 50px;
+    width: 80px;
     display: flex;
     justify-content: center;
+    font-size: 1.3rem;
   }
   .podcast-favorites {
-    width: 50px;
+    width: 80px;
     display: flex;
     justify-content: center;
+    font-size: 1.8rem;
     i.fas {color: $blue_flynn}
   }
   .podcast-3dots {
-    width: 30px;
+    width: 60px;
     display: flex;
     justify-content: center;
     font-size: 1.4rem;

@@ -1,11 +1,24 @@
 <div class="bio-container">
   <div class="bio-avatar">
-    <%= image_tag('https://source.unsplash.com/50x50/?avatar') %>
+    <% if user.avatar.attached? %>
+      <%= cl_image_tag user.avatar.key, height: 130, width: 130, crop: :scale %>
+    <% else %>
+      <%= image_tag('https://source.unsplash.com/50x50/?avatar') %>
+    <% end %>
   </div>
   <div class='bio-text'>
     <div class="bio-title">
-      <h3 class="name"><%= user.nickname %></h3>
+      <h3 class="name"><%= user.first_name %> <%= user.last_name %></h3>
       <div class="follow_unfollow"><%= render 'shared/follow_unfollow' %></div>
+      <div>
+        <% if policy(@user).edit? %>
+          <div class="d-flex justify-content-end">
+            <%= link_to edit_user_registration_path, class: "btn btn-ghost" do %>
+            Edit Profile
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
     <p class="bio"><%= user.user_bio %></p>
     <div class="numbers">

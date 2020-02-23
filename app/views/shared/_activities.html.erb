@@ -1,6 +1,35 @@
-<% @activities.each do |activity| %>
-  <div class="activity">
-    <%= render_activity activity %>
-    <%# raise %>
-  </div>
+<% activities.each do |activity| %>
+  <% if activity.trackable_type != "User" %>
+    <div class="activity">
+      <div class="user-avatar">
+        <% if activity.owner.avatar.attached? %>
+        <%= cl_image_tag activity.owner.avatar.key, height: 40, width: 40, crop: :scale, class:'rounded-circle' %>
+        <% else %>
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar " %>
+        <% end %>
+      </div>
+      <div class="activity-detail">
+        <%= render_activity activity %>
+      </div>
+      <%#= link_to activity.owner.avatar, activity.owner if activity.owner  %>
+      <%# raise %>
+    </div>
+  <% else %>
+    <% if activity.trackable.nickname == current_user.nickname %>
+      <div class="activity">
+        <div class="user-avatar">
+          <% if activity.owner.avatar.attached? %>
+          <%= cl_image_tag activity.owner.avatar.key, height: 40, width: 40, crop: :scale, class:'rounded-circle' %>
+          <% else %>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar " %>
+          <% end %>
+        </div>
+        <div class="activity-detail">
+          <%= render_activity activity %>
+        </div>
+        <%#= link_to activity.owner.avatar, activity.owner if activity.owner  %>
+        <%# raise %>
+      </div>
+    <% end %>
+  <% end %>
 <% end %>

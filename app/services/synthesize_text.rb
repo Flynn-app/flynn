@@ -12,8 +12,8 @@ class SynthesizeText
 
     input_text = { text: @text }
     voice = {
-      language_code: "fr-FR",
-      ssml_gender:   "FEMALE"
+      language_code: "fr-FR-Wavenet-D",
+      ssml_gender:   "MALE"
     }
     audio_config = { audio_encoding: Audio::FILE_EXTENSION.upcase }
 

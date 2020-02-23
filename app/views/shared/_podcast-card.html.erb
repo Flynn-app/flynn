@@ -15,11 +15,11 @@
     <div class="podcast-text">
       <div class="podcast-title">
         <%#= link_to audio_path(audio), remote: true do %>
-          <a href="/audios/<%= audio.id %>"><%= audio.title.truncate(100) %></a>
+          <a href="/audios/<%= audio.id %>"><%= audio.title.truncate(75) %></a>
         <%# end %>
       </div>
       <div class="podcast-desc">
-        <%= audio.text_to_transcript.truncate(190) %>
+        <%= audio.text_to_transcript.truncate(175) %>
       </div>
       <div class="podcast-media">
         <% if audio.text_url.present? %>

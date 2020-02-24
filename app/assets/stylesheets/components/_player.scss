@@ -1,8 +1,9 @@
 .player-on-top {
   position: fixed;
   width: 100vw;
-  bottom: 0;
+  bottom: -95px;
   z-index: 1;
+  transition: 0.5s;
 }
 
 .player-track {

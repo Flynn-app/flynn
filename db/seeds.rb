@@ -52,7 +52,7 @@ puts ""
 puts "➕ Create Playlists"
 
 p1 = Playlist.create!(
-  name: "la playlist 1",
+  name: "Podcasts Favoris",
   description: Faker::Quote.matz,
   category: Faker::Food.fruits,
   user: users.first

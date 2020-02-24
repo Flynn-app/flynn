@@ -1,6 +1,15 @@
 console.log('Bien ou Bien. ??')
 document.querySelector('.audio-details').innerHTML = '<%= j render "shared/audio_player_track_details", audio: @audio %>';
 
+// Get bottom value and change it when necessary to display player
+playerOnTop = document.querySelector('.player-on-top');
+stylePlayer = getComputedStyle(playerOnTop);
+
+if (stylePlayer.getPropertyValue('bottom') == "-95px") {
+  playerOnTop.style.bottom = '0';
+}
+
+
 player.src = "<%= @url %>";
 
 var audioPlayButtons = document.querySelectorAll('.podcast-play-button').forEach((audioButton) => {
@@ -15,8 +24,9 @@ var audioPlayButtons = document.querySelectorAll('.podcast-play-button').forEach
   }
 });
 
-var plyrClick = document.querySelector('.plyr__control');
-plyrClick.click();
+var plyrControl = document.querySelector('.plyr__control');
+plyrControl.click();
+
 
 // var isPlaying = player.currentTime > 0 && !player.paused && !player.ended
 //     && player.readyState > 2;

@@ -35,6 +35,7 @@ class UsersController < ApplicationController
     # @follow = Follow.find_by(follower: @current_user, followable: @user)
     @user = User.find_by(nickname: params[:nickname])
     current_user.follow(@user)
+    @user.create_activity :follow, owner: current_user
     skip_authorization
 
     respond_to :js

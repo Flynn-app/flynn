@@ -1,0 +1,11 @@
+<%= link_to '/users/'+activity.owner.nickname, class:'activity-button' do %>
+
+  <% if activity.trackable.nickname == current_user.nickname %>
+    <% if activity.owner %>
+      <%= link_to '/users/'+activity.owner.nickname do %>
+        <%= activity.owner.first_name %> <%=activity.owner.last_name %>
+      <% end %> a commencé à vous suivre
+    <% end %>
+  <% end %>
+
+<% end %>

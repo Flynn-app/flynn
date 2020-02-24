@@ -1,0 +1,42 @@
+.activity {
+  position: relative;
+  border-bottom: 1px solid rgba(0,0,0,.05);
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: $medium-grey;
+  a {
+    text-decoration: none;
+    color: $dark-grey;
+  }
+  .user-avatar {
+    padding: 10px 0px 10px 10px;
+  }
+  .activity-detail {
+    padding: 15px 10px;
+    .activity_author {
+      color: $dark-grey;
+    }
+    .activity-date {
+      line-height: 1.8;
+    }
+  }
+}
+
+
+.activity-button {
+    display: block;
+    min-height: 20px;
+    padding: 18px 10px 16px 82px;
+    color: rgba(0,0,0,.54);
+    line-height: 1.4;
+    font-size: 16px;
+    background-color: rgba(255,255,255,0);
+    text-align: left;
+    position: absolute;
+    left: 20%;
+    top: 0;
+    width: 80%;
+    height: 100%;
+}

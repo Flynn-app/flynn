@@ -33,6 +33,7 @@ class PlaylistsController < ApplicationController
     authorize @playlist
 
     if @playlist.save!
+      @playlist.create_activity :create, owner: current_user
       redirect_to user_playlist_path(@playlist.user.nickname, @playlist)
     else
       render :new

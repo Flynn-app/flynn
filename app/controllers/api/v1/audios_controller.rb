@@ -84,6 +84,7 @@ class Api::V1::AudiosController < Api::V1::BaseController
     @audio.text_image = get_og_image(base_doc)
 
     if @audio.save
+      @audio.create_activity :create, owner: current_user
       render json: @audio
     end
     authorize @audio

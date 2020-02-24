@@ -7,6 +7,7 @@ import { slick_carousel } from '../components/init_slick.js';
 import { favorites } from '../components/favorites.js';
 import { part_text } from '../plugins/init_part_text.js';
 import { getFileName } from '../components/custom_file_upload.js';
+import { playPodcasts } from '../components/play_playlist.js';
 
 if (document.getElementById("mercuryButton")) {
   mercuryToAudio();
@@ -19,5 +20,6 @@ if (document.querySelector(".record")) {
 slick_carousel();
 favorites();
 getFileName();
+playPodcasts();
 
 

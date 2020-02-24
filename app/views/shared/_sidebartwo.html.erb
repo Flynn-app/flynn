@@ -14,7 +14,7 @@
             <i class="fas fa-stream"></i><%= link_to "Mes playlists", user_playlists_path(current_user.nickname) %>
           </li>
           <li class="sidebar_link">
-            <i class="fas fa-users"></i><%= link_to "Mes abonnements", new_audio_path %>
+            <i class="fas fa-users"></i><%= link_to "Mes Podcasts Favoris", user_playlist_path(current_user.nickname, Playlist.first) %>
           </li>
           <li class="sidebar_link">
             <i class="fas fa-headphones-alt"></i><%= link_to "Mes audios", audios_path %>

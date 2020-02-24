@@ -1,0 +1,9 @@
+  <% if activity.owner %>
+    <%= link_to '/users/'+activity.owner.nickname do %>
+      <%= activity.owner.first_name %> <%=activity.owner.last_name %>
+    <% end %> vient de transcrire <%= link_to activity.trackable do %>un nouvel article en audio <% end %>
+  <% end %>
+
+  <% if !activity.trackable %>
+    qui a été supprimée depuis
+  <% end %>

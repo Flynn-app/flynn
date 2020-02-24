@@ -1,0 +1,13 @@
+<% if activity.owner %>
+  <%= link_to '/users/'+activity.owner.nickname do %>
+    <%= activity.owner.first_name %> <%=activity.owner.last_name %>
+  <% end %> vient de créer <%= link_to '/users/'+activity.trackable.user.nickname+'/playlists/'+activity.trackable.id.to_s do %>
+  une nouvelle playlist <% end %>
+<% end %>
+
+
+<% if activity.trackable %>
+
+<% else %>
+  ,qui a été supprimée depuis
+<% end %>

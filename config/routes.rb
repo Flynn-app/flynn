@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   #   resources :users
   # end
 
+  resources :activities
   devise_for :users
   root to: 'pages#home'
 

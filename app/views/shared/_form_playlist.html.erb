@@ -1,0 +1,13 @@
+<%= simple_form_for [user, playlist] do |f| %>
+<div class="form-container">
+  <div class="input-image">
+    <%= f.input :playlist_image, as: :file, label_html: { class: 'custom-file-label' }, input_html: { class: 'custom-file-input', id: 'inputGroupFile02' }, label: "Téléchargez une image" %>
+  </div>
+  <div class="input-details">
+    <%= f.input :name, label: "Titre de votre playlist", placeholder: "Actu Foot" %>
+    <%= f.input :description, label: "Description de votre playlist", as: :text, placeholder: "Toute l'actu foot de ligue 1" %>
+    <%= f.input :category, label: "Catégories (séparées par une virgule)", placeholder: "actu, sport" %>
+  </div>
+</div>
+<%= f.submit "Ajouter une playlist", class: "btn btn-primary btn-holder"%>
+<% end %>

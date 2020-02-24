@@ -1,18 +1,7 @@
 <div class="container offset-sm-2 col-sm-8" id="playlist_new">
+  <h1>Ajouter une playlist</h1>
 
-  <%= simple_form_for [@user, @playlist] do |f| %>
-    <div class="form-container">
-      <div class="input-image">
-        <%= f.input :playlist_image, as: :file, label_html: { class: 'custom-file-label' }, input_html: { class: 'custom-file-input' } %>
-      </div>
-      <div class="input-details">
-        <%= f.input :name, label: "Titre de votre playlist", placeholder: "Actu Foot" %>
-        <%= f.input :description, label: "Description de votre playlist", as: :text, placeholder: "Toute l'actu foot de ligue 1" %>
-        <%= f.input :category, label: "Catégories (séparées par une virgule)", placeholder: "actu, sport" %>
-      </div>
-    </div>
-    <%= f.submit "Créer une playlist", class: "btn btn-primary btn-holder"%>
-  <% end %>
+  <%= render 'shared/form_playlist', user: @user, playlist: @playlist %>
 <!--
   <form class="simple_form new_playlist" id="new_playlist" novalidate="novalidate" enctype="multipart/form-data" action="/users/1/playlists" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="2Dqdc2qzKaV7a35KY09NX/aAWgcBtBgQ2217UJud7K9zJE3iFZWlzvA2BcouOZosFpblgAAX5xzFoc1o1eNT5A==">
     <div class="form-group string optional playlist_name"><label class="string optional" for="playlist_name">Nom</label><input class="form-control string optional" placeholder="Mettre ici le titre de la playlist" type="text" name="playlist[name]" id="playlist_name"></div>

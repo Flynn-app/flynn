@@ -13,6 +13,10 @@ class PlaylistPolicy < ApplicationPolicy
     true
   end
 
+  def update?
+    record_user = user
+  end
+
   def index?
     true
   end

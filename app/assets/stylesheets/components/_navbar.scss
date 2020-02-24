@@ -38,7 +38,7 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
   margin: 0 10px;
   font-size: 1.5rem;
   text-decoration: none;
-  a:after {
+  a.nav-link:after {
     content: '';
     position: absolute;
     margin: 0 auto;
@@ -49,7 +49,7 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
     transition:.5s;
     width: 50%;
   }
-  a:after {
+  a.nav-link:after {
     opacity: 0;
     transform: translateY($distance/2);
     transition: transform $duration $easeOutBack, opacity $duration;
@@ -64,7 +64,7 @@ $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
 }
 
 .nav-item.active {
-  a:after {
+  a.nav-link:after {
     opacity: 1;
     transform: translateY($distance/2);
     transition: transform $duration $easeOutBack, opacity $duration;

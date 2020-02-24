@@ -1,4 +1,6 @@
 class Audio < ApplicationRecord
+  include PublicActivity::Common
+
   belongs_to :user, optional: true
   has_many :audios_playlists, dependent: :destroy
   has_many :playlists, through: :audios_playlists

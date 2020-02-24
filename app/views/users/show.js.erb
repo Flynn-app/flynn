@@ -1,5 +1,6 @@
 console.log('Bien ou Bien. ??')
 document.querySelector('.audio-details').innerHTML = '<%= j render "shared/audio_player_track_details", audio: @audio %>';
+document.querySelector('.player-on-top').style.bottom = '0';
 
 player.src = "<%= @url %>";
 
@@ -12,8 +13,8 @@ var audioPlayButtons = document.querySelectorAll('.podcast-play-button').forEach
     audioButton.querySelector('i').classList.add('fa-play');
   }
 });
-var plyrClick = document.querySelector('.plyr__control');
-plyrClick.click();
+var plyrControl = document.querySelector('.plyr__control');
+plyrControl.click();
 
 player.title = "<%= @audio.id %>"
 

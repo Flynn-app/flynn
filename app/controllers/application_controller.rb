@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_activities
+
   include Pundit
   include PublicActivity::StoreController
 
@@ -35,7 +36,11 @@ class ApplicationController < ActionController::Base
   end
 
   def set_activities
-    @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.following_users.ids)
+    if current_user.nil?
+      @activities = ""
+    else
+      @activities = PublicActivity::Activity.order("created_at desc").where(owner_id: current_user.following_users.ids)
+    end
   end
 
 end

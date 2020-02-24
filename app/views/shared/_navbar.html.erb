@@ -40,7 +40,7 @@
               <% if current_user.avatar.attached? %>
               <%= cl_image_tag current_user.avatar.key, height: 40, width: 40, crop: :scale, class:'rounded-circle' %>
               <% else %>
-              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar " %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar-bordered" %>
               <% end %>
             </div>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

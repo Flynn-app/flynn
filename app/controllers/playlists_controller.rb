@@ -17,7 +17,6 @@ class PlaylistsController < ApplicationController
       format.html
       format.js
     end
-
   end
 
   def new
@@ -38,14 +37,19 @@ class PlaylistsController < ApplicationController
     else
       render :new
     end
-
   end
 
   def edit
+    authorize @playlist
+    @user = current_user
   end
 
   def update
-    @playlist.update(playlist_params)
+    if @playlist.update!(playlist_params)
+      redirect_to user_playlist_path(@playlist.user.nickname, @playlist)
+    else
+      render :edit
+    end
   end
 
   def destroy

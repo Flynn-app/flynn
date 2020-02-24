@@ -22,9 +22,13 @@
         <div class="playlist-description">
           <%= @playlist.description %>
         </div>
-        <div class="btn btn-primary playlist-play-button">
-          Lire
-        </div>
+        <% if @playlist.audios.empty? %>
+          Vous n'avez pas encore de podcast. <%= link_to "Ajoutez en un maintenant", new_audio_path %>
+        <% else %>
+          <div class="btn btn-primary playlist-play-button">
+            Lire
+          </div>
+        <% end %>
       </div>
     </div>
 

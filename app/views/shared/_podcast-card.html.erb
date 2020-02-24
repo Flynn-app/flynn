@@ -1,6 +1,6 @@
 <div class="podcast-card-transition">
   <div class="podcast-card-container">
-    <div class="podcast-play-button" data-audio-id="<%= audio.id %>">
+    <div class="podcast-play-button" data-audio-id="<%= audio.id %>" id="<%= audio.id %>">
       <%= link_to user_path(current_user, params: { audio: audio.id }), remote: true do %>
       <i class="fas fa-play"></i>
       <% end %>

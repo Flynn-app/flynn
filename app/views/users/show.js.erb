@@ -16,13 +16,24 @@ var audioPlayButtons = document.querySelectorAll('.podcast-play-button').forEach
   if (audioButton.dataset.audioId == "<%= @audio.id %>") {
     audioButton.querySelector('i').classList.toggle('fa-play');
     audioButton.querySelector('i').classList.toggle('fa-volume-up');
+    audioButton.classList.add('active');
   } else {
     audioButton.querySelector('i').classList.remove('fa-volume-up');
     audioButton.querySelector('i').classList.add('fa-play');
+    audioButton.classList.remove('active');
   }
 });
+
 var plyrControl = document.querySelector('.plyr__control');
 plyrControl.click();
+
+
+// var isPlaying = player.currentTime > 0 && !player.paused && !player.ended
+//     && player.readyState > 2;
+
+// if (!isPlaying) {
+//   player.play();
+// }
 
 player.title = "<%= @audio.id %>"
 
@@ -45,7 +56,18 @@ var checkAudioPlay = document.querySelectorAll('.podcast-play-button').forEach((
 })
 
 
-player.addEventListener()
+if (document.querySelector('.playlists_show')) {
+  var ListEndedPodcast = player.addEventListener("ended", event => {
+    var active = document.querySelector('.active');
+    var parentCard = active.parentNode.parentNode
+    var nextButton = parentCard.nextElementSibling
+    if (nextButton !== null) {
+      nextButton.querySelector('i').click();
+    }
+  });
+}
+
+// player.addEventListener()
 // var checkPlyrClick = plyrClick.addEventListener('click', event => {
 
 //     // if (btnPlaying != null) {

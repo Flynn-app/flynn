@@ -6,7 +6,6 @@ const playPodcasts = () => {
       const playButton = document.querySelector('.podcast-play-button i');
       playButton.click();
     });
-
   }
 }
 

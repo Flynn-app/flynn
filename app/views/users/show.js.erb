@@ -7,9 +7,11 @@ var audioPlayButtons = document.querySelectorAll('.podcast-play-button').forEach
   if (audioButton.dataset.audioId == "<%= @audio.id %>") {
     audioButton.querySelector('i').classList.toggle('fa-play');
     audioButton.querySelector('i').classList.toggle('fa-volume-up');
+    audioButton.classList.add('active');
   } else {
     audioButton.querySelector('i').classList.remove('fa-volume-up');
     audioButton.querySelector('i').classList.add('fa-play');
+    audioButton.classList.remove('active');
   }
 });
 var plyrClick = document.querySelector('.plyr__control');
@@ -35,6 +37,26 @@ var checkAudioPlay = document.querySelectorAll('.podcast-play-button').forEach((
   });
 })
 
+var ListEndedPodcast = player.addEventListener("ended", event => {
+  // buttons = document.querySelectorAll('.podcast-play-button').forEach((button) => {
+  //   var btnPlayed = button.querySelector('.fa-volume-up');
+  //   if (button.dataset.audioId == player.title) {
+  //     console.log(btnPlayed.parentElement.parentElement);
+  //     console.log(btnPlayed.parentElement.parentElement.find('.podcast-play-button'));
+  //     // console.log('coucou');
+  //   }
+  var active = document.querySelector('.active');
+  var parentCard = active.parentNode.parentNode
+  var nextButton = parentCard.nextElementSibling
+  if (nextButton !== null) {
+    console.log('coucou')
+    nextButton.querySelector('i').click();
+    // nextButton.click()
+  }
+
+
+  // });
+})
 
 // player.addEventListener()
 // var checkPlyrClick = plyrClick.addEventListener('click', event => {

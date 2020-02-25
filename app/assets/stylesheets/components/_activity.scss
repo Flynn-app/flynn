@@ -24,6 +24,22 @@
   }
 }
 
+.new-activity {
+  background-color: $light-blue;
+  z-index:1;
+}
+
+.new-notif:after {
+    content: '';
+    position: absolute;
+    height: 11px;
+    right: 4px;
+    width: 11px;
+    border-radius: 50%;
+    background-color: $red_flynn;
+    border: 2px solid white;
+  }
+
 .no-activity {
   padding: 1rem;
   display: flex;

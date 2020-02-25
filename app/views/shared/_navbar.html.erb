@@ -56,7 +56,21 @@
         </ul>
       </div>
     </div>
-
-
   </div>
+
+  <% content_for :after_js do %>
+  <script>
+    App['activities'] = App.cable.subscriptions.create({ channel: 'NotificationsChannel' },
+      { received: (data) => {
+      console.log(data)
+      const bell = document.querySelector('.far.fa-bell');
+      bell.classList.remove('far');
+      bell.classList.add('fas','new-notif');
+      bell.style.color = '#5864F6';
+      const activityContainer = document.querySelector('.notification-menu-inner');
+      activityContainer.insertAdjacentHTML('afterbegin', data.activity_partial)
+      }
+    })
+  </script>
+<% end %>
 

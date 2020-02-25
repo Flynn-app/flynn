@@ -32,7 +32,11 @@ class PlaylistsController < ApplicationController
     authorize @playlist
 
     if @playlist.save!
-      @playlist.create_activity :create, owner: current_user
+      @activity = @playlist.create_activity :create, owner: current_user
+
+      ActionCable.server.broadcast("activities", {
+        activity_partial: render_to_string(partial: "shared/activity", locals: { activity: @activity })
+      })
       redirect_to user_playlist_path(@playlist.user.nickname, @playlist)
     else
       render :new
@@ -75,4 +79,5 @@ class PlaylistsController < ApplicationController
     #   Time.at(duration.duration.to_i).utc.strftime("%Mm%S").sub(/^0/, '')
     # end
   end
+
 end

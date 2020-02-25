@@ -29,7 +29,6 @@
     <% user.audios.each do |audio| %>
       <%#= link_to user_path(current_user, params: { audio: audio.id }), remote: true do %>
         <%= render 'shared/podcast-card', audio: audio %>
-        <%#= will_paginate audio %>
       <%# end %>
     <% end %>
   </div>

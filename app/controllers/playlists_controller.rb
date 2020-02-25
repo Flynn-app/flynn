@@ -34,7 +34,7 @@ class PlaylistsController < ApplicationController
     if @playlist.save!
       @activity = @playlist.create_activity :create, owner: current_user
       @playlist.user.followers.each do |notif|
-        ActionCable.server.broadcast("activities", {
+        ActionCable.server.broadcast("activities-#{notif.id}", {
           activity_partial: render_to_string(partial: "shared/activity", locals: { activity: @activity })
         })
       end

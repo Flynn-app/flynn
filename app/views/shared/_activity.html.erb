@@ -1,5 +1,5 @@
 <%# if user_is_author %>
-  <div class="activity new-activity">
+  <div class="activity new-activity <%#= 'follower' if user_id != current_user.id %>">
     <div class="user-avatar">
       <%= link_to '/users/'+activity.owner.nickname do %>
       <% if activity.owner.avatar.attached? %>

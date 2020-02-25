@@ -58,11 +58,13 @@
     </div>
   </div>
 
+  <div id='user-id' data-user="<%= current_user.id %>"></div>
+
   <% content_for :after_js do %>
   <script>
-    App['activities'] = App.cable.subscriptions.create({ channel: 'NotificationsChannel' },
+    App['activities'] = App.cable.subscriptions.create({ channel: 'NotificationsChannel', user_id: document.getElementById('user-id').dataset.user },
       { received: (data) => {
-      console.log(data)
+      console.log(data);
       const bell = document.querySelector('.far.fa-bell');
       bell.classList.remove('far');
       bell.classList.add('fas','new-notif');

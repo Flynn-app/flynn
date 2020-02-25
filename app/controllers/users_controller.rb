@@ -36,9 +36,9 @@ class UsersController < ApplicationController
     @user = User.find_by(nickname: params[:nickname])
     current_user.follow(@user)
     @activity = @user.create_activity :follow, owner: current_user
-    # ActionCable.server.broadcast("activities", {
-    #     activity_partial: render(partial: "user/follow", locals: { activity: @playlist_activity })
-    #   })
+    ActionCable.server.broadcast("activities", {
+      activity_partial: render_to_string(partial: "shared/activity", locals: { activity: @activity })
+    })
     skip_authorization
 
     respond_to :js

@@ -33,10 +33,12 @@ class PlaylistsController < ApplicationController
 
     if @playlist.save!
       @activity = @playlist.create_activity :create, owner: current_user
+      @playlist.user.followers.each do |notif|
+        ActionCable.server.broadcast("activities", {
+          activity_partial: render_to_string(partial: "shared/activity", locals: { activity: @activity })
+        })
+      end
 
-      ActionCable.server.broadcast("activities", {
-        activity_partial: render_to_string(partial: "shared/activity", locals: { activity: @activity })
-      })
       redirect_to user_playlist_path(@playlist.user.nickname, @playlist)
     else
       render :new

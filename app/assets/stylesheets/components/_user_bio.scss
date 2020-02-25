@@ -8,7 +8,9 @@
   // border-radius: 10px;
   .bio-avatar {
     padding: 10px 20px 0 0;
+
     img {
+      border: gray 1px solid;
       width: 128px;
       height: 128px;
       border-radius: 50%

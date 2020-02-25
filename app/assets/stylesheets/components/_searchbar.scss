@@ -28,7 +28,7 @@
 
 .search-form-control .form-control {
   height: 4rem;
-  box-shadow: 0 0px 60px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.2);
   border: 1px solid $light-grey;
   border-radius: 50px;
   padding-left: 50px;
@@ -38,7 +38,7 @@
   border: 2px solid $light-blue;
   color: $medium-grey;
   outline: none !important;
-  box-shadow: 0 0px 60px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0px 15px rgba(0, 0, 0, 0.2);
 }
 
 input[type=text]:focus {

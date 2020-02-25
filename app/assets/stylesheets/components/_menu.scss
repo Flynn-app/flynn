@@ -13,7 +13,7 @@
   color: #242424;
   text-align: left;
   list-style: none;
-  background-color: white;
+  background-color: transparent;
   background-clip: padding-box;
   border: none;
   border-radius: 5px;
@@ -22,6 +22,8 @@
 .notification-menu-inner {
   position: relative;
   max-width: 320px;
+  height:700px;
+  overflow: auto;
   // padding: 15px 0;
   background: #fff;
   border-radius: 5px;

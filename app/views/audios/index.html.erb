@@ -2,5 +2,6 @@
 <% @audios.reverse.each do |audio| %>
     <%= render 'shared/podcast-card', audio: audio %>
 <% end %>
+    <%= will_paginate @audios %>
 </div>
 

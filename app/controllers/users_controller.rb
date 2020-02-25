@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
 
   def show
-    @user = User.find_by(nickname: params[:nickname])
+    @user = User.find_by(nickname: params[:nickname]) || User.find(params[:nickname])
      # authorize @user
     skip_authorization
+
+    @audios = @user.audios.paginate(page: params[:page], per_page: 6)
 
     @audio = Audio.find(params[:audio]) if params[:audio]
     @url = @audio.audio_url if params[:audio]

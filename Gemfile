@@ -20,6 +20,7 @@ gem 'cloudinary'
 gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 gem 'faker'
 gem 'public_activity'
+gem 'will_paginate', '~> 3.2', '>= 3.2.1'
 
 
 gem 'pundit'

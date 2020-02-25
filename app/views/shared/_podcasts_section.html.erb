@@ -26,11 +26,12 @@
   <% end %>
 
   <div class="podcasts-cards-container">
-    <% user.audios.each do |audio| %>
+    <% audios.each do |audio| %>
       <%#= link_to user_path(current_user, params: { audio: audio.id }), remote: true do %>
         <%= render 'shared/podcast-card', audio: audio %>
       <%# end %>
     <% end %>
+    <%= will_paginate audios %>
   </div>
 
 

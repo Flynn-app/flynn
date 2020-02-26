@@ -4,3 +4,13 @@
     <%# raise %>
   </div>
 <% end %>
+
+<%# content_for :after_js do %>
+<!--   <script>
+    App['activities'] = App.cable.subscriptions.create({ channel: 'NotificationsChannel' },
+      { received: (data) => {
+      console.log(data)
+      }
+    })
+  </script> -->
+<%# end %>

@@ -49,7 +49,13 @@ class AudiosController < ApplicationController
     end
 
     if @audio.save
-      @audio.create_activity :create, owner: current_user
+      @activity = @audio.create_activity :create, owner: current_user
+
+      @audio.user.followers.each do |notif|
+        ActionCable.server.broadcast("activities", {
+          activity_partial: render_to_string(partial: "shared/activity", locals: { activity: @activity })
+        })
+      end
       redirect_to audio_path(@audio.id)
     end
     authorize @audio

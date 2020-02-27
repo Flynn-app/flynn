@@ -7,4 +7,7 @@
 
 .page-container {
   margin-top: 50px;
+  &.feed {
+    display: flex;
+  }
 }

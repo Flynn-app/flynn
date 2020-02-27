@@ -1,7 +1,79 @@
-<div class="container">
-<% @audios.reverse.each do |audio| %>
-    <%= render 'shared/podcast-card', audio: audio %>
-<% end %>
-    <%= will_paginate @audios %>
+<div class="page-container feed col-10 col-sm-10 offset-sm-1">
+
+  <div class="col-9">
+    <h2>Dernier podcasts</h2>
+    <hr>
+    <div class="playlists-cards-container flex-column">
+      <% @audios.reverse.each do |audio| %>
+      <%= render 'shared/podcast-card', audio: audio %>
+      <% end %>
+      <div class="pagination-wrapper">
+        <%= will_paginate @audios, previous_label: '<i class="fas fa-chevron-left"></i>', next_label: '<i class="fas fa-chevron-right"></i>' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-3">
+    <div class="right-bloc">
+      <h2>Derniers Articles</h2>
+      <hr>
+      <div class="articles-cards">
+        <% @audios.each do |a| %>
+          <div class="article-card">
+            <%= link_to audio_path(a) do %>
+              <div class="title">
+                <%= a.title.truncate(60)  %>
+              </div>
+              <div class="infos">
+                <%= link_to a.text_url do %>
+                  <span> <%= 'via ' + URI.parse(a.text_url).host.sub(/\Awww\./, '') unless a.text_url.nil? %></span>
+                <% end %>
+                <span>Le <%= a.created_at.strftime("%d-%m") %> • <%= Time.at(a.duration.to_i).utc.strftime("%M:%S").sub(/^0/, '') %></span>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="right-bloc">
+      <h2>Derniers utilisateurs</h2>
+      <hr>
+      <div class="users-cards">
+        <% @users.take(20).each do |user| %>
+          <%= link_to user_path(user) do %>
+            <div class="user-card">
+              <% if user.avatar.attached? %>
+                <%= cl_image_tag user.avatar.key, height: 40, width: 40, crop: :scale %>
+              <% else %>
+                <%= image_tag('https://source.unsplash.com/50x50/?avatar') %>
+              <% end %>
+              <div class="user-name">
+                <span class="name"><%= user.first_name %> <%= user.last_name %></span>
+                <span class="nickname"><%= user.nickname %></span>
+              </div>
+            </div>
+           <% end %>
+          <% end %>
+      </div>
+    </div>
+    <div class="right-bloc">
+      <h2>Derniers médias</h2>
+      <hr>
+      <div class="media-cards">
+        <% urls = @audios.map do |a| %>
+          <% url = a['text_url'] %>
+          <% URI.parse(url).host.sub(/\Awww\./, '') unless url.nil? %>
+        <% end %>
+        <% urls.uniq.each do |url| %>
+        <div class="media-card">
+          <%= url %>
+        </div>
+        <% end %>
+        <%# raise %>
+      </div>
+    </div>
+  </div>
+
+
 </div>
 

@@ -1,5 +1,21 @@
 require 'faker'
 
+number_of_users = 30
+
+firstname = []
+lastname = []
+playlist = ["News", "Sport", "Foot", "Tech", "Bazar", "Drôle", "Voyage", "Projet de Sophie", "Boulot",
+            "Le Monde", "20 minutes", "Sciences", "Code", "Blog", "Le Wagon", "Javascript", "Rails",
+            "Economie", "Sante", "Faits Divers", "Gastronomie", "Cinémas", "Arts", "Mémoires", "Modes",
+            "Geek", "Le Figaro", "France", "Japon", "USA"]
+
+File.readlines('db/seed_data/firstname.txt').each do |line|
+  firstname << line.chomp
+end
+
+File.readlines('db/seed_data/lastname.txt').each do |line|
+  lastname << line.chomp
+end
 
 puts "⚠️  Destroy all Playlists"
 Playlist.destroy_all
@@ -15,33 +31,47 @@ puts ""
 puts "➕ Create Users..."
 user1 = User.create!(
   email: "test@test.com",
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  nickname: '@john_preston',
+  first_name: "Lallemand",
+  last_name: "Quentin",
+  nickname: '@Q_Lallemand',
   password:  '123456',
-  user_bio: Faker::Quote.matz
+  user_bio: "Champion de France de Hand Spinner, Consultant culinaire spécialisé en churros.
+            Aime la biére et les coquillages, modèle pouces et index sur Insta"
 )
 puts "User ##{user1.id} | #{user1.email} created"
 
 user2 =User.create!(
   email: "test2@test.com",
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  nickname: '@martin123',
+  first_name: "Mimie",
+  last_name: "Mathy",
+  nickname: '@Mimie_M',
   password:  '123456',
-  user_bio: Faker::Quote.matz
+  user_bio: "Femme fatale et ange gardien, amatrice de grands espaces. Onewoman Show au camping paradis.
+            Photographe mains @MimieMainty_off sur Insta"
 )
 puts "User ##{user2.id} | #{user2.email} created"
 
-user3 = User.create!(
+user2 =User.create!(
   email: "test3@test.com",
-  first_name: Faker::Name.first_name,
-  last_name: Faker::Name.last_name,
-  nickname: '@juliaB',
+  first_name: "Elon",
+  last_name: "Musk",
+  nickname: '@Elon_M',
   password:  '123456',
-  user_bio: Faker::Quote.matz
+  user_bio: "La tete dans l'espace"
 )
-puts "User ##{user3.id} | #{user3.email} created"
+puts "User created"
+
+number_of_users.times do
+  print "."
+  User.create!(
+    email: Faker::Internet.email,
+    first_name: firstname.sample.capitalize,
+    last_name: lastname.sample.upcase,
+    password:  '123456',
+    password_confirmation: '123456',
+    user_bio: Faker::Quote.matz,
+  )
+end
 
 puts "✔ All users have been created"
 
@@ -51,6 +81,36 @@ puts ""
 
 puts "➕ Create Playlists"
 
+8.times do
+  Playlist.create!(
+    name: playlist.sample,
+    description: Faker::Quote.matz,
+    category: Faker::Food.fruits,
+    user: users.first
+  )
+  puts "Playlist created"
+end
+
+8.times do
+  Playlist.create!(
+    name: playlist.sample,
+    description: Faker::Quote.matz,
+    category: Faker::Food.fruits,
+    user: users.find(2)
+  )
+  puts "Playlist created for #{users.find(2).first_name}"
+end
+
+8.times do
+  Playlist.create!(
+    name: playlist.sample,
+    description: Faker::Quote.matz,
+    category: Faker::Food.fruits,
+    user: users.find(3)
+  )
+  puts "Playlist created #{users.find(3).first_name}"
+end
+
 p1 = Playlist.create!(
   name: "Podcasts Favoris",
   description: Faker::Quote.matz,
@@ -58,6 +118,9 @@ p1 = Playlist.create!(
   user: users.first
 )
 puts "Playlist ##{p1.id} | #{p1.name} created"
+
+
+
 
 p2 = Playlist.create!(
   name: "la playlist 2",

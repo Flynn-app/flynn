@@ -2,9 +2,9 @@
   <% if current_user != @user %>
     <% if current_user.following?(@user) %>
     <%# raise %>
-    <%= link_to "Unfollow", unfollow_user_path(@user.nickname), class: 'btn btn-unfollow', remote: true%>
+    <%= link_to "Unfollow", unfollow_user_path(@user.nickname), class: 'btn btn-unfollow', remote: true %>
     <% else current_user != @user %>
-    <%= link_to "Follow", follow_user_path(@user.nickname), class: 'btn btn-follow', remote: true%>
+    <%= link_to "Follow", follow_user_path(@user.nickname), class: 'btn btn-follow', remote: true %>
     <% end %>
   <% end %>
 </div>

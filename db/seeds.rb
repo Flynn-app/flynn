@@ -97,11 +97,11 @@ Playlist.create!(
   name: "Podcasts Favoris",
   description: Faker::Quote.matz,
   category: Faker::Food.fruits,
-  user: Users.find(2)
+  user: User.find(2)
 )
 Playlist.create!(
   name: "Podcasts Favoris",
   description: Faker::Quote.matz,
   category: Faker::Food.fruits,
-  user: Users.find(3)
+  user: User.find(3)
 )

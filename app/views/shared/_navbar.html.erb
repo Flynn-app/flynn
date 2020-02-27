@@ -58,7 +58,9 @@
     </div>
   </div>
 
+  <% if current_user %>
   <div id='user-id' data-user="<%= current_user.id %>"></div>
+  <% end %>
 
   <% content_for :after_js do %>
   <script>

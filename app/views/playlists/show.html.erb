@@ -34,7 +34,7 @@
 
     <div class="playlists-cards-container flex-column">
 
-      <% @playlist.audios.each do |audio| %>
+      <% @playlist.audios.order("created_at desc").each do |audio| %>
       <%= render 'shared/podcast-card', audio: audio %>
       <% end %>
 

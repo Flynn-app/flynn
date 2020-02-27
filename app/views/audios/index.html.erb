@@ -4,7 +4,7 @@
     <h2>Dernier podcasts</h2>
     <hr>
     <div class="playlists-cards-container flex-column">
-      <% @audios.reverse.each do |audio| %>
+      <% @audios.order("created_at desc").each do |audio| %>
       <%= render 'shared/podcast-card', audio: audio %>
       <% end %>
       <div class="pagination-wrapper">

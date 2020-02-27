@@ -24,7 +24,6 @@ const bellClick = () => {
       blueBell.classList.add('far');
     });
   });
-
 }
 
 

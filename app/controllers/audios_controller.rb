@@ -82,6 +82,11 @@ class AudiosController < ApplicationController
     end
   end
 
+  def audios_by_users
+    @audios = Audio.all.where(user_id: current_user.id).paginate(page: params[:page], per_page: 6)
+    authorize @audios
+  end
+
   def add_favorites
     @audio = Audio.find(params[:favorites_audio]) if params[:favorites_audio]
     @audio.update!(playlist_id: 1)

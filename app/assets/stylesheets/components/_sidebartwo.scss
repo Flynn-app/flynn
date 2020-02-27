@@ -8,16 +8,17 @@ Licensed under MIT
 
 .sidebar_container {
   width: 16%;
-  min-width: 230px;
+  min-width: 280px;
+  border-right: 1px solid $inter-grey;
 }
 
 .sidebar_container a {
   color: $dark-grey;
 }
 
-.sidebar_container i {
-  margin-right: 8px;
-}
+// .sidebar_container i {
+//   margin-right: 8px;
+// }
 
 .profile {
   margin: 20px 0;
@@ -27,17 +28,24 @@ Licensed under MIT
 .profile-sidebar {
   padding: 20px 0 10px 0;
   background: #fff;
+  height: calc(100% - 300px);
+  display: flex;
+  align-items: center;
 }
 
-.profile-userpic {
+.logo {
   text-align: center;
+  height: 150px;
+  display: flex;
+  justify-content:center;
+  align-items:center;
 }
 
-.profile-userpic img {
+.logo img {
   float: none;
   margin: 0 auto;
   width: 50%;
-  height: 50%;
+  // height: 50%;
 }
 
 .profile-usertitle {
@@ -78,18 +86,34 @@ Licensed under MIT
 }
 
 .profile-usermenu {
-  margin-top: 120px;
+  // margin-top: 120px;
+}
+
+.sidebar_link {
+  margin: 8px 15px 8px 0px;
+  flex-grow: 1;
+  text-decoration: none;
+  width: 100%;
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .profile-usermenu ul li {
   color: $dark-grey;
   font-size: 16px;
   font-weight: 400;
-  padding: 16px 0px 16px 15px;
-  margin: 8px 15px 8px 0px;
+  padding: 16px 0px 16px 35px;
+  // margin: 8px 15px 8px 0px;
   flex-grow: 1;
-  text-decoration: none;
-  width: 100%;
+
+  // width: 100%;
+  display: flex;
+  align-items: center;
+  i {
+    font-size: 2.5rem;
+    margin-right: 1.5rem;
+  }
 }
 
 .profile-usermenu ul li:hover {

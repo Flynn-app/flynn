@@ -90,18 +90,18 @@
     margin: 0;
     max-width: 680px;
     .podcast-title {
-    font-weight: 700;
-    font-size: 1.5rem;
-    line-height: 1.8;
+      font-weight: 700;
+      font-size: 1.5rem;
+      line-height: 1.8;
     }
     .podcast-desc {
-    color: $medium-grey;
+      color: $medium-grey;
     }
     .podcast-media {
-    color: $inter-grey;
-    font-weight: 700;
-    line-height: 2;
-    a {color: $inter-grey;}
+      color: $inter-grey;
+      font-weight: 700;
+      line-height: 2;
+      a {color: $inter-grey;}
     }
   }
   .podcast-date {
@@ -117,13 +117,6 @@
     justify-content: center;
     font-size: 1.3rem;
   }
-  .podcast-favorites {
-    width: 80px;
-    display: flex;
-    justify-content: center;
-    font-size: 1.8rem;
-    i.fas {color: $blue_flynn}
-  }
   .podcast-3dots {
     width: 60px;
     display: flex;
@@ -135,6 +128,13 @@
     background-color: $light-blue;
   }
 }
+.podcast-favorites {
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  font-size: 1.8rem;
+  i.fas {color: $blue_flynn}
+}
 
 .podcast-card-transition {
   opacity: 1;
@@ -145,8 +145,8 @@
   display: none;
 }
 .card-transition.card-hidden {
-    display: block;
-    opacity: 0;
+  display: block;
+  opacity: 0;
 }
 .card-transition {
   transition: opacity 0.3s ease;

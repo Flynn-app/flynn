@@ -1,0 +1,33 @@
+<div class="side-box is-hidden">
+  <div class="user-details">
+    <%= link_to user_path(user) do %>
+      <div class="user-name">
+        <%= user.first_name %> <%= @audio.user.last_name %>
+      </div>
+      <div class="user-nickname">
+        <%= user.nickname %>
+      </div>
+    <% end %>
+  </div>
+  <div class="follow_unfollow"><%= render 'shared/follow_unfollow' %></div>
+  <hr>
+  <div class="side-box-article">
+    <div class="side-box-audio-title">
+      <%= audio.title %>
+    </div>
+    <div class="audio-duration">
+      <% if audio.duration.match(":") %>
+        Durée : <%= audio.duration %>
+      <% else %>
+        Durée : <%= Time.at(audio.duration.to_i).utc.strftime("%M:%S").sub(/^0/, '') unless audio.duration.match(":") %>
+      <% end %>
+    </div>
+    <div class="podcast-favorites" data-audio-id="<%= audio.id %>">
+      <% if audio.audios_playlists.find_by(playlist_id: current_user.playlists.first).nil? %>
+      <i class="far fa-heart"></i>
+      <% else %>
+      <i class="fas fa-heart"></i>
+      <% end %>
+    </div>
+  </div>
+</div>

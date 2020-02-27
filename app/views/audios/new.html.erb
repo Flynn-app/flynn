@@ -1,4 +1,5 @@
-<div class="col-10 col-sm-10 offset-sm-1" id="audio_new">
+<div class="page-container col-10 col-sm-8 offset-sm-2" id="audio_new">
+  <h1>Convertir un audio</h1>
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#url" role="tab" aria-controls="url" aria-selected="true">Convertir à partir d'un URL</a>
@@ -8,12 +9,12 @@
   <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active" id="url" role="tabpanel" aria-labelledby="url-tab">
       <label>Adresse web du texte à convertir</label>
-      <input class="form-control" type="text" placeholder="Mettez ici l'adresse web du texte à convertir" id="mercuryInput">
+      <input class="form-control" type="text" placeholder="Ajoutez l'adresse web du texte à convertir" id="mercuryInput">
       <button type="button" class="btn btn-primary btn-holder" id="mercuryButton">Convertir en audio</button>
     </div>
     <div class="tab-pane fade" id="copypaste" role="tabpanel" aria-labelledby="copypaste-tab">
       <%= simple_form_for(@audio) do |f| %>
-        <%= f.input :title, :label => "Titre du texte", placeholder: "Mettez ici le texte du texte à convertir" %>
+        <%= f.input :title, :label => "Titre du texte", placeholder: "Ajoutez votre texte du texte à convertir" %>
         <%= f.input :text_to_transcript, :label => "Texte à convertir", as: :text, placeholder: "Mettez ici le contenu du texte à convertir" %>
         <%= f.submit "Convertir en audio", class: "btn btn-primary btn-holder"%>
       <% end %>

@@ -1,7 +1,12 @@
 <div class="content-container">
   <div class="content offset-1 col-10 offset-sm-2 col-sm-8 offset-md-3 col-md-6 ">
+    <%= render 'shared/side_box', user: @user, audio: @audio %>
     <div class="article-header">
       <div class="original-link">
+        <div class="audio-title">
+          <%= @audio.title if @audio.title.present? && @audio.text_url.nil? %>
+        </div>
+        <%# raise %>
         <% if @audio.text_url.present? %>
           Article original sur <%= link_to @audio.text_url do  %>
             <%= URI.parse(@audio.text_url).host.sub(/\Awww\./, '') %>

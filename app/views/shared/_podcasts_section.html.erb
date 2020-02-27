@@ -26,12 +26,14 @@
   <% end %>
 
   <div class="podcasts-cards-container">
-    <% audios.each do |audio| %>
+    <% audios.order("created_at desc").each do |audio| %>
       <%#= link_to user_path(current_user, params: { audio: audio.id }), remote: true do %>
         <%= render 'shared/podcast-card', audio: audio %>
       <%# end %>
     <% end %>
-    <%= will_paginate audios %>
+    <div class="pagination-wrapper">
+      <%= will_paginate audios, previous_label: '<i class="fas fa-chevron-left"></i>', next_label: '<i class="fas fa-chevron-right"></i>' %>
+    </div>
   </div>
 
 

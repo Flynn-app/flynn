@@ -1,0 +1,15 @@
+<div class="page-container feed offset-2 col-8 col-sm-10 offset-sm-1">
+
+  <div class="col-12">
+    <h1>Mes podcasts</h1>
+    <hr>
+    <div class="playlists-cards-container flex-column">
+      <% @audios.order("created_at desc").each do |audio| %>
+      <%= render 'shared/podcast-card', audio: audio %>
+      <% end %>
+      <div class="pagination-wrapper">
+        <%= will_paginate @audios, previous_label: '<i class="fas fa-chevron-left"></i>', next_label: '<i class="fas fa-chevron-right"></i>' %>
+      </div>
+    </div>
+  </div>
+</div>

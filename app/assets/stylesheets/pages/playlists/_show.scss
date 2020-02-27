@@ -20,6 +20,13 @@
   justify-content:center;
   flex-direction: column;
   max-height: 200px;
+  .playlist-title-section {
+    display: flex;
+    align-items: center;
+    .edit-playlist {
+      margin-left: 20px;
+    }
+  }
   .playlist-title {
     color: $blue_flynn;
   }

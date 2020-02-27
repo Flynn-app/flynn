@@ -16,4 +16,8 @@ class AudioPolicy < ApplicationPolicy
   def index?
     record_user = user
   end
+
+  def audios_by_users?
+    record_user = user
+  end
 end

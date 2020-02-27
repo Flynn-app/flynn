@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       get :follow
       get :unfollow
     end
+    get '/audios', to: 'audios#audios_by_users', as: 'audios'
 
     resources :playlists
   end

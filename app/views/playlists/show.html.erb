@@ -13,7 +13,16 @@
         <% end %>
       </div>
       <div class="playlist-infos">
-        <h1 class="playlist-title"><%= @playlist.name %></h1>
+        <div class="playlist-title-section">
+          <h1 class="playlist-title"><%= @playlist.name %></h1>
+          <% if policy(@playlist.user).edit? %>
+          <!-- <div> -->
+            <%= link_to edit_user_playlist_path(@playlist) , class: "btn btn-ghost edit-playlist" do %>
+              Modifier la Playlist
+            <% end %>
+          <!-- </div> -->
+          <% end %>
+        </div>
         <div class="playlist-numbers">
           <div class="audio-numbers">
             <%= @playlist.audios.count %> audios, <%= @p_duration %>
@@ -34,7 +43,7 @@
 
     <div class="playlists-cards-container flex-column">
 
-      <% @playlist.audios.reverse.each do |audio| %>
+      <% @playlist.audios.order("created_at desc").each do |audio| %>
       <%= render 'shared/podcast-card', audio: audio %>
       <% end %>
 

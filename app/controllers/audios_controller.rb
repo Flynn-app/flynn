@@ -75,8 +75,9 @@ class AudiosController < ApplicationController
   end
 
   def index
-    @audios = policy_scope(Audio).paginate(page: params[:page], per_page: 8)
+    @audios = policy_scope(Audio).paginate(page: params[:page], per_page: 6)
     authorize @audios
+    @users = User.all
 
     @audio = Audio.find(params[:audio]) if params[:audio]
     @url = @audio.audio_url if params[:audio]
@@ -85,6 +86,11 @@ class AudiosController < ApplicationController
       format.html
       format.js
     end
+  end
+
+  def audios_by_users
+    @audios = Audio.all.where(user_id: current_user.id).paginate(page: params[:page], per_page: 6)
+    authorize @audios
   end
 
   def add_favorites

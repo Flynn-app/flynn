@@ -1,27 +1,37 @@
 <div class="sidebar_container">
 
-  <div class="profile border-right bg-white vh-100 m-0">
+  <div class="profile vh-100 m-0">
+    <div class="logo">
+      <%= link_to (image_tag("logo_flynn.png", alt: "Flynn")), user_path(current_user.nickname) %>
+    </div>
     <div class="profile-sidebar">
-      <div class="profile-userpic">
-        <%= link_to (image_tag("logo_flynn.png", alt: "Flynn")), user_path(current_user.nickname) %>
-      </div>
       <div class="profile-usermenu">
         <ul class="nav">
-          <li class="sidebar_link <%= 'active' if params[:controller] == 'audios' && params[:action] == 'index' %>">
-            <i class="fas fa-clock"></i><%= link_to "Derniers ajouts", audios_path %>
+          <%= link_to audios_path, class:'sidebar_link' do %>
+          <li class="<%= 'active' if params[:controller] == 'audios' && params[:action] == 'index' %>">
+            <i class="fas fa-podcast"></i> Fil d'actu
           </li>
-          <li class="sidebar_link <%= 'active' if params[:controller] == 'playlists' && params[:action] == 'index' %>">
-            <i class="fas fa-stream"></i><%= link_to "Mes playlists", user_playlists_path(current_user.nickname) %>
+          <% end %>
+          <%= link_to user_playlists_path(current_user.nickname), class:'sidebar_link' do %>
+          <li class=" <%= 'active' if params[:controller] == 'playlists' && params[:action] == 'index' %>">
+            <i class="fas fa-stream"></i> Mes playlists
           </li>
-          <li class="sidebar_link">
-            <i class="fas fa-heart"></i><%= link_to "Mes podcasts favoris", user_playlist_path(current_user.nickname, Playlist.first) %>
+          <% end %>
+          <%= link_to user_playlist_path(current_user.nickname, Playlist.first), class:'sidebar_link' do %>
+          <li class="<%= 'active' if params[:controller] == 'playlists' && params[:action] == 'show' && params[:id] = Playlist.first.id  %>">
+            <i class="fas fa-heart"></i> Mes podcasts favoris
           </li>
-          <li class="sidebar_link">
-            <i class="fas fa-headphones-alt"></i><%= link_to "Mes audios", audios_path %>
+          <% end %>
+          <%= link_to user_audios_path(current_user), class:'sidebar_link' do %>
+          <li class="<%= 'active' if params[:controller] == 'audios' && params[:action] == 'audios_by_users' %>">
+            <i class="fas fa-headphones-alt"></i> Mes audios
           </li>
-          <li class="sidebar_link_parameters"><i class="fas fa-cogs"></i>
-            <%= link_to "Paramètres", new_audio_path %>
+          <% end %>
+          <%= link_to "#",class:'sidebar_link' do %>
+          <li class="">
+            <i class="fas fa-cogs"></i> Paramètres
           </li>
+          <% end %>
         </ul>
       </div>
     </div>

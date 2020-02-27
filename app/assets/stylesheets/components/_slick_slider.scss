@@ -21,12 +21,18 @@
 
 .slick-slide {
   opacity: 0;
+  &:focus {
+    outline: none;
+  }
   .drop-shadow {
   box-shadow: none; //no shadow for a hidden slide
   transition: box-shadow 0.1s ease-in-out; //little effect to fade the shadow
   }
   a:hover {
     text-decoration: none;
+  }
+  a:focus {
+    outline: none;
   }
 }
 

@@ -73,13 +73,10 @@ class PlaylistsController < ApplicationController
   end
 
   def playlist_duration(playlist)
-    # if playlist.audios.length > 1
-    #   duration = playlist.audios.inject { |sum, n| sum.duration.to_i + n.duration.to_i }
-    #   Time.at(duration.to_i).utc.strftime("%Mm%S").sub(/^0/, '') if present?
-    # else
-    #   duration = playlist.audios.inject { |sum, n| sum.duration.to_i + n.duration.to_i }
-    #   Time.at(duration.duration.to_i).utc.strftime("%Mm%S").sub(/^0/, '')
-    # end
+    durations = playlist.audios.map { |a| a['duration'].to_i }
+    total_duration = durations.sum
+    # raise
+    Time.at(total_duration.to_i).utc.strftime("%Mm%S").sub(/^0/, '') if present?
   end
 
 end

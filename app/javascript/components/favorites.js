@@ -18,11 +18,14 @@ const favorites = () => {
           cardAnimate.classList.add('card-hidden');
 
           cardAnimate.addEventListener('transitionend', () => {
-              cardAnimate.classList.remove('card-transition');
-            }, false);
-        }
-      }
-    });
+            cardAnimate.classList.remove('card-transition');
+            reloadPage()
+          }, false);
+
+
+       }
+     }
+   });
   });
 
   const sendData = (data) => {
@@ -34,7 +37,7 @@ const favorites = () => {
       "Accept": "application/json"
     },
     body: JSON.stringify({ "audio_id": audio_id})
-    }).then(response => response)
+  }).then(response => response)
   };
 };
 
@@ -47,6 +50,10 @@ const favorites = () => {
 //   });
 //   }
 // }
+function reloadPage()
+{
+ window.location.reload()
+}
 
 const redirect = (user) => {
   window.location= `/users/${user}` ;

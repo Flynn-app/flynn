@@ -42,7 +42,7 @@ class AudiosController < ApplicationController
     # file_output = "public/output/output.mp3"
     upload_cloudinary = Cloudinary::Uploader.upload(filename, resource_type: :video)
     @audio.audio_url = upload_cloudinary["url"]
-    @audio.duration = calc_duration(upload_cloudinary["duration"])
+    @audio.duration = upload_cloudinary["duration"]
 
     File.open(filename, "r") do |file|
       File.delete(file)
@@ -125,7 +125,7 @@ class AudiosController < ApplicationController
     end
   end
 
-  def calc_duration(duration)
-    Time.at(duration.to_i).utc.strftime("%M:%S").sub(/^0/, '')
-  end
+  # def calc_duration(duration)
+  #   Time.at(duration.to_i).utc.strftime("%M:%S").sub(/^0/, '')
+  # end
 end

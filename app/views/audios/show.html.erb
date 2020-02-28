@@ -23,6 +23,11 @@
     </div>
   </div>
 </div>
+<%= link_to new_audio_path do %>
+<div style="bottom: 90px;position: absolute;left: 0;">
+  <%= render 'shared/btn_add_podcast' %>
+</div>
+<% end %>
 <div class="position-fixed fixed-bottom w-100">
   <%= render 'shared/audio_player', audio: @audio %>
 </div>

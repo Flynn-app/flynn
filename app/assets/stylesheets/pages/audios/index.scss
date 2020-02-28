@@ -1,0 +1,17 @@
+
+.audios_index {
+  .podcast-card-container {
+    .podcast-image {
+      img {
+        width: 70px;
+        height: 60px;
+      }
+    }
+    .podcast-play-button {
+      font-size: 1.6rem;
+    }
+    .podcast-3dots {
+      display: none;
+    }
+  }
+}

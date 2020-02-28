@@ -54,3 +54,18 @@
     opacity: 1;
   }
 }
+
+.btn-add-podcast {
+    color: white;
+    display: flex;
+    width: 50px;
+    height: 50px;
+    background-color: $blue-flynn;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 10px 5px 37px 9px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    bottom: 120px;
+    margin-left: 35px;
+}

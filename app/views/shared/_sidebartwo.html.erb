@@ -17,7 +17,7 @@
             <i class="fas fa-stream"></i> Mes playlists
           </li>
           <% end %>
-          <%= link_to user_playlist_path(current_user.nickname, Playlist.first), class:'sidebar_link' do %>
+          <%= link_to user_playlist_path(current_user.nickname, current_user.playlists.first), class:'sidebar_link' do %>
           <li class="<%= 'active' if params[:controller] == 'playlists' && params[:action] == 'show' && params[:id] = Playlist.first.id  %>">
             <i class="far fa-heart"></i> Mes podcasts favoris
           </li>

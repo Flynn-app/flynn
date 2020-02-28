@@ -19,7 +19,7 @@
           <% end %>
           <%= link_to user_playlist_path(current_user.nickname, Playlist.first), class:'sidebar_link' do %>
           <li class="<%= 'active' if params[:controller] == 'playlists' && params[:action] == 'show' && params[:id] = Playlist.first.id  %>">
-            <i class="fas fa-heart"></i> Mes podcasts favoris
+            <i class="far fa-heart"></i> Mes podcasts favoris
           </li>
           <% end %>
           <%= link_to user_audios_path(current_user), class:'sidebar_link' do %>

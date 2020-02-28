@@ -64,7 +64,8 @@ class AudiosController < ApplicationController
   def show
     @audio = Audio.find(params[:id])
     authorize @audio
-    @user = User.first
+    # @user = User.first
+    @user = @audio.user
     @url = @audio.audio_url
 
     respond_to do |format|

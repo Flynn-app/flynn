@@ -2,7 +2,7 @@
 
   <div class="profile vh-100 m-0">
     <div class="logo">
-      <%= link_to (image_tag("logo_flynn.png", alt: "Flynn")), user_path(current_user.nickname) %>
+      <%= link_to (image_tag("logo_flynn.png", alt: "Flynn")) %>
     </div>
     <div class="profile-sidebar">
       <div class="profile-usermenu">
@@ -23,7 +23,7 @@
           </li>
           <% end %>
           <%= link_to user_audios_path(current_user), class:'sidebar_link' do %>
-          <li class="<%= 'active' if params[:controller] == 'audios' && params[:action] == 'audios_by_users' %>">
+          <li class="<%= 'active' if (params[:controller] == 'audios' && params[:action] == 'audios_by_users') || (params[:controller] == 'audios' && params[:action] == 'new') %>">
             <i class="fas fa-headphones-alt"></i> Mes audios
           </li>
           <% end %>
@@ -31,6 +31,9 @@
           <li class="">
             <i class="fas fa-cogs"></i> Paramètres
           </li>
+          <% end %>
+          <%= link_to new_audio_path do %>
+            <%= render 'shared/btn_add_podcast' %>
           <% end %>
         </ul>
       </div>

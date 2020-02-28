@@ -1,0 +1,59 @@
+.side-box {
+  position: fixed;
+  width: 150px;
+  left: 25%;
+  margin-top: 100px;
+  .follow_unfollow {
+    padding: 0 10px;
+    margin-top: 10px;
+  }
+  hr {
+    margin: 2rem 0;
+  }
+}
+
+.is-hidden {
+  opacity: 0;
+  transition: opacity 200ms;
+}
+
+.is-visible {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+
+.user-details {
+  padding: 0 10px;
+  .user-name {
+    font-weight: bold;
+    font-size: 1.6rem;
+  }
+  .user-nickname {
+    color: $medium-grey;
+    font-size: 1.3rem;
+  }
+  a {
+    text-decoration:none;
+    color: $dark-grey;
+  }
+}
+
+.side-box-article {
+  .side-box-audio-title {
+    padding: 0 10px;
+    color: $medium-grey;
+    font-size: 1.35rem;
+    font-weight: bold;
+  }
+  .podcast-favorites {
+    padding: 10px;
+    font-size: 1.6rem;
+    color: $medium-grey;
+    display: block;
+  }
+  .audio-duration {
+    padding: 5px 10px;
+    color: $medium-grey;
+    font-size: 1.2rem;
+  }
+}

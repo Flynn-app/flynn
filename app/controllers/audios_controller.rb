@@ -76,7 +76,7 @@ class AudiosController < ApplicationController
   end
 
   def index
-    @audios = policy_scope(Audio).paginate(page: params[:page], per_page: 6)
+    @audios = policy_scope(Audio).paginate(page: params[:page], per_page: 20)
     authorize @audios
     @users = User.all
 

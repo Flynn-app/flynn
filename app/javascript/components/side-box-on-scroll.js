@@ -2,14 +2,18 @@
 
 const showSideBoxOnScroll = () => {
 
-  let scrollPos = 150;
-  const sideBox = document.querySelector('.side-box');
-  let container = document.querySelector('.content-container');
+  const page = document.querySelector('.audio_show');
 
-  container.addEventListener("scroll", (event) => {
-    let scrollingP = container.scrollTop;
+  if (page) {
 
-    if (scrollingP < scrollPos ) {
+    let scrollPos = 150;
+    const sideBox = document.querySelector('.side-box');
+    let container = document.querySelector('.content-container');
+
+    container.addEventListener("scroll", (event) => {
+      let scrollingP = container.scrollTop;
+
+      if (scrollingP < scrollPos ) {
       // Scrolling UP
       sideBox.classList.remove('is-visible');
       sideBox.classList.add('is-hidden');
@@ -35,7 +39,7 @@ const showSideBoxOnScroll = () => {
   //   }
   //   scrollPos = windowY;
   // }
-
+  }
 
 }
 

@@ -39,7 +39,7 @@
       <h2>Derniers utilisateurs</h2>
       <hr>
       <div class="users-cards">
-        <% @users.take(20).each do |user| %>
+        <% @users.take(5).each do |user| %>
           <%= link_to user_path(user) do %>
             <div class="user-card">
               <% if user.avatar.attached? %>

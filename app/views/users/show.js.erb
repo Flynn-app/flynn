@@ -5,8 +5,14 @@ document.querySelector('.audio-details').innerHTML = '<%= j render "shared/audio
 playerOnTop = document.querySelector('.player-on-top');
 stylePlayer = getComputedStyle(playerOnTop);
 
+btnAddPodcast = document.querySelector('.btn-add-podcast');
+btnValue = getComputedStyle(btnAddPodcast);
+
 if (stylePlayer.getPropertyValue('bottom') == "-95px") {
   playerOnTop.style.bottom = '0';
+  btnTop = parseInt(btnValue.getPropertyValue('bottom').match(/\d+/g));
+  top = btnAddPodcast.style.bottom = btnTop + 95 + 'px';
+  console.log(top);
 }
 
 

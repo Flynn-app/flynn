@@ -16,7 +16,7 @@
       <%= simple_form_for(@audio) do |f| %>
         <%= f.input :title, :label => "Titre du texte", placeholder: "Ajoutez votre texte du texte à convertir" %>
         <%= f.input :text_to_transcript, :label => "Texte à convertir", as: :text, placeholder: "Mettez ici le contenu du texte à convertir" %>
-        <%= f.submit "Convertir en audio", class: "btn btn-primary btn-holder"%>
+        <%= f.submit "Convertir en audio", class: "btn btn-primary btn-holder direct-convert"%>
       <% end %>
     </div>
   </div>

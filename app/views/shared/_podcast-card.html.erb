@@ -41,13 +41,26 @@
       <%= Time.at(audio.duration.to_i).utc.strftime("%M:%S").sub(/^0/, '') unless audio.duration.match(":") %>
     <% end %>
     </div>
-    <div class="podcast-favorites" data-audio-id="<%= audio.id %>">
-      <% if audio.audios_playlists.find_by(playlist_id: current_user.playlists.first).nil? %>
-      <i class="far fa-heart"></i>
-      <% else %>
-      <i class="fas fa-heart"></i>
+    <% if params[:controller] == 'playlists' && params[:action] == 'show' %>
+      <%= link_to user_playlist_path(audio.playlists.first), remote: true do %>
+        <div class="podcast-favorites" data-audio-id="<%= audio.id %>">
+          <% if audio.audios_playlists.find_by(playlist_id: current_user.playlists.first).nil? %>
+          <i class="far fa-heart"></i>
+          <% else %>
+          <i class="fas fa-heart"></i>
+          <% end %>
+        </div>
       <% end %>
-    </div>
+    <% else %>
+        <div class="podcast-favorites" data-audio-id="<%= audio.id %>">
+          <% if audio.audios_playlists.find_by(playlist_id: current_user.playlists.first).nil? %>
+          <i class="far fa-heart"></i>
+          <% else %>
+          <i class="fas fa-heart"></i>
+          <% end %>
+        </div>
+      <% end %>
+
     <div class="podcast-3dots">
       <i class="fas fa-ellipsis-h"></i>
     </div>

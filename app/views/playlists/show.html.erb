@@ -23,11 +23,12 @@
           <!-- </div> -->
           <% end %>
         </div>
-        <div class="playlist-numbers">
+        <%= render 'shared/playlist_podcast_count', playlist: @playlist, p_duration: @p_duration %>
+<!--         <div class="playlist-numbers">
           <div class="audio-numbers">
             <%= @playlist.audios.count %> audios, <%= @p_duration %>
           </div>
-        </div>
+        </div> -->
         <div class="playlist-description">
           <%= @playlist.description %>
         </div>

@@ -14,6 +14,10 @@
       <% end %>
 
       <%= f.input :avatar, as: :file %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :nickname %>
+      <%= f.input :user_bio %>
       <%= f.input :password,
                   hint: "Laissez vide si vous ne souhaitez pas changer",
                   required: false,

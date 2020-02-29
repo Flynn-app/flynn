@@ -1,8 +1,8 @@
 <div class="side-box is-hidden">
   <div class="user-details">
-    <%= link_to user_path(user.nickname) do %>
+    <%= link_to user_path(user) do %>
       <div class="user-name">
-        <%= user.first_name %> <%= @audio.user.last_name %>
+        <%= user.first_name %> <%= user.last_name %>
       </div>
       <div class="user-nickname">
         <%= user.nickname %>

@@ -2,11 +2,11 @@
 
 const showSideBoxOnScroll = () => {
 
-  const page = document.querySelector('.audio_show');
+  const page = document.querySelector('.audios_show');
 
   if (page) {
 
-    let scrollPos = 150;
+    let scrollPos = 80;
     const sideBox = document.querySelector('.side-box');
     let container = document.querySelector('.content-container');
 

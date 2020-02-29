@@ -31,8 +31,8 @@ puts ""
 puts "➕ Create Users..."
 user1 = User.create!(
   email: "test@test.com",
-  first_name: "Lallemand",
-  last_name: "Quentin",
+  first_name: "Quentin",
+  last_name: "Lallemand",
   nickname: '@Q_Lallemand',
   password:  '123456',
   user_bio: "Champion de France de Hand Spinner, Consultant culinaire spécialisé en churros.
@@ -85,7 +85,8 @@ Audio.create!(
   title: "Ligue 1 : le formidable rebond du Nîmes Olympique en 2020",
   iso: "fr",
   text_image: "http://www.footmercato.net/images/a/nimes-s-est-completement-relance-dans-la-course-au-maintien_273709.jpg",
-  duration: "192"
+  duration: "192",
+  text_html: "<!DOCTYPE html PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\" \"http://www.w3.org/TR/REC-html40/loose.dtd\">\n<html>\n<h1 class=\"record\" data-start=\"0\">Ligue 1 : le formidable rebond du Nîmes Olympique en 2020</h1>\n<body><div class=\"line article-text\">\n<p class=\"record\" data-start=\"4.008\"><i>« Le chemin est encore long. Il ne faut pas s'arrêter. C'est une bonne passe, il y en aura de plus compliquées. Les joueurs s'accrochent et ne lâchent pas. »</i> Bernard Blaquart n'avait pas encore un large sourire à Nice après la première victoire du Nîmes Olympique à l'extérieur de la saison (3-1). Soulagé mais pas rassasié, l'entraîneur gardois peut tout de même envisager la suite de la saison avec plus de sérénité. Au soir de cette 24e journée, son équipe est 18e, encore barragiste, mais elle s'est complètement relancée en 2020 alors que la plupart des observateurs la condamnaient déjà à la Ligue 2 en mai prochain.</p>\n<p class=\"record\" data-start=\"39.192\">Il faut dire que le 21 décembre dernier après une nouvelle défaite à Marseille (3-1), Nîmes pointait à la 19e place, à déjà 5 points de la place de barragiste occupée alors par Amiens. Sauf que le mercato et une réorganisation de la cellule de recrutement sont passés par là. La nomination de Reda Hammache au poste de directeur sportif à la fin décembre a permis aux Crocodiles d'amener quelques renforts sur le marché des transferts. À première vue, il n'y a rien de très sexy avec les recrutements de Moussa Koné (3M€ en provenance du Dynamo Dresde), Nolan Roux (arrivé gratuitement de Guingamp) et Yassine Benrahou (prêté par Bordeaux).</p>\n<h3 class=\"spip record\" data-start=\"76.392\">Total de points doublé rien qu'en 2020</h3>\n<p class=\"record\" data-start=\"79.032\">À première vue seulement car une fois sur le terrain, les nouveaux venus ont tout de suite fait la différence. Fort de son expérience en Ligue 1, Nolan Roux a marqué dès son deuxième match (face à Dijon). Entré à une demi-heure de la fin face à Nice alors qu'il était juste physiquement, Moussa Koné a scellé la victoire des siens à l'Allianz Riviera. Et que dire de Benrahou ? Le milieu de terrain a trouvé le chemin du but à deux reprises et distribué une passe décisive en seulement cinq rencontres. Il est surtout à l'origine de pas mal de situations sur coups de pied arrêtés, une arme très peu exploitée durant la première partie de saison. Sur 11 buts marqués en Ligue 1 en 2020 par Nîmes, 5 viennent directement des recrues.</p>\n<p class=\"record\" data-start=\"119.63999999999999\"><i>« J'ai suffisamment dit pendant la première moitié que l'on n'avait pas d'attaque. On avait l'état d'esprit, mais on n'était pas équipé offensivement</i>, reconnaît Blaquart, content de ce mercato très productif. <i>Un Nolan Roux qui avait besoin de se relancer, qui ne jouait pas en Ligue 2, un Benrahou qui avait besoin aussi de se relancer, c'est plutôt un recrutement malin. »</i> Après deux petites victoires lors de la première partie de saison, les Crocos ont déjà remporté 4 matches (en 6 rencontres) de championnat en 2020 et ont doublé leur total de points. <i>« Mais on est toujours barragistes »</i>, tranche le coach nîmois. Certes, il y a désormais 4 points d'écart avec le premier relégable, toujours Amiens, mais le travail est encore loin d'être terminé.</p>\n</div></body>\n</html>\n"
   )
 
 Playlist.create!(

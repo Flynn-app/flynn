@@ -6,12 +6,12 @@ class AudiosController < ApplicationController
   def new
     @audio = Audio.new
     authorize @audio
-    @user = current_user.nickname
+    @user = current_user
   end
 
   def create
     @audio = Audio.new(audio_params)
-    @audio.user = current_user.nickname
+    @audio.user = current_user
 
     if params[:audio][:text_to_transcript].present? && params[:audio][:title].present?
       # @audio.title = params[:audio][:title]

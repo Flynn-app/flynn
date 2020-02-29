@@ -1,9 +1,10 @@
 <% if playlist.playlist_image.attached? %>
-  <div class="playlist-card">
-    <%= cl_image_tag playlist.playlist_image.key, class:"playlist-card" %>
+  <div class="playlist-card" style="background-image: url('<%= cl_image_path playlist.playlist_image.key %>')">
+    <%#= cl_image_tag playlist.playlist_image.key, class:"playlist-card" %>
   </div>
 <% else %>
-<div class="playlist-card" style="background-image:
-url(https://source.unsplash.com/160x160/?abstract/<%= (1..20).to_a.sample %> )">
-</div>
+  <div class="playlist-card" style="background-image:
+  url(https://source.unsplash.com/160x160/?abstract/<%= (1..20).to_a.sample %> )">
+  </div>
 <% end %>
+

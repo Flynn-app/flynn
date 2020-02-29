@@ -1,6 +1,6 @@
 <div class="container offset-sm-2 col-sm-8" id="playlist_new">
   <h1>Modifier une playlist</h1>
-
-  <%= render 'shared/form_playlist', user: @user, playlist: @playlist, bg_url: cl_image_path(@playlist.playlist_image.key, height: 200, width: 200, crop: :fill ) %>
-
+  <%# if @playlist.playlist_image.attached? %>
+    <%= render 'shared/form_playlist', user: @user, playlist: @playlist %>
+  <%# end %>
 </div>

@@ -6,7 +6,7 @@ class AudiosController < ApplicationController
   def new
     @audio = Audio.new
     authorize @audio
-    @user = User.first
+    @user = current_user
   end
 
   def create

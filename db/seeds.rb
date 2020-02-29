@@ -66,7 +66,7 @@ number_of_users.times do
   User.create!(
     email: Faker::Internet.email,
     first_name: firstname.sample.capitalize,
-    last_name: lastname.sample.upcase,
+    last_name: lastname.sample.capitalize,
     nickname: "#{Faker::Name.first_name}_#{('A'..'Z').to_a.sample}",
     password:  '123456',
     password_confirmation: '123456',

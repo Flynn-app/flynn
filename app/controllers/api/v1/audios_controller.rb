@@ -11,7 +11,12 @@ class Api::V1::AudiosController < Api::V1::BaseController
 
   def create
     @audio = Audio.new(audio_params)
-    @audio.user = current_user
+
+    if current_user
+      @audio.user = current_user
+    else
+      @audio.user = User.first
+    end
     # TODO correct with real user login and cookie
 
     filenames = []

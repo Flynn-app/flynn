@@ -33,7 +33,7 @@ user1 = User.create!(
   email: "test@test.com",
   first_name: "Lallemand",
   last_name: "Quentin",
-  nickname: '@q_lallemand',
+  nickname: '@Q_Lallemand',
   password:  '123456',
   user_bio: "Champion de France de Hand Spinner, Consultant culinaire spécialisé en churros.
             Aime la biére et les coquillages, modèle pouces et index sur Insta"
@@ -44,7 +44,7 @@ user2 =User.create!(
   email: "test2@test.com",
   first_name: "Mimie",
   last_name: "Mathy",
-  nickname: '@mimie_m',
+  nickname: '@Mimie_M',
   password:  '123456',
   user_bio: "Femme fatale et ange gardien, amatrice de grands espaces. Onewoman Show au camping paradis.
             Photographe mains @MimieMainty_off sur Insta"
@@ -55,7 +55,7 @@ user2 =User.create!(
   email: "test3@test.com",
   first_name: "Elon",
   last_name: "Musk",
-  nickname: '@elon_m',
+  nickname: '@Elon_M',
   password:  '123456',
   user_bio: "La tete dans l'espace"
 )
@@ -67,6 +67,7 @@ number_of_users.times do
     email: Faker::Internet.email,
     first_name: firstname.sample.capitalize,
     last_name: lastname.sample.upcase,
+    nickname: "#{Faker::Name.first_name}_#{('A'..'Z').to_a.sample}",
     password:  '123456',
     password_confirmation: '123456',
     user_bio: Faker::Quote.matz,

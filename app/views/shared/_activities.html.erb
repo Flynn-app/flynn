@@ -5,7 +5,7 @@
     <% if activity.trackable_type != "User" %>
       <div class="activity">
         <div class="user-avatar">
-          <%= link_to '/users/'+activity.owner.nickname do %>
+          <%= link_to '/users/'+ activity.owner.nickname do %>
             <% if activity.owner.avatar.attached? %>
             <%= cl_image_tag activity.owner.avatar.key, height: 40, width: 40, crop: :scale, class:'rounded-circle' %>
             <% else %>
